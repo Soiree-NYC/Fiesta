@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { FC } from 'react';
 
-const AccountAccess = () => {
-  const [toggle, setToggle] = useState<boolean>(false);
+interface Props {
+  setter: React.Dispatch<React.SetStateAction<boolean>>,
+  getter: boolean
+};
+
+const AccountAccess: FC<Props> = ({ setter, getter }) => {
 
   const handleClick = () => {
-    setToggle(!toggle);
+    setter(!getter);
   };
 
   return (
