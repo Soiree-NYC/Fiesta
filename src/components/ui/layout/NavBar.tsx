@@ -1,8 +1,18 @@
-import React from 'react';
-
 const NavBar = () => {
   return (
-    <div>NavBar</div>
+    <nav className='bg-gray-200'>
+      <div>
+        logo
+      </div>
+      
+      <div>
+        <button></button>
+        <button></button>
+        <button>
+          sign up group
+        </button>
+      </div>
+    </nav>
   );
 };
 
