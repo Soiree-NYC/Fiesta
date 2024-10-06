@@ -16,18 +16,18 @@ const Home = () => {
 
   return (
     <main className='px-8'>
-      <section className='flex m-3 px-8 overflow-hidden relative'>
+      <section className='flex justify-center m-3 px-8 overflow-hidden relative'>
         <button onClick={slideLeft}>◀</button>
         <div className='overflow-hidden relative'>
           <ul
-            className='flex gap-20 transition ease-in-out delay-150 border px-6'>
+            className='flex gap-20 transition ease-in-out delay-150 border-slate-500 px-6'>
             {items.map(item => (
             <li key={item}>
               <button>{item}</button>
             </li>
           ))}
           </ul>
-          <div className='absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-white to-transparent point-events-none'/>
+          <div className='absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent point-events-none border'/>
         </div>
         <button onClick={slideRight}>▶</button>
       </section>
