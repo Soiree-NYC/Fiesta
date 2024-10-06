@@ -14,8 +14,6 @@ const Home = () => {
       else setCurrent(items.length - itemsShown);
   };
 
-  console.log(current * (100 / itemsShown))
-
   return (
     <main className='px-8'>
       <section className='flex m-3 px-8 overflow-hidden relative'>
@@ -33,7 +31,10 @@ const Home = () => {
         </div>
         <button onClick={slideRight}>▶</button>
       </section>
-      <section></section>
+
+      <section>
+
+      </section>
       <section></section>
     </main>
   );

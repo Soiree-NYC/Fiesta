@@ -5,10 +5,10 @@ import Home from './components/pages/Home';
 
 function App() {
   return (
-    <>
+    <div className='flex-col px-8'>
       <NavBar />
       <Home />
-    </>
+    </div>
   );
 };
 
