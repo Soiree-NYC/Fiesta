@@ -25,16 +25,16 @@ const SlideMenu: FC<Props> = ({ items }) => {
   return (
     <section className='flex justify-center m-3 px-8 overflow-hidden relative'>
       <button onClick={slideLeft}>◀</button>
-      <div className='overflow-hidden relative border max-w-96'>
+      <div className='overflow-hidden relative max-w-96'>
         <ul
-          className='flex gap-20 transition ease-in-out delay-150 border-slate-500 px-6'>
+          className='flex gap-20 transition ease-in-out delay-150 px-6'>
           {items.map((item, i) => (
           <li key={i}>
             <button>{item}</button>
           </li>
         ))}
         </ul>
-        <div className='absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent point-events-none border'/>
+        <div className='absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent point-events-none' />
       </div>
       <button onClick={slideRight}>▶</button>
     </section>
