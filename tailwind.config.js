@@ -10,6 +10,9 @@ export default {
         roboto: ['Roboto', 'sans-serif'],
         sixtyfourConvergence: ['Sixtyfour Convergence', 'cursive'],
       },
+      bgImage: {
+        skyline: `url('public/nycskyline.jpg')`,
+      }
     },
   },
   plugins: [],
