@@ -27,10 +27,10 @@ const SlideMenu: FC<Props> = ({ items }) => {
       <button onClick={slideLeft}>◀</button>
       <div className='overflow-hidden relative max-w-96'>
         <ul
-          className='flex gap-20 transition ease-in-out delay-150 px-6'>
+          className='flex gap-20 transition ease-in-out delay-125 px-6'>
           {items.map((item, i) => (
-          <li key={i}>
-            <button>{item}</button>
+          <li key={i} className='py-2'>
+            <button className='text-slate-300  hover:scale-110 hover:text-slate-500 duration-300'>{item}</button>
           </li>
         ))}
         </ul>

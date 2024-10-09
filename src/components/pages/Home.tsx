@@ -3,7 +3,9 @@ import Feed from "../ui/cards/Feed";
 import SimpleCard from "../ui/cards/SimpleCard";
 
 const Home = () => {
-  const items  = [<button>blep</button>,<button>blep</button>,<button>blep</button>,<button>blep</button>,<button>blep</button>,<button>blep</button>,<button>blep</button>,<button>blep</button>,];
+  const items  = ['blep','blep','blep','blep','blep','blep','blep','blep',
+  // <button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,<button className='hover:border-b-4'>blep</button>,<button className='hover: border-b-4'>blep</button>,
+];
 
   const feedItems = [<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,]
 
