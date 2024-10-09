@@ -9,9 +9,10 @@ const NavBar = () => {
   return (
     <nav className='flex flex-col'>
       <section className='flex justify-between m-3 px-8'>
-        <div className='text-3xl text-white font-roboto tracking-tight font-medium border border-black bg-red-500 p-1'>
-          SOIR<span>&#232;</span>E</div>
-
+        <div className='flex text-3xl text-white font-roboto tracking-tight font-medium border border-black bg-red-500 py-1 px-2'>
+          <img src='public/olive.svg' alt="" className='h-10'/>
+          <div>SOIR<span>&#200;</span>E</div>
+        </div>
         <div className='flex gap-4'>
 
           <button className='hover:bg-slate-50 rounded-full px-2'>

@@ -1,0 +1,94 @@
+/* NavBar.css */
+
+/* NavBar container styling */
+.nav-container {
+  position: relative; /* For absolute positioning of the olive */
+}
+
+/* Olive styling */
+.olive {
+  position: absolute;
+  width: 20px; /* Adjust as necessary for size */
+  height: 30px; /* Adjust as necessary for size */
+  left: 60px; /* Adjust the left value to place it in front of the 'S' */
+  top: 0; /* Adjust to position it vertically */
+  background: #D82C40; /* Olive color */
+  border: 3px solid black; /* Olive border */
+  border-radius: 50%; /* Create the rounded shape */
+  transform: rotate(-45deg); /* Rotate if necessary */
+}
+
+/* Existing Figma CSS */
+
+.group-9 {
+  position: absolute;
+  width: 77px;
+  height: 92.6px;
+  left: 249.55px;
+  top: 203.7px;
+}
+
+.vector {
+  position: absolute;
+  width: 56.27px;
+  height: 66.71px;
+  left: calc(50% - 56.27px/2 - 359.12px);
+  top: calc(50% - 66.71px/2 - 12.95px);
+  background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #000000;
+  border: 3px solid #000000;
+  transform: rotate(18.69deg);
+}
+
+.vector-inner {
+  box-sizing: border-box;
+  position: absolute;
+  width: 20.34px;
+  height: 35.17px;
+  left: calc(50% - 20.34px/2 - 335.05px);
+  top: calc(50% - 35.17px/2 - 10.8px);
+  background: #D82C40;
+  border: 3px solid #000000;
+  transform: rotate(110.37deg);
+}
+
+.group-4 {
+  position: absolute;
+  width: 21.59px;
+  height: 18.92px;
+  left: 261.94px;
+  top: 296.3px;
+  transform: rotate(-125.03deg);
+}
+
+.vector-small {
+  box-sizing: border-box;
+  position: absolute;
+  width: 14.58px;
+  height: 18.39px;
+  left: calc(50% - 14.58px/2 - 401.45px);
+  top: calc(50% - 18.39px/2 + 40.97px);
+  background: #D82C40;
+  border: 1px solid #000000;
+  transform: rotate(-50.35deg);
+}
+
+.group-5 {
+  position: absolute;
+  width: 21.59px;
+  height: 18.92px;
+  left: 311.22px;
+  top: 296.3px;
+  transform: matrix(0.57, -0.82, -0.82, -0.57, 0, 0);
+}
+
+.vector-small-2 {
+  box-sizing: border-box;
+  position: absolute;
+  width: 14.58px;
+  height: 18.39px;
+  left: calc(50% - 14.58px/2 - 331.8px);
+  top: calc(50% - 18.39px/2 + 40.97px);
+  background: #D82C40;
+  border: 0.75px solid #000000;
+  transform: matrix(-0.64, -0.77, -0.77, 0.64, 0, 0);
+}
