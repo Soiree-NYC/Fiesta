@@ -13,8 +13,8 @@ const NavBar = () => {
           <img src='public/olive.svg' alt="" className='h-10'/>
           <div>SOIR<span>&#200;</span>E</div>
         </div>
-        <div className='flex gap-4'>
 
+        <div className='flex gap-4'>
           <button className='hover:bg-slate-50 rounded-full px-2'>
           🌐</button>
           <button className='hover:bg-slate-50 rounded-full px-2 text-xl'>

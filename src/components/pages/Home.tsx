@@ -10,7 +10,7 @@ const Home = () => {
   const feedItems = [<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,]
 
   return (
-    <main className='px-8' >
+    <main className="px-8">
       <SlideMenu items={items} />
       <Feed children={feedItems} />
       <section></section>
