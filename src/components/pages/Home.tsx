@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <main className='px-8'>
       <SlideMenu items={items} />
-      <Feed children={feedItems}/>
+      <Feed children={feedItems} />
       <section></section>
     </main>
   );

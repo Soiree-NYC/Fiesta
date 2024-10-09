@@ -8,15 +8,18 @@ const NavBar = () => {
 
   return (
     <nav className='flex flex-col'>
-      <section className='flex  justify-between m-3 px-8'>
-        <div className='text-3xl'>
-          🎉</div>
+      <section className='flex justify-between m-3 px-8'>
+        <div className='text-3xl text-white font-roboto tracking-tight font-medium border border-black bg-red-500 p-1'>
+          SOIR<span>&#232;</span>E</div>
 
         <div className='flex gap-4'>
+
           <button className='hover:bg-slate-50 rounded-full px-2'>
-            Partify your business</button>
-          <button className='hover:bg-slate-50 rounded-full px-3'>
-            🌐</button>
+          🌐</button>
+          <button className='hover:bg-slate-50 rounded-full px-2 text-xl'>
+            ♡</button>
+          <button className='hover:bg-slate-50 rounded-full px-2'>
+            Book Now</button>
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
           {accountAccessToggle && (
             <div className="absolute right-10 mt-10 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
@@ -38,9 +41,9 @@ const NavBar = () => {
       <section>
         <SearchBar />
       </section>
+
       <br />
       <hr />
-
     </nav>
   );
 };
