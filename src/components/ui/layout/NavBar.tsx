@@ -10,7 +10,7 @@ const NavBar = () => {
     <nav className='flex flex-col'>
       <section className='flex justify-between m-3 px-8'>
         <div className='scale-75 flex text-3xl text-white font-roboto tracking-tight font-medium border border-black bg-red-500 py-1 px-2'>
-          <img src='public/olive.svg' alt="" className='h-10'/>
+          <img src='/olive.svg' alt="" className='h-10'/>
           <div>SOIR<span>&#200;</span>E</div>
         </div>
 
