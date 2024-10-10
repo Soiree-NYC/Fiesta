@@ -5,7 +5,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif'],
+        sixtyfourConvergence: ['Sixtyfour Convergence', 'cursive'],
+      },
+      backgroundImage: {
+        'skyline': `url('public/nycskyline.jpg')`,
+      },
+    },
   },
   plugins: [],
 }
