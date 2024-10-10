@@ -33,7 +33,7 @@ const SlideMenu: FC<Props> = ({ items }) => {
           </li>
         ))}
         </ul>
-        <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent rounded-r-full' />
+        <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[rgba(255,255,255,0.3)] to-transparent rounded-r-full' />
       </div>
       <button onClick={slideRight}>▶</button>
     </section>
