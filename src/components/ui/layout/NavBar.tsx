@@ -15,11 +15,11 @@ const NavBar = () => {
         </div>
 
         <div className='flex gap-4'>
-          <button className='hover:bg-slate-50 rounded-full px-2'>
+          <button className='hover:underline hover:underline-offset-4 decoration-slate-50 rounded-full px-2 delay-125'>
           🌐</button>
-          <button className='hover:bg-slate-50 rounded-full px-2 text-xl'>
+          <button className='hover:underline hover:underline-offset-4 rounded-full px-2 text-xl delay-125'>
             ♡</button>
-          <button className='hover:bg-slate-50 rounded-full px-2'>
+          <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>
             Book Now</button>
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
           {accountAccessToggle && (
