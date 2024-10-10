@@ -5,7 +5,9 @@ import SimpleCard from "../ui/cards/SimpleCard";
 const Home = () => {
   const items  = ['blep','blep','blep','blep','blep','blep','blep','blep',];
 
-  const feedItems = [<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,]
+  const feedItems = [<SimpleCard />,
+  // <SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,
+]
 
   return (
     <main className="px-8">
