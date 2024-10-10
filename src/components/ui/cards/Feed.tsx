@@ -6,7 +6,7 @@ interface Props {
 
 const Feed: FC<Props> = ({ children }) => {
   return (
-    <div className='flex justify-center items-center gap-1 grid grid-cols-5 md:grid-cols-3 fit-content'>
+    <div className='gap-5 grid  md:grid-cols-3 grid-cols-5  fit-content'>
       {children.map((child, i) => (
         <div key={i}>{child}</div>
       ))}
