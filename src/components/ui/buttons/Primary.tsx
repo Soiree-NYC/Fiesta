@@ -7,11 +7,9 @@ interface Props {
 
 const Primary: FC<Props> = ({ label, callback }) => {
   return (
-    <button
-      onClick={callback}
-      aria-label={label}
-      className='border rounded-sm'
-      />
+    <button onClick={callback} className='border rounded-lg px-2 py-1 text-xs' >
+      {label}
+    </button>
   );
 };
 
