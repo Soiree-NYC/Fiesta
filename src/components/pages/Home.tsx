@@ -6,8 +6,8 @@ const Home = () => {
   const items  = ['blep','blep','blep','blep','blep','blep','blep','blep',];
 
   const feedItems = [<SimpleCard />,
-  <SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,
-];
+    <SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,<SimpleCard />,
+  ];
 
   return (
     <main className="px-8">

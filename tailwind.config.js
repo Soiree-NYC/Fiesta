@@ -11,7 +11,7 @@ export default {
         sixtyfourConvergence: ['Sixtyfour Convergence', 'cursive'],
       },
       backgroundImage: {
-        'skyline': `url('public/nycskyline.jpg')`,
+        'skyline': `url('/nycskyline.jpg')`,
       },
     },
   },

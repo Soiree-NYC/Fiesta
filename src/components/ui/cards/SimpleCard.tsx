@@ -1,6 +1,6 @@
 const SimpleCard = () => {
   return (
-    <div className='h-[20rem] relative flex flex-col gap-1 justify-between hover:shadow-md rounded-lg mb-4 text-white bg-black bg-opacity-40'>
+    <div className='h-[20rem] relative flex flex-col gap-1 justify-between backdrop-blur-md rounded-lg mb-4 text-white bg-black bg-opacity-40'>
       <div className='p-3'>
         <p className='text-xl'>Hotel Beacon</p>
         <p className='text-xs'>UWS</p>
