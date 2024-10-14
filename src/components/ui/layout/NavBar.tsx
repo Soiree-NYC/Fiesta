@@ -21,6 +21,7 @@ const NavBar = () => {
             ♡</button>
           <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>
             Book Now</button>
+          
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
           {accountAccessToggle && (
             <div className="absolute right-12 top-6 mt-10 w-48 bg-transparent backdrop-blur-md border border-gray-200 rounded-md shadow-lg z-20">
