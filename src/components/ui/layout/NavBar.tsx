@@ -7,7 +7,7 @@ const NavBar = () => {
   const [accountAccessToggle, setAccountAccessToggle] = useState<boolean>(false);
 
   return (
-    <nav className='flex flex-col text-white'>
+    <nav className='flex flex-col items-between text-white'>
       <section className='flex justify-between m-3 px-2'>
         <div className='scale-75 flex text-3xl text-white font-roboto tracking-tight font-medium py-1 px-2'>
           <img src='/olive.svg' alt="" className='h-10'/>
