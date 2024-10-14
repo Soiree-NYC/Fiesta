@@ -27,7 +27,7 @@ const SlideMenu: FC<Props> = ({ items }) => {
       <button onClick={slideLeft}>◀</button>
 
       <div className='overflow-hidden flex justify-between gap-20'>
-        <ul className='flex gap-10'>
+        <ul className='flex gap-5'>
           {items.map((item, i) => (
           <li key={i} className='py-2'>
             {item}
