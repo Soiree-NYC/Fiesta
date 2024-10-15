@@ -11,7 +11,7 @@ const NavBar = () => {
       <section className='flex justify-between m-3 px-2'>
         <div className='scale-75 flex text-3xl text-white font-roboto tracking-tight font-medium py-1 px-2'>
           <img src='/olive.svg' alt="" className='h-10'/>
-          <div>SOIR<span>&#200;</span>E</div>
+          <div>SOIR<span>&#201;</span>E</div>
         </div>
 
         <div className='flex gap-4'>
