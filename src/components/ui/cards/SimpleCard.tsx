@@ -26,14 +26,16 @@ const SimpleCard: FC<Props> = ({ title, neighborhood, price, price_was, descript
 
       <img src={image} className='h-4/5 object-cover rounded-b-md'/>
 
-      <div className='absolute flex flex-col justify-between gap-3 p-3 bottom-0 z-20 bg-gradient-to-t from-black/100 to-transparent rounded-b-md'>
+      <div className='absolute flex flex-col justify-between gap-3 p-3 bottom-0 z-20 bg-gradient-to-t from-black/100 to-transparent rounded-b-md w-full'>
         <p className='text-xs/[10px] bottom-[50px]'>{description}</p>
+
         <div className='flex justify-between'>
           <div className='flex flex-col'>
             <p className='text-xs'>${price} <span className='text-xs line-through'>${price_was}</span></p>
             <p className='text-xs'>minimum per person</p>
           </div>
-          <Primary label="Add to List" callback={handleClick} />
+
+          <Primary label="Add to List" callback={handleClick} frosted={true} />
         </div>
       </div>
     </div>
