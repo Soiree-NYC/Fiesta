@@ -17,8 +17,7 @@ const NavBar = () => {
         <div className='flex gap-4'>
           <button className='hover:underline hover:underline-offset-4 decoration-slate-50 rounded-full px-2 delay-125 text-white'>&#127760;</button>
           <button className='hover:underline hover:underline-offset-4 rounded-full px-2  delay-125 text-white'>	&#10084;</button>
-          <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>
-            Book Now</button>
+          <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>Book Now</button>
           
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
           {accountAccessToggle && (
