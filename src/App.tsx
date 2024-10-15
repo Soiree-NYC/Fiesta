@@ -5,7 +5,7 @@ import Home from './components/pages/Home';
 
 function App() {
   return (
-    <div className='flex-col px-8 bg-skyline bg-cover bg-center h-screen overflow-auto'>
+    <div className='bg-skyline flex-col px-8 bg-cover bg-center h-screen overflow-auto'>
       <NavBar />
       <Home />
     </div>

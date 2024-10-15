@@ -23,18 +23,21 @@ const SlideMenu: FC<Props> = ({ items }) => {
   };
 
   return (
-    <section className='flex gap-10 justify-center m-3 px-8 overflow-hidden relative text-white'>
+    <section className='flex gap-10 justify-between m-3 px-8 overflow-hidden relative text-white'>
       <button onClick={slideLeft}>◀</button>
-      <div className='overflow-hidden relative max-w-96'>
-        <ul className='flex gap-20 transition ease-in-out delay-125 px-6 pl-1'>
+
+      <div className='overflow-hidden flex justify-between gap-20'>
+        <ul className='flex gap-5'>
           {items.map((item, i) => (
           <li key={i} className='py-2'>
-            <button className='text-slate-400 hover:scale-110 hover:text-slate-100 duration-300'>{item}</button>
+            {item}
           </li>
         ))}
         </ul>
-        <div className='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[rgba(255,255,255,0.3)] to-transparent rounded-r-full' />
+
+        <div className='absolute right-10 top-0 bottom-0 w-20 bg-gradient-to-l from-[rgba(255,255,255,1)] to-transparent rounded-r-full mr-5' />
       </div>
+
       <button onClick={slideRight}>▶</button>
     </section>
   );
