@@ -17,21 +17,25 @@ const Venue = () => {
     'Bespoke Catering',
     'Mezzanine',
   ];
+  const host = 'Jon Pietro';
 
   return (
-    <div className="px-8 m-10 font-roboto flex flex-col gap-5">
-      <PhotoCase title="The Folly" mainImg="https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510" xImgs={xImgs} />
+    <div className="px-8 m-10 font-roboto">
+      <div className="flex flex-col gap-10 backdrop-blur-sm">
+        <PhotoCase title="The Folly" mainImg="https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510" xImgs={xImgs} />
 
-      <div className="grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
-        <div className="p-4 flex flex-col gap-5 text-white">
-          <QuickInfo desx={desx} />
-          <HostInfo />
-          <hr />
-          <Highlights />
-          <hr className="text-white" />
-          <Offerings />
+        <div className="grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
+          <div className="p-4 flex flex-col gap-5 text-white">
+            <QuickInfo desx={desx} />
+            <HostInfo host={host} />
+            <hr />
+            <Highlights />
+            <hr className="text-white" />
+            <Offerings />
+          </div>
+          <CheckoutConfig />
         </div>
-        <CheckoutConfig />
+
       </div>
     </div>
   );

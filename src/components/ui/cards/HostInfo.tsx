@@ -1,4 +1,10 @@
-const HostInfo = () => {
+import { FC } from 'react';
+
+interface Props {
+  host: string,
+};
+
+const HostInfo: FC<Props> = ({ host, }) => {
   return (
     <div className='flex gap-2 items-center'>
       <img
@@ -6,7 +12,7 @@ const HostInfo = () => {
         className="rounded-full h-10 w-10 object-cover"
         alt="wtf" />
       <div>
-        <strong>Hosted by Jon P</strong>
+        <strong>Hosted by {host}</strong>
         <p>Verified Host</p>
       </div>
     </div>
