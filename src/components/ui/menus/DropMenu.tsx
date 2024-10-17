@@ -1,5 +1,5 @@
 import {
-  FC, ReactNode, Fragment
+  FC, ReactNode, Fragment,
 } from 'react';
 
 type Props = {

@@ -16,9 +16,8 @@ const NavBar = () => {
       <PlainButton title='Gift Cards' callback={()=>console.log('yo')} />,
       <PlainButton title='List your venue' callback={()=>console.log('yo')} />,
       <PlainButton title='Help Center' callback={()=>console.log('yo')} />,
-      
     ],
-  ]
+  ];
 
   return (
     <nav className='flex flex-col items-between text-white'>
@@ -29,10 +28,10 @@ const NavBar = () => {
         </div>
 
         <div className='flex gap-4'>
-          <button className='hover:underline hover:underline-offset-4 decoration-slate-50 rounded-full px-2 delay-125 text-white'>&#127760;</button>
-          <button className='hover:underline hover:underline-offset-4 rounded-full px-2  delay-125 text-white'>	&#10084;</button>
-          <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>Book Now</button>
-          
+          <PlainButton title='&#127760;' callback={()=> console.log} />
+          <PlainButton title='&#10084;' callback={()=> console.log} />
+          <PlainButton title='Book Now' callback={()=> console.log} />
+
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
           {accountAccessToggle && <DropMenu items={dropMenuItems} />}
         </div>
