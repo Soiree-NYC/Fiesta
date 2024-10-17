@@ -5,7 +5,7 @@ type Props = {
   callback: () => void;
   styles?: string;
 }
-const Special: FC<Props> = ({ title, callback, styles }) => {
+const SpecialButton: FC<Props> = ({ title, callback, styles }) => {
   return (
     <button
       onClick={callback}
@@ -15,4 +15,4 @@ const Special: FC<Props> = ({ title, callback, styles }) => {
   );
 };
 
-export default Special;
+export default SpecialButton;

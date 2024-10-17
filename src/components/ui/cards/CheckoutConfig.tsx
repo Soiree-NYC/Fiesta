@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Time from "../inputs/Time";
-import Special from '../buttons/Special';
+import Special from '../buttons/SpecialButton';
 import Counter from '../inputs/Counter';
 
 const CheckoutConfig = () => {
