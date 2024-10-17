@@ -2,7 +2,7 @@ import  { FC } from 'react';
 
 import Primary from "../buttons/Primary";
 
-interface Props {
+type Props = {
   title: string;
   neighborhood: string;
   price: number;

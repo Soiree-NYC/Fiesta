@@ -1,10 +1,3 @@
-import { FC } from 'react';
-
-interface Props {
-
-}
-
-
 const DropMenu = () => {
   return (
     <div className="absolute right-12 top-6 mt-10 w-48 bg-transparent backdrop-blur-md border border-gray-200 rounded-md shadow-lg z-20">

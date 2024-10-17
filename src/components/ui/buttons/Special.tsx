@@ -1,9 +1,9 @@
 import { FC } from 'react';
 
-interface Props {
-  title: string,
-  callback: () => void,
-  styles?: string,
+type Props = {
+  title: string;
+  callback: () => void;
+  styles?: string;
 }
 const Special: FC<Props> = ({ title, callback, styles }) => {
   return (

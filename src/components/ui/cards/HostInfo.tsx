@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-interface Props {
-  host: string,
+type Props = {
+  host: string;
 };
 
 const HostInfo: FC<Props> = ({ host, }) => {

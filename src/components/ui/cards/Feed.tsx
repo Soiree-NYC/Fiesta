@@ -1,7 +1,7 @@
 import { FC, ReactNode } from 'react';
 
-interface Props {
-  children: ReactNode[]
+type Props = {
+  children: ReactNode[];
 };
 
 const Feed: FC<Props> = ({ children }) => {

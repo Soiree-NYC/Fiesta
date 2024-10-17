@@ -1,10 +1,10 @@
 import { FC, } from 'react';
 
-interface Props {
-  title: string,
-  mainImg: string,
-  xImgs: string[],
-}
+type Props = {
+  title: string;
+  mainImg: string;
+  xImgs: string[];
+};
 
 const PhotoCase: FC<Props> = ({ title, mainImg, xImgs }) => {
   return (

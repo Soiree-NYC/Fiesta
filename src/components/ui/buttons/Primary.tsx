@@ -1,6 +1,6 @@
 import { FC, } from 'react';
 
-interface Props {
+type Props = {
   label: string;
   callback: () => void;
   bold?: boolean;
