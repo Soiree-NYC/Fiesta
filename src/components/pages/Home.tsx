@@ -141,7 +141,7 @@ const Home = () => {
   ];
 
   return (
-    <main className="px-8">
+    <main className="px-8 my-10">
       <SlideMenu items={items} />
       <Feed children={feedItems} />
     </main>
