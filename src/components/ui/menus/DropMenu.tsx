@@ -1,19 +1,25 @@
-import PlainButton from "../buttons/PlainButton";
+import {
+  FC, ReactNode, Fragment
+} from 'react';
 
-const DropMenu = () => {
+type Props = {
+  items: ReactNode[][];
+};
+
+const DropMenu: FC<Props> = ({ items }) => {
   return (
     <div className="absolute right-12 top-6 mt-10 w-48 bg-transparent backdrop-blur-md border border-gray-200 rounded-md shadow-lg z-20">
       <ul className="py-2 text-xs">
-        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">
-          <PlainButton title='Sign In' callback={() => console.log}/>
-        </li>
-        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Log In</li>
-      </ul>
-      <hr />
-      <ul className="py-2 text-xs">
-        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Gift Cards</li>
-        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Partify your business</li>
-        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Help Center</li>
+        {items.map((subArray, index) => (
+          <Fragment key={index}>
+              {subArray.map((item, subIndex) => (
+                <li key={subIndex} className="cursor-pointer">
+                  {item}
+                </li>
+              ))}
+            {index < items.length - 1 && <hr className='mx-2'/>}
+          </Fragment>
+        ))}
       </ul>
     </div>
   );

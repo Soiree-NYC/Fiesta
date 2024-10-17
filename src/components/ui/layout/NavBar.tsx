@@ -3,9 +3,22 @@ import { useState } from 'react';
 import AccountAccess from "../buttons/AccountAccess";
 import SearchBar from '../inputs/SearchBar';
 import DropMenu from '../menus/DropMenu';
+import PlainButton from '../buttons/PlainButton';
 
 const NavBar = () => {
   const [accountAccessToggle, setAccountAccessToggle] = useState<boolean>(false);
+  const dropMenuItems = [
+    [
+      <PlainButton title='Sign up' callback={()=>console.log('yo')} />,
+      <PlainButton title='Log in' callback={()=>console.log('yo')} />,,
+    ],
+    [
+      <PlainButton title='Gift Cards' callback={()=>console.log('yo')} />,
+      <PlainButton title='List your venue' callback={()=>console.log('yo')} />,
+      <PlainButton title='Help Center' callback={()=>console.log('yo')} />,
+      
+    ],
+  ]
 
   return (
     <nav className='flex flex-col items-between text-white'>
@@ -21,7 +34,7 @@ const NavBar = () => {
           <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>Book Now</button>
           
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
-          {accountAccessToggle && <DropMenu />}
+          {accountAccessToggle && <DropMenu items={dropMenuItems} />}
         </div>
       </section>
 
