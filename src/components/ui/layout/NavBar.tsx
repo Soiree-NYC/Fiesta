@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import AccountAccess from "../buttons/AccountAccess";
 import SearchBar from '../inputs/SearchBar';
+import DropMenu from '../menus/DropMenu';
 
 const NavBar = () => {
   const [accountAccessToggle, setAccountAccessToggle] = useState<boolean>(false);
@@ -20,20 +21,7 @@ const NavBar = () => {
           <button className='hover:underline hover:underline-offset-4 rounded-full px-2 delay-125'>Book Now</button>
           
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
-          {accountAccessToggle && (
-            <div className="absolute right-12 top-6 mt-10 w-48 bg-transparent backdrop-blur-md border border-gray-200 rounded-md shadow-lg z-20">
-              <ul className="py-2 text-xs">
-                <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Sign Up</li>
-                <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Log In</li>
-              </ul>
-              <hr />
-              <ul className="py-2 text-xs">
-                <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Gift Cards</li>
-                <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Partify your business</li>
-                <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Help Center</li>
-              </ul>
-            </div>
-          )}
+          {accountAccessToggle && <DropMenu />}
         </div>
       </section>
 

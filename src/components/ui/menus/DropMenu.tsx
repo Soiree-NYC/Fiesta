@@ -1,8 +1,12 @@
+import PlainButton from "../buttons/PlainButton";
+
 const DropMenu = () => {
   return (
     <div className="absolute right-12 top-6 mt-10 w-48 bg-transparent backdrop-blur-md border border-gray-200 rounded-md shadow-lg z-20">
       <ul className="py-2 text-xs">
-        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Sign Up</li>
+        <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">
+          <PlainButton title='Sign In' callback={() => console.log}/>
+        </li>
         <li className="px-4 py-2 hover:underline hover:underline-offset-4 decoration-slate-50 cursor-pointer">Log In</li>
       </ul>
       <hr />
