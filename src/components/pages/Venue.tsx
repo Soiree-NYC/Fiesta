@@ -1,7 +1,9 @@
 import PhotoCase from "../ui/cards/PhotoCase";
 import QuickInfo from "../ui/cards/QuickInfo";
+import HostInfo from "../ui/cards/HostInfo";
 import CheckoutConfig from "../ui/cards/CheckoutConfig";
 import Highlights from "../ui/cards/Highlights";
+import Offerings from "../ui/cards/Offerings";
 
 const Venue = () => {
   const xImgs = [
@@ -23,23 +25,11 @@ const Venue = () => {
       <div className="grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
         <div className="p-4 flex flex-col gap-5 text-white">
           <QuickInfo desx={desx} />
-          <div className='flex gap-2 items-center'>
-            <img
-              src="https://images.unsplash.com/photo-1590086783191-a0694c7d1e6e?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              className="rounded-full h-10 w-10 object-cover"
-              alt="wtf" />
-            <div>
-              <strong>Hosted by Jon P</strong>
-              <p>Verified Host</p>
-            </div>
-          </div>
-
+          <HostInfo />
           <hr />
-
           <Highlights />
-
           <hr className="text-white" />
-
+          <Offerings />
         </div>
         <CheckoutConfig />
       </div>
