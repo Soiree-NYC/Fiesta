@@ -6,7 +6,7 @@ interface Prop {
 
 const QuickInfo: FC<Prop> = ({desx}) => {
   return (
-    <div className="border">
+    <div>
         <h1 className="text-3xl text-white">Gastropub and Seafare</h1>
         <div className="flex flex-row gap-1">
           {desx.map((des, i) => (

@@ -29,11 +29,11 @@ const CheckoutConfig = () => {
       <div className='border rounded-2xl flex flex-col'>
         <div className='grid grid-cols-2'>
           <div className='flex flex-col border-r-2 p-2'>
-            <span className="text-sm self-start px-1">SOIR&#201;E TIME</span>
+            <span className="text-sm self-start px-1">SOIR&#201;E</span>
             <Time />
           </div>
           <div className="flex flex-col p-2">
-            <span className="text-sm self-start px-1">AFTERPARTY TIME</span>
+            <span className="text-sm self-start px-1">AFTERPARTY</span>
             <Time />
           </div>
         </div>
@@ -72,9 +72,7 @@ const CheckoutConfig = () => {
         <strong>Total before taxes</strong>
         <strong>${guests * 80 + ((guests * 80)/100)*20}</strong>
       </div>
-
     </div>
-
   );
 };
 
