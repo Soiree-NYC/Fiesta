@@ -35,7 +35,6 @@ const Venue = () => {
           </div>
           <CheckoutConfig />
         </div>
-
       </div>
     </div>
   );

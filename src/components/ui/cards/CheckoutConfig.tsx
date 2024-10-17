@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Time from "../inputs/Time";
+import Special from '../buttons/Special';
 
 const CheckoutConfig = () => {
   const [guests, setGuests] = useState<number>(10);
@@ -48,7 +49,7 @@ const CheckoutConfig = () => {
       </div>
 
       <div className='flex flex-col'>
-        <button className='border bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-4 rounded-2xl'>Reserve</button>
+        <Special title='Reserve' callback={handleMinus} />
         <span className='self-center py-4'>You won't be charged yet</span>
         <div className='flex flex-col'>
           <div className='flex justify-between'>
@@ -60,7 +61,7 @@ const CheckoutConfig = () => {
             <span className='px-1'>${((guests * 80)/100)*20}</span>
           </div>
           <div className='flex justify-between'>
-            <span className='px-1'>Soir&#233;e never charges service fees!</span>
+            <span className='px-1 line-through'>Service fee</span>
             <span className='px-1'>$0 </span>
           </div>
         </div>
