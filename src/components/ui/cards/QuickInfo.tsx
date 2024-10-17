@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
-interface Prop {
-  desx: string[]
+type Prop = {
+  desx: string[];
 };
 
 const QuickInfo: FC<Prop> = ({desx}) => {
@@ -17,7 +17,7 @@ const QuickInfo: FC<Prop> = ({desx}) => {
           ))}
         </div>
       </div>
-  )
-}
+  );
+};
 
-export default QuickInfo
+export default QuickInfo;

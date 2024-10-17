@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-interface Props {
-  setter: React.Dispatch<React.SetStateAction<boolean>>,
-  getter: boolean,
+type Props = {
+  setter: React.Dispatch<React.SetStateAction<boolean>>;
+  getter: boolean;
 };
 
 const AccountAccess: FC<Props> = ({ setter, getter }) => {

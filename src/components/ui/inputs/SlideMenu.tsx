@@ -4,7 +4,7 @@ import {
   useState
 } from 'react';
 
-interface Props {
+type Props = {
   items: ReactNode[];
 };
 

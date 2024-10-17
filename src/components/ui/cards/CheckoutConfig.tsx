@@ -1,23 +1,11 @@
 import { useState } from 'react';
 
 import Time from "../inputs/Time";
+import Special from '../buttons/SpecialButton';
+import Counter from '../inputs/Counter';
 
 const CheckoutConfig = () => {
   const [guests, setGuests] = useState<number>(10);
-
-  const handleMinus = (): void => {
-    if (guests < 10) {
-      setGuests(10);
-      alert('10 is the minimum number of guests allowed');
-    } else setGuests(guests - 1);
-  };
-
-  const handlePlus = (): void => {
-    if (guests > 150) {
-      setGuests(150);
-      alert('150 is the maximum number of guests allowed');
-    } else setGuests(guests + 1);
-  };
 
   return (
     <div className='flex flex-col border rounded-2xl bg-slate-100 p-6 gap-2'>
@@ -39,16 +27,12 @@ const CheckoutConfig = () => {
         </div>
         <div className="border-t-2 p-2 flex justify-between items-center">
           <span className="text-md">GUESTS</span>
-          <div className='flex items-center gap-2'>
-            <button className='border rounded-full text-xl p-4' onClick={handleMinus}>-</button>
-            <span>{guests}</span>
-            <button className='border rounded-full text-xl p-4' onClick={handlePlus}>+</button>
-          </div>
+          <Counter count={guests} setCount={setGuests} min={10} max={150} />
         </div>
       </div>
 
       <div className='flex flex-col'>
-        <button className='border bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 p-4 rounded-2xl'>Reserve</button>
+        <Special title='Reserve' callback={()=> console.log('yo')} />
         <span className='self-center py-4'>You won't be charged yet</span>
         <div className='flex flex-col'>
           <div className='flex justify-between'>
@@ -60,7 +44,7 @@ const CheckoutConfig = () => {
             <span className='px-1'>${((guests * 80)/100)*20}</span>
           </div>
           <div className='flex justify-between'>
-            <span className='px-1'>Soir&#233;e never charges service fees!</span>
+            <span className='px-1 line-through'>Service fee</span>
             <span className='px-1'>$0 </span>
           </div>
         </div>
