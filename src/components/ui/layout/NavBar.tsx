@@ -43,9 +43,6 @@ const NavBar = () => {
           <p>Don't think, just pop.</p>
         </div>
       </section>
-
-      <br />
-      <hr />
     </nav>
   );
 };
