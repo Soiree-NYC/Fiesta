@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import AccountAccess from "../buttons/AccountAccess";
-import SearchBar from '../inputs/SearchBar';
 import DropMenu from '../menus/DropMenu';
 import PlainButton from '../buttons/PlainButton';
 
@@ -10,7 +9,7 @@ const NavBar = () => {
   const dropMenuItems = [
     [
       <PlainButton title='Sign up' callback={()=>console.log('yo')} />,
-      <PlainButton title='Log in' callback={()=>console.log('yo')} />,,
+      <PlainButton title='Log in' callback={()=>console.log('yo')} />,
     ],
     [
       <PlainButton title='Gift Cards' callback={()=>console.log('yo')} />,
@@ -37,12 +36,13 @@ const NavBar = () => {
         </div>
       </section>
 
-      <section>
-        <SearchBar />
+      <section className='flex flex-col items-center gap-5'>
+        <h1 className='text-6xl text-roboto font-bold'>TIME TO PARTY</h1>
+        <div className='flex flex-col items-center'>
+          <p>Your favorite bar is ready to rent.</p>
+          <p>Don't think, just pop.</p>
+        </div>
       </section>
-
-      <br />
-      <hr />
     </nav>
   );
 };

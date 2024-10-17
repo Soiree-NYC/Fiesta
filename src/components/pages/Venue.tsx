@@ -20,7 +20,7 @@ const Venue = () => {
   const host = 'Jon Pietro';
 
   return (
-    <div className="m-10 font-roboto">
+    <main className="font-roboto mx-10">
       <div className="flex flex-col gap-10 backdrop-blur-sm">
         <PhotoCase title="The Folly" mainImg="https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510" xImgs={xImgs} />
 
@@ -36,7 +36,7 @@ const Venue = () => {
           <CheckoutConfig />
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

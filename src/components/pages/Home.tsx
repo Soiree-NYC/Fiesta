@@ -53,16 +53,16 @@ const Home = () => {
       callback={handleClick}
       bold
     />,
-    <Primary
-      label='Meatpacking'
-      callback={handleClick}
-      bold
-    />,
-    <Primary
-      label='Midtown'
-      callback={handleClick}
-      bold
-    />,
+    // <Primary
+    //   label='Meatpacking'
+    //   callback={handleClick}
+    //   bold
+    // />,
+    // <Primary
+    //   label='Midtown'
+    //   callback={handleClick}
+    //   bold
+    // />,
   ];
 
   const feedItems = [
@@ -141,7 +141,7 @@ const Home = () => {
   ];
 
   return (
-    <main className="px-8 my-10">
+    <main className="backdrop-blur-sm py-5">
       <SlideMenu items={items} />
       <Feed children={feedItems} />
     </main>
