@@ -8,13 +8,14 @@ import Venue from './components/pages/Venue';
 
 function App() {
   return (
-    <div className='bg-skyline flex-col px-8 bg-cover bg-center h-screen overflow-auto'>
-      <NavBar />
-
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/venue' element={<Venue />} />
-      </Routes>
+    <div className='bg-skyline bg-cover bg-center h-screen flex justify-center overflow-auto'>
+      <div className='max-w-screen-xl flex flex-col backdrop-blur-sm'>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/venue' element={<Venue />} />
+        </Routes>
+      </div>
     </div>
   );
 };
