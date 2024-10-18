@@ -21,7 +21,7 @@ const Venue = () => {
 
   return (
     <main className="font-roboto mx-10">
-      <div className="flex flex-col gap-10 backdrop-blur-sm">
+      <div className="flex flex-col gap-10">
         <PhotoCase title="The Folly" mainImg="https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510" xImgs={xImgs} />
 
         <div className="grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
