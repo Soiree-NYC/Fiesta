@@ -7,7 +7,7 @@ type Venue = {
   description: string;
   features: Features;
   host: string;
-  hightlights: string[],
+  highlights: string[],
   id: number;
   name: string;
   neighborhood: NYCNeighborhoods;

@@ -5,7 +5,7 @@ import './styles.css';
 import NavBar from './components/ui/layout/NavBar';
 
 import Home from './components/pages/Home';
-import Venue from './components/pages/Venue';
+import Venue from './components/pages/VenueDetails';
 
 function App() {
   const [listItems, setListItems] = useState<number>(0);
