@@ -11,7 +11,7 @@ function App() {
   const [listItems, setListItems] = useState<number>(0);
 
   return (
-    <div className='bg-skyline bg-cover bg-center h-screen flex justify-center overflow-auto'>
+    <div className='bg-skyline bg-cover bg-center h-full flex justify-center overflow-auto'>
       <div className='max-w-screen-xl flex flex-col backdrop-blur-sm'>
         <NavBar listItems={listItems} />
         <Routes>

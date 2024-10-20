@@ -42,14 +42,14 @@ const VenueDetails = () => {
   // Handle loading and error states
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-  if (!venue) return <div>No venue found</div>;
+  if (!venue) return <div className='text-white text-roboto'>No venue found</div>;
 
   const { name, description, photos, hallmarks, host } = venue;
   const mainImg = photos[0];
   const secondaryImgs = photos.slice(1);
 
   return (
-    <main className="font-roboto">
+    <main className="font-roboto backdrop-blur-sm">
       <div className="flex flex-col gap-10">
         <PhotoCase title={name} mainImg={mainImg} xImgs={secondaryImgs} />
 

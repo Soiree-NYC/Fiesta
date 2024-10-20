@@ -18,7 +18,7 @@ enum FeatureDetails {
   OutdoorSpace = "Outdoor Space",
   Fireplace = "Fireplace",
   Garden = "Garden",
-}
+};
 
 type FeatureKeys =
   | 'projector'
