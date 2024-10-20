@@ -1,5 +1,6 @@
-import { FC } from "react";
-import { Venue } from "../../shared/types/venue";
+import { useState, useEffect, } from 'react';
+import { Venue } from '../../shared/types/venue';
+import { useParams } from "react-router-dom";
 
 import PhotoCase from "../ui/cards/PhotoCase";
 import QuickInfo from "../ui/cards/QuickInfo";
@@ -8,7 +9,42 @@ import CheckoutConfig from "../ui/cards/CheckoutConfig";
 import Highlights from "../ui/cards/Highlights";
 import Offerings from "../ui/cards/Offerings";
 
-const VenueDetails: FC<Venue> = ({ photos, highlights, host }) => {
+const VenueDetails = () => {
+  const [loading, setLoading] = useState(false);
+  const [venue, setVenue] = useState<Venue | null>(null);
+  const [error, setError] = useState(null);
+  const { id } = useParams<{id: string}>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/data/venues.json');
+        if (!response.ok) throw new Error('Network response was not ok');
+        const jsonData: Venue[] = await response.json();
+        console.log(jsonData)
+        console.log('yo')
+
+        const foundVenue = jsonData.find(v => v.id === parseInt(id || '', 10));
+        if (!foundVenue) throw new Error('Venue not found');
+        console.log(foundVenue)
+        setVenue(foundVenue);
+      } catch (err) {
+        // @ts-ignore
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // Handle loading and error states
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!venue) return <div>No venue found</div>;
+
+  const { photos, highlights, host } = venue;
   const mainImg = photos[0];
   const secondaryImgs = photos.slice(1);
 

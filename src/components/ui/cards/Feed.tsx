@@ -22,7 +22,7 @@ const Feed: FC<Props> = ({ data }) => {
           basePrice,
           photos,
         } = item;
-        console.log(item.photos[0])
+
         return (
         <div key={i}>
           <SimpleCard
