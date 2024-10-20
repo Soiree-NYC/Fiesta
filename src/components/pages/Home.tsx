@@ -1,13 +1,25 @@
+import { FC, Dispatch, SetStateAction, } from 'react';
+
 import SlideMenu from "../ui/inputs/SlideMenu";
 import Feed from "../ui/cards/Feed";
 import SimpleCard from "../ui/cards/SimpleCard";
 import Primary from "../ui/buttons/Primary";
 
-const Home = () => {
+type Props = {
+  venues: {
+    setter: Dispatch<SetStateAction<number>>;
+    getter: number;
+  };
+};
+
+const Home: FC<Props> = ({ venues }) => {
+  const {setter, getter} = venues;
+
   const handleClick = () => {
-    console.log("Button clicked");
-  }
-  const items  = [
+    setter(getter + 1);
+  };
+
+  const items = [
     <Primary
       label='West Village'
       callback={handleClick}
@@ -53,16 +65,6 @@ const Home = () => {
       callback={handleClick}
       bold
     />,
-    // <Primary
-    //   label='Meatpacking'
-    //   callback={handleClick}
-    //   bold
-    // />,
-    // <Primary
-    //   label='Midtown'
-    //   callback={handleClick}
-    //   bold
-    // />,
   ];
 
   const feedItems = [
@@ -73,6 +75,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -81,6 +84,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -89,6 +93,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -97,6 +102,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -105,6 +111,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -113,6 +120,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -121,6 +129,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -129,6 +138,7 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
     <SimpleCard
       title='Hotel Beacon'
@@ -137,11 +147,12 @@ const Home = () => {
       price={80}
       price_was={120}
       image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
+      callback={handleClick}
     />,
   ];
 
   return (
-    <main className="backdrop-blur-sm py-5">
+    <main className="py-5">
       <SlideMenu items={items} />
       <Feed children={feedItems} />
     </main>

@@ -1,6 +1,6 @@
 const Highlights = () => {
   return (
-    <div className="flex justify-between px-4 text-slate-white">
+    <div className="flex justify-around text-slate-white">
       <div className="flex flex-col gap-1">
         <div className="flex gap-1">
           <div className="w-6">

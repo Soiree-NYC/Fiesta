@@ -9,14 +9,10 @@ type Props = {
   price_was: number;
   description: string;
   image: string;
+  callback: () => void;
 };
 
-const SimpleCard: FC<Props> = ({ title, neighborhood, price, price_was, description, image }) => {
-
-  const handleClick = () => {
-    console.log("Button clicked");
-  };
-
+const SimpleCard: FC<Props> = ({ title, neighborhood, price, price_was, description, image, callback }) => {
   return (
     <div className='relative flex flex-col gap-1 justify-between rounded-lg mb-4 text-white border-2 border-slate-300'>
       <div className='p-3'>
@@ -35,7 +31,7 @@ const SimpleCard: FC<Props> = ({ title, neighborhood, price, price_was, descript
             <p className='text-xs'>minimum per person</p>
           </div>
 
-          <Primary label="Add to List" callback={handleClick} frosted={true} />
+          <Primary label="Add to List" callback={callback} frosted={true} />
         </div>
       </div>
     </div>

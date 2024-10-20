@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 import AccountAccess from "../buttons/AccountAccess";
 import DropMenu from '../menus/DropMenu';
 import PlainButton from '../buttons/PlainButton';
 
-const NavBar = () => {
+type Props = {
+  listItems: number;
+};
+
+const NavBar: FC<Props> = ({ listItems }) => {
   const [accountAccessToggle, setAccountAccessToggle] = useState<boolean>(false);
   const dropMenuItems = [
     [
+      <div className='flex items-center'>
+        <PlainButton title='Venue list' callback={()=>console.log('yo')} />
+        {listItems > 0 && <div className='rounded-full bg-red-600 text-xs px-2 py-1'>{listItems}</div>}
+      </div>,
       <PlainButton title='Sign up' callback={()=>console.log('yo')} />,
       <PlainButton title='Log in' callback={()=>console.log('yo')} />,
+
     ],
     [
       <PlainButton title='Gift Cards' callback={()=>console.log('yo')} />,
