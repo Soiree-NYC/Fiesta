@@ -1,14 +1,18 @@
 import { Features } from '../../shared/enums/featureDetails.ts';
+import NYCNeighborhoods from './NYC_Neighborhoods.ts';
 
-type venue = {
-  id: number;
-  name: string;
+type Venue = {
   address: string;
-  rating: number;
+  basePrice: number;
+  description: string;
   features: Features;
   host: string;
   hightlights: string[],
+  id: number;
+  name: string;
+  neighborhood: NYCNeighborhoods;
   photos: string[],
+  rating: number;
 };
 
-export type { venue };
+export type { Venue };
