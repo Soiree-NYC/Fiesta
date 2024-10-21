@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Venue } from '../../shared/types/Venue.ts';
 import { useParams } from "react-router-dom";
+
+import { Venue } from '../../shared/types/Venue.ts';
+import { Rating, VenueRating } from '../../shared/type/Rating.ts'
 
 import PhotoCase from "../ui/cards/PhotoCase";
 import QuickInfo from "../ui/cards/QuickInfo";
@@ -12,6 +14,7 @@ import Features from "../ui/cards/Features.tsx";
 const VenueDetails = () => {
   const [loading, setLoading] = useState(false);
   const [venue, setVenue] = useState<Venue | null>(null);
+  const [venueRating, setVenueRating] = useState<VenueRating | null>(null);
   const [error, setError] = useState(null);
   const { id } = useParams<{id: string}>();
 
@@ -19,13 +22,34 @@ const VenueDetails = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch('/data/venues.json');
-        if (!response.ok) throw new Error('Network response was not ok');
-        const jsonData: Venue[] = await response.json();
+        // Fetch venue data
+        const venueResponse = await fetch('/data/venues.json');
+        if (!venueResponse.ok) throw new Error('Network response was not ok');
+        const venueData: Venue[] = await venueResponse.json();
 
-        const foundVenue = jsonData.find(v => v.id === parseInt(id || '', 10));
+        const foundVenue = venueData.find(v => v.id === parseInt(id || '', 10));
         if (!foundVenue) throw new Error('Venue not found');
         setVenue(foundVenue);
+
+        // Fetch ratings data
+        const ratingsResponse = await fetch('/data/ratings.json');
+        if (!ratingsResponse.ok) throw new Error('Network response was not ok');
+        const ratingsData = await ratingsResponse.json();
+
+        // Filter ratings by the venue ID
+        const venueRatings = ratingsData.filter((r: { id: number; }) => r.id === foundVenue.id);
+
+        // Calculate average rating
+        const avgRating = venueRatings.reduce((sum: number, r: { rating: Rating }) => sum + r.rating, 0) / venueRatings.length || 0;
+
+        // Create an array of rating objects without the id
+        // @ts-ignore
+        const ratingsArray = venueRatings.map(({ id, ...rest }) => rest);
+
+        // Update venueRating state
+        
+        setVenueRating({ avg: avgRating, ratings: ratingsArray });
+
       } catch (err) {
         // @ts-ignore
         setError(err.message);
@@ -33,15 +57,20 @@ const VenueDetails = () => {
         setLoading(false);
       };
     };
+
     fetchData();
   }, []);
+
+  console.log(venueRating)
 
   // Handle loading and error states
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!venue) return <div className='text-white text-roboto'>No venue found</div>;
 
-  const { name, description, photos, hallmarks, host } = venue;
+  const { name, description, photos, hallmarks, host, writeUps } = venue;
+  const { avg, ratings } = venueRating;
+
   const mainImg = photos[0];
   const secondaryImgs = photos.slice(1);
 
