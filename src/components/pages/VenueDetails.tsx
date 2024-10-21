@@ -68,11 +68,29 @@ const VenueDetails = () => {
   if (error) return <div>Error: {error}</div>;
   if (!venue) return <div className='text-white text-roboto'>No venue found</div>;
 
-  const { name, description, photos, hallmarks, host, writeUps } = venue;
+  const { 
+    name,
+    address,
+    description,
+    open_at,
+    close_at,
+    email,
+    host,
+    rating,
+    available,
+    basePrice,
+    standing,
+    sitting,
+    hallmarks,
+    photos,
+    features,
+    neighborhood,
+    writeUps,
+  } = venue;
+
   const { avg, ratings } = venueRating;
 
-  const mainImg = photos[0];
-  const secondaryImgs = photos.slice(1);
+  const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
 
   return (
     <main className="font-roboto backdrop-blur-sm">
