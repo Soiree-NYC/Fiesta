@@ -8,7 +8,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -21,7 +20,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -45,7 +54,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -58,7 +66,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -82,7 +100,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -95,7 +112,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -119,7 +146,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -132,7 +158,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -156,7 +192,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -169,7 +204,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -193,7 +238,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -206,7 +250,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -230,7 +284,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -243,7 +296,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -267,7 +330,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -280,7 +342,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -304,7 +376,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -317,7 +388,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -341,7 +422,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -354,7 +434,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -378,7 +468,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -391,7 +480,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -415,7 +514,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -428,7 +526,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -452,7 +560,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -465,7 +572,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -489,7 +606,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -502,7 +618,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -526,7 +652,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -539,7 +664,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -563,7 +698,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -576,7 +710,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -600,7 +744,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -613,7 +756,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -637,7 +790,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -650,7 +802,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -674,7 +836,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -687,7 +848,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -711,7 +882,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -724,7 +894,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
@@ -748,7 +928,6 @@
     "close_at": "0300",
     "email": "foo@foo.com",
     "host": "David Martin",
-    "rating": 4.7,
     "available": true,
     "basePrice": 200,
     "standing": 175,
@@ -761,7 +940,17 @@
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
     ],
-    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],
+    "features": [
+      "projector",
+      "mezzanine",
+      "moodLighting",
+      "soundSystem",
+      "ac",
+      "dj",
+      "parking",
+      "wiFi",
+      "balcony"
+    ],
     "neighborhood": "Upper East Side",
     "writeUps": [
       {
