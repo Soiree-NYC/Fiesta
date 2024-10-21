@@ -1,4 +1,4 @@
-const Offerings = () => {
+const Features = () => {
   return (
     <div className="grid grid-cols-2  justify-items-center gap-1 p-4">
       <div className="flex items-center gap-4">
@@ -41,4 +41,4 @@ const Offerings = () => {
   );
 };
 
-export default Offerings;
+export default Features;

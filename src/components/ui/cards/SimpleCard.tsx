@@ -6,13 +6,12 @@ type Props = {
   title: string;
   neighborhood: string;
   price: number;
-  price_was: number;
   description: string;
   image: string;
   callback: () => void;
 };
 
-const SimpleCard: FC<Props> = ({ title, neighborhood, price, price_was, description, image, callback }) => {
+const SimpleCard: FC<Props> = ({ title, neighborhood, price,  description, image, callback }) => {
   return (
     <div className='relative flex flex-col gap-1 justify-between rounded-lg mb-4 text-white border-2 border-slate-300'>
       <div className='p-3'>
@@ -27,7 +26,7 @@ const SimpleCard: FC<Props> = ({ title, neighborhood, price, price_was, descript
 
         <div className='flex justify-between'>
           <div className='flex flex-col'>
-            <p className='text-xs'>${price} <span className='text-xs line-through'>${price_was}</span></p>
+            <p className='text-xs'>${price}</p>
             <p className='text-xs'>minimum per person</p>
           </div>
 

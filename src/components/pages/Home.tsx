@@ -1,4 +1,8 @@
-import { FC, Dispatch, SetStateAction, } from 'react';
+import { 
+  FC, Dispatch, SetStateAction,
+  useState, useEffect,
+ } from 'react';
+import axios from 'axios';
 
 import SlideMenu from "../ui/inputs/SlideMenu";
 import Feed from "../ui/cards/Feed";
@@ -13,6 +17,27 @@ type Props = {
 };
 
 const Home: FC<Props> = ({ venues }) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get('data/venues.json');
+        setData(response.data);
+      } catch (err) {
+        // @ts-ignore
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   const {setter, getter} = venues;
 
   const handleClick = () => {
@@ -67,94 +92,11 @@ const Home: FC<Props> = ({ venues }) => {
     />,
   ];
 
-  const feedItems = [
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-    <SimpleCard
-      title='Hotel Beacon'
-      description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      neighborhood='UWS'
-      price={80}
-      price_was={120}
-      image='https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg'
-      callback={handleClick}
-    />,
-  ];
-
   return (
     <main className="py-5">
       <SlideMenu items={items} />
-      <Feed children={feedItems} />
+      {/* @ts-ignore */}
+      <Feed data={data} />
     </main>
   );
 };

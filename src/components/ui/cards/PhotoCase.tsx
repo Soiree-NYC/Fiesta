@@ -9,8 +9,7 @@ type Props = {
 const PhotoCase: FC<Props> = ({ title, mainImg, xImgs }) => {
   return (
     <div className="backdrop-blur-sm">
-      <div className="flex justify-between">
-        <h1 className="text-white text-2xl my-4 font-roboto">{title}</h1>
+      <div className="flex justify-end py-2">
         <div className="flex gap-5">
           <div className="flex items-center gap-1">
             <img src="https://img.icons8.com/?size=20&id=FupVmEePjs1T&format=png&color=ffffff" alt="" />

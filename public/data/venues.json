@@ -1,0 +1,264 @@
+[
+  {
+    "id": 1,
+    "name": "Grand Ballroom",
+    "address": "123 Main St, New York, NY",
+    "rating": 4.7,
+    "basePrice": 200,
+    "description": "Elegant ballroom suitable for large gatherings.",
+    "features": {
+      "projector": "Projector",
+      "mezzanine": "Upper-level seating",
+      "moodLighting": "Customizable lighting",
+      "soundSystem": "Surround sound",
+      "ac": "Central air",
+      "dj": "DJ",
+      "parking": "On-site Parking",
+      "wiFi": "Free Wi-Fi",
+      "balcony": "Balcony"
+    },
+    "host": "David Martin",
+    "hallmarks": ["Elegant décor", "Chandeliers"],
+    "neighborhood": "Upper East Side",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "The Garden Terrace",
+    "address": "456 Garden Ave, Portland, OR",
+    "rating": 4.6,
+    "basePrice": 150,
+    "description": "A serene garden venue perfect for outdoor events.",
+    "features": {
+      "outdoorSpace": "Outdoor Space",
+      "garden": "Garden",
+      "moodLighting": "Customizable lighting",
+      "ac": "Central air",
+      "catering": "In-house catering",
+      "parking": "On-site Parking"
+    },
+    "host": "Olivia Brown",
+    "hallmarks": ["Beautiful garden setting", "Perfect for weddings"],
+    "neighborhood": "DUMBO",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Skyline Rooftop",
+    "address": "789 Skyline Dr, Los Angeles, CA",
+    "rating": 4.9,
+    "basePrice": 250,
+    "description": "Rooftop venue with breathtaking views of the city.",
+    "features": {
+      "rooftop": "Roof top",
+      "soundSystem": "Surround sound",
+      "wiFi": "Free Wi-Fi",
+      "danceFloor": "Dance Floor",
+      "dj": "DJ",
+      "liveMusic": "Live Music",
+      "catering": "In-house catering"
+    },
+    "host": "Michael Johnson",
+    "hallmarks": ["Breathtaking views", "Modern décor"],
+    "neighborhood": "Midtown",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Coastal Event Hall",
+    "address": "321 Ocean Blvd, Miami, FL",
+    "rating": 4.5,
+    "basePrice": 180,
+    "description": "Spacious hall with beachfront views.",
+    "features": {
+      "projector": "Projector",
+      "moodLighting": "Customizable lighting",
+      "soundSystem": "Surround sound",
+      "ac": "Central air",
+      "dj": "DJ",
+      "parking": "On-site Parking",
+      "stage": "Stage"
+    },
+    "host": "Sophia Carter",
+    "hallmarks": ["Beachfront views", "Spacious hall"],
+    "neighborhood": "South Beach",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Mountain Lodge",
+    "address": "654 Peak Rd, Denver, CO",
+    "rating": 4.8,
+    "basePrice": 220,
+    "description": "Rustic venue with stunning mountain views.",
+    "features": {
+      "fireplace": "Fireplace",
+      "outdoorSpace": "Outdoor Space",
+      "lawn": "Lawn",
+      "soundSystem": "Surround sound",
+      "ac": "Central air",
+      "liveMusic": "Live Music",
+      "catering": "In-house catering"
+    },
+    "host": "James Peterson",
+    "hallmarks": ["Rustic mountain views", "Warm fireplace"],
+    "neighborhood": "Aspen",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Urban Art Space",
+    "address": "987 Art St, Chicago, IL",
+    "rating": 4.6,
+    "basePrice": 170,
+    "description": "A unique venue featuring local art and vibrant atmosphere.",
+    "features": {
+      "projector": "Projector",
+      "soundSystem": "Surround sound",
+      "wiFi": "Free Wi-Fi",
+      "catering": "In-house catering",
+      "parking": "On-site Parking"
+    },
+    "host": "Emma Taylor",
+    "hallmarks": ["Vibrant art displays", "Perfect for creative events"],
+    "neighborhood": "Wicker Park",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Charming Barn",
+    "address": "135 Country Rd, Nashville, TN",
+    "rating": 4.5,
+    "basePrice": 160,
+    "description": "Rustic barn venue perfect for intimate gatherings.",
+    "features": {
+      "outdoorSpace": "Outdoor Space",
+      "soundSystem": "Surround sound",
+      "wiFi": "Free Wi-Fi",
+      "catering": "In-house catering",
+      "parking": "On-site Parking"
+    },
+    "host": "Noah Williams",
+    "hallmarks": ["Charming rustic feel", "Beautiful surroundings"],
+    "neighborhood": "Franklin",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Luxury Yacht",
+    "address": "246 Ocean Dr, San Diego, CA",
+    "rating": 4.9,
+    "basePrice": 290,
+    "description": "Host your event on a luxury yacht with stunning ocean views.",
+    "features": {
+      "outdoorSpace": "Outdoor Space",
+      "moodLighting": "Customizable lighting",
+      "soundSystem": "Surround sound",
+      "catering": "In-house catering",
+      "dj": "DJ",
+      "parking": "Valet Parking"
+    },
+    "host": "Ava Martin",
+    "hallmarks": ["Ocean views", "Luxury experience"],
+    "neighborhood": "Gaslamp Quarter",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Historic Theater",
+    "address": "357 Arts Ave, Philadelphia, PA",
+    "rating": 4.7,
+    "basePrice": 230,
+    "description": "An old-world theater perfect for dramatic events.",
+    "features": {
+      "stage": "Stage",
+      "soundSystem": "Surround sound",
+      "wiFi": "Free Wi-Fi",
+      "catering": "In-house catering",
+      "parking": "On-site Parking"
+    },
+    "host": "Liam Anderson",
+    "hallmarks": ["Historic charm", "Perfect for performances"],
+    "neighborhood": "Old City",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Zen Retreat",
+    "address": "864 Calm Way, Sedona, AZ",
+    "rating": 4.8,
+    "basePrice": 260,
+    "description": "A peaceful retreat perfect for meditation and relaxation.",
+    "features": {
+      "outdoorSpace": "Outdoor Space",
+      "garden": "Garden",
+      "lawn": "Lawn",
+      "wiFi": "Free Wi-Fi",
+      "catering": "In-house catering"
+    },
+    "host": "Ella White",
+    "hallmarks": ["Tranquil environment", "Perfect for retreats"],
+    "neighborhood": "Red Rock",
+    "photos": [
+      "https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNnuTBiDHJxbthSFW_mHc6HhdKD6CvKbN-vqmoj=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
+      "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ]
+  }
+]
