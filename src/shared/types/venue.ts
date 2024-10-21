@@ -1,12 +1,13 @@
-import { FeatureKeys } from '../enums/featureDetails.ts';
+import { FeatureKeys } from '../enums/Feature.ts';
 import NYCNeighborhoods from './NYC_Neighborhoods.ts';
+import { Time } from './Time.ts';
 import { WriteUps } from './WriteUps.ts';
-
 
 type Venue = {
   address: string;
   basePrice: number;
   description: string;
+  email: string;
   features: FeatureKeys[];
   host: string;
   hallmarks: string[],
@@ -16,6 +17,11 @@ type Venue = {
   photos: string[],
   rating: number;
   reviews: number;
+  standing: number;
+  sitting: number;
+  available: boolean;
+  open_at: Time;
+  close_at: Time;
   writeUps: WriteUps;
 };
 

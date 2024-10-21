@@ -6,17 +6,7 @@
     "rating": 4.7,
     "basePrice": 200,
     "description": "Elegant ballroom suitable for large gatherings.",
-    "features": {
-      "projector": "Projector",
-      "mezzanine": "Upper-level seating",
-      "moodLighting": "Customizable lighting",
-      "soundSystem": "Surround sound",
-      "ac": "Central air",
-      "dj": "DJ",
-      "parking": "On-site Parking",
-      "wiFi": "Free Wi-Fi",
-      "balcony": "Balcony"
-    },
+    "features": ["projector", "mezzanine", "moodLighting", "soundSystem", "ac", "dj", "parking", "wiFi", "balcony"],,
     "host": "David Martin",
     "hallmarks": ["Elegant décor", "Chandeliers"],
     "neighborhood": "Upper East Side",
@@ -26,6 +16,18 @@
       "https://lh3.googleusercontent.com/p/AF1QipNasiiio_HtpVIaHV-WMHNi6Fb-TRh-CmQizTww=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNkpiTO_2alAejhy34k1Ak10YaYh4pAox32qt98=s680-w680-h510",
       "https://lh3.googleusercontent.com/p/AF1QipNlG1trQ67Jy5b9Rq6--QJBCZZDSWw8p3OpQoIK=s680-w680-h510"
+    ],
+    "writeUps": [
+      {
+        "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
+        "publication": "Cozymeal",
+        "date": "June, 2024"
+      },
+      {
+        "src": "https://www.theinfatuation.com/new-york/reviews/the-folly",
+        "publication": "The Infatuation",
+        "date": "May, 2018"
+      }
     ]
   },
   {

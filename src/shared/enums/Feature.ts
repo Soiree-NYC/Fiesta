@@ -19,12 +19,12 @@ type FeatureKeys =
   | 'fireplace'
   ;
 
-type FeatureDetail = {
+type FeatureValue = {
   description: string;
   imgSrc: string;
 };
 
-const FeatureDetails: Record<FeatureKeys, FeatureDetail> = {
+const features: Record<FeatureKeys, FeatureValue> = {
   bespokeMenu: {
     description: 'Bespoke Menu',
     imgSrc: 'https://img.icons8.com/?size=100&id=36068&format=png&color=ffffff',
@@ -99,5 +99,5 @@ const FeatureDetails: Record<FeatureKeys, FeatureDetail> = {
   },
 };
 
-export { FeatureDetails };
-export type { FeatureKeys, FeatureDetail };
+export { features };
+export type { FeatureKeys, FeatureValue };

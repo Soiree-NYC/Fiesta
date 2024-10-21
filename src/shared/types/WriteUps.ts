@@ -1,5 +1,11 @@
+type Publication = {
+  src: string;
+  publication: string;
+  date: string;
+};
+
 type WriteUps = {
-  links: string[];
+  links: Publication[];
   date: string;
 };
 
