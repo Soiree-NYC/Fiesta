@@ -1,4 +1,4 @@
-import { useState, useEffect, } from 'react';
+import { useState, useEffect } from 'react';
 import { Venue } from '../../shared/types/venue';
 import { useParams } from "react-router-dom";
 
@@ -22,19 +22,16 @@ const VenueDetails = () => {
         const response = await fetch('/data/venues.json');
         if (!response.ok) throw new Error('Network response was not ok');
         const jsonData: Venue[] = await response.json();
-        console.log(jsonData)
-        console.log('yo')
 
         const foundVenue = jsonData.find(v => v.id === parseInt(id || '', 10));
         if (!foundVenue) throw new Error('Venue not found');
-        console.log(foundVenue)
         setVenue(foundVenue);
       } catch (err) {
         // @ts-ignore
         setError(err.message);
       } finally {
         setLoading(false);
-      }
+      };
     };
     fetchData();
   }, []);
