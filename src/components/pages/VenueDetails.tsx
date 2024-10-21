@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Venue } from '../../shared/types/venue';
+import { Venue } from '../../shared/types/Venue.ts';
 import { useParams } from "react-router-dom";
 
 import PhotoCase from "../ui/cards/PhotoCase";

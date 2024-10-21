@@ -1,5 +1,7 @@
-import { FeatureKeys } from '../../shared/enums/featureDetails.ts';
+import { FeatureKeys } from '../enums/featureDetails.ts';
 import NYCNeighborhoods from './NYC_Neighborhoods.ts';
+import { WriteUps } from './WriteUps.ts';
+
 
 type Venue = {
   address: string;
@@ -14,7 +16,7 @@ type Venue = {
   photos: string[],
   rating: number;
   reviews: number;
-  writeUps: string[];
+  writeUps: WriteUps;
 };
 
 export type { Venue };

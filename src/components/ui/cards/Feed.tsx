@@ -1,5 +1,5 @@
 import { FC, } from 'react';
-import { Venue } from '../../../shared/types/venue';
+import { Venue } from '../../../shared/types/Venue';
 import { useNavigate } from 'react-router-dom';
 
 import SimpleCard from './SimpleCard';
