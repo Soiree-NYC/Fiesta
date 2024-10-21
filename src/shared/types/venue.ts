@@ -13,6 +13,8 @@ type Venue = {
   neighborhood: NYCNeighborhoods;
   photos: string[],
   rating: number;
+  reviews: number;
+  writeUps: string[];
 };
 
 export type { Venue };
