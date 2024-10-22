@@ -8,7 +8,7 @@ const CheckoutConfig = () => {
   const [guests, setGuests] = useState<number>(10);
 
   return (
-    <div className='flex flex-col border rounded-2xl bg-slate-100 p-6 gap-2'>
+    <div className='flex flex-col border rounded-2xl bg-slate-100 p-6 gap-2 h-[30rem]'>
       <div className='self-start flex'>
         <h1 className='text-3xl font-bold'>$80</h1>
         <p className='self-end'>/guest</p>
