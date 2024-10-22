@@ -36,20 +36,7 @@
       "desserts",
       "vegetarian",
       "glutenFree",
-      "nutFree",
-      "dairyFree",
-      "kosher",
-      "halal",
-      "lowSodium",
-      "lowSugar",
-      "allergenInfo",
-      "customizableMenu",
-      "paleo",
-      "keto",
-      "whole30",
-      "lowCalorie",
-      "diabetic",
-      "coldStorageSpace"
+      "nutFree"
     ],
     "neighborhood": "Upper East Side",
     "writeUps": [
