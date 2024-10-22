@@ -10,6 +10,7 @@ import HostInfo from "../ui/cards/HostInfo";
 import CheckoutConfig from "../ui/cards/CheckoutConfig";
 import Highlights from "../ui/cards/Highlights";
 import Features from "../ui/cards/Features.tsx";
+import { menuOptions } from '../../shared/types/MenuOptions.ts';
 
 const VenueDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -56,8 +57,6 @@ const VenueDetails = () => {
     fetchData();
   }, []);
 
-  console.log(venueRating)
-
   // Handle loading and error states
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -79,11 +78,10 @@ const VenueDetails = () => {
     hallmarks,
     photos,
     features,
+    menuOptions,
     neighborhood,
     writeUps,
   } = venue;
-
-  const { avg, ratings } = venueRating;
 
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
 
@@ -101,12 +99,13 @@ const VenueDetails = () => {
               name={name}
               open_at={open_at}
               close_at={close_at}
-              avg={avg}
+              //@ts-ignore
+              avg={venueRating.avg}
               neighborhood={neighborhood}
               />
             <HostInfo host={host} />
             <hr />
-            <Highlights writeUps={writeUps} />
+            <Highlights writeUps={writeUps} options={menuOptions} />
             <hr className="text-white" />
             <Features />
           </div>

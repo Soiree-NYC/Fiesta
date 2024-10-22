@@ -21,7 +21,7 @@ const QuickInfo: FC<Prop> = ({ description, desx, name, open_at, close_at, avg, 
       <h3 className="text-lg text-white">{description}</h3>
       <div className="flex flex-row gap-1">
         {desx.map((des, i) => (
-          <div className="flex justify-center text-white gap-1">
+          <div key={i} className="flex justify-center text-white gap-1">
             <p className="text-white self-stretch text-lg mb-4">{des}</p>
             {i < desx.length - 1 && (<span className="text-3xl">•</span>)}
           </div>

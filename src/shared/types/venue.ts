@@ -1,4 +1,5 @@
 import { FeatureKeys } from '../enums/Feature.ts';
+import { MenuOptionsKeys } from './MenuOptions.ts';
 import NYCNeighborhoods from './NYC_Neighborhoods.ts';
 import { Time } from './Time.ts';
 import { Publication } from './WriteUps.ts';
@@ -20,6 +21,7 @@ type Venue = {
   hallmarks: string[],
   photos: string[],
   features: FeatureKeys[];
+  menuOptions: MenuOptionsKeys[];
   neighborhood: NYCNeighborhoods;
   writeUps: Publication[];
 };
