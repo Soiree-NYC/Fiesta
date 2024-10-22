@@ -13,7 +13,7 @@ const Highlights: FC<Props> = ({ writeUps, options }) => {
   return (
     <div className="flex flex-col gap-5 justify-around text-slate-white">
       <div className="flex flex-col gap-1">
-        <div className="flex gap-1">
+        <div className="flex gap-2">
           <div className="w-6">
             <img src="https://img.icons8.com/?size=100&id=IzYXNYBBP9ql&format=png&color=ffffff" alt="" />
           </div>

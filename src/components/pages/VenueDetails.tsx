@@ -10,7 +10,6 @@ import HostInfo from "../ui/cards/HostInfo";
 import CheckoutConfig from "../ui/cards/CheckoutConfig";
 import Highlights from "../ui/cards/Highlights";
 import Features from "../ui/cards/Features.tsx";
-import { menuOptions } from '../../shared/types/MenuOptions.ts';
 
 const VenueDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -107,7 +106,7 @@ const VenueDetails = () => {
             <hr />
             <Highlights writeUps={writeUps} options={menuOptions} />
             <hr className="text-white" />
-            <Features />
+            <Features features={features} />
           </div>
           <CheckoutConfig />
         </div>
