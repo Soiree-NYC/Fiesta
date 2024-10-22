@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
 import { Venue } from '../../shared/types/Venue.ts';
-import { Rating, VenueRating } from '../../shared/type/Rating.ts'
+import { Rating, VenueRating } from '../../shared/types/Rating.ts'
 
 import PhotoCase from "../ui/cards/PhotoCase";
 import QuickInfo from "../ui/cards/QuickInfo";
@@ -36,18 +36,13 @@ const VenueDetails = () => {
         if (!ratingsResponse.ok) throw new Error('Network response was not ok');
         const ratingsData = await ratingsResponse.json();
 
-        // Filter ratings by the venue ID
         const venueRatings = ratingsData.filter((r: { id: number; }) => r.id === foundVenue.id);
-
-        // Calculate average rating
-        const avgRating = venueRatings.reduce((sum: number, r: { rating: Rating }) => sum + r.rating, 0) / venueRatings.length || 0;
+        //@ts-ignore
+        const avgRating = Math.round(venueRatings.reduce((sum: number, r: { rating: Rating }) => sum + r.rating, 0) / venueRatings.length * 100)/100 || 0;
 
         // Create an array of rating objects without the id
         // @ts-ignore
         const ratingsArray = venueRatings.map(({ id, ...rest }) => rest);
-
-        // Update venueRating state
-        
         setVenueRating({ avg: avgRating, ratings: ratingsArray });
 
       } catch (err) {
@@ -106,10 +101,12 @@ const VenueDetails = () => {
               name={name}
               open_at={open_at}
               close_at={close_at}
+              avg={avg}
+              neighborhood={neighborhood}
               />
             <HostInfo host={host} />
             <hr />
-            <Highlights />
+            <Highlights writeUps={writeUps} />
             <hr className="text-white" />
             <Features />
           </div>

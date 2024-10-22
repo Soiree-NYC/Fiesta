@@ -4,9 +4,4 @@ type Publication = {
   date: string;
 };
 
-type WriteUps = {
-  links: Publication[];
-  date: string;
-};
-
-export type { WriteUps };
+export type { Publication };

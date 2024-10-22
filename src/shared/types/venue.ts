@@ -1,7 +1,7 @@
 import { FeatureKeys } from '../enums/Feature.ts';
 import NYCNeighborhoods from './NYC_Neighborhoods.ts';
 import { Time } from './Time.ts';
-import { WriteUps } from './WriteUps.ts';
+import { Publication } from './WriteUps.ts';
 
 type Venue = {
   id: number;
@@ -21,7 +21,7 @@ type Venue = {
   photos: string[],
   features: FeatureKeys[];
   neighborhood: NYCNeighborhoods;
-  writeUps: WriteUps;
+  writeUps: Publication[];
 };
 
 export type { Venue };

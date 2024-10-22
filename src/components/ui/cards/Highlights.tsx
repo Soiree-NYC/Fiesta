@@ -1,4 +1,13 @@
-const Highlights = () => {
+import { Link } from 'react-router-dom';
+
+import { FC } from 'react';
+import { Publication } from '../../../shared/types/WriteUps';
+
+type Props = {
+  writeUps: Publication[];
+};
+
+const Highlights: FC<Props> = ({ writeUps }) => {
   return (
     <div className="flex justify-around text-slate-white">
       <div className="flex flex-col gap-1">
@@ -8,12 +17,10 @@ const Highlights = () => {
           </div>
           <strong>Featured in</strong>
         </div>
-        <div className="flex flex-col gap-2">
-          <div className="text-sm text-slate-400">
-            <p>Cozymeal, June 2024</p>
-            <p>Outlook, Jan 2024</p>
-            <p>The Infatuation, May 2018</p>
-          </div>
+        <div className="flex flex-col text-sm text-slate-400">
+          {writeUps.map((item: Publication, index: number) => (
+            <Link key={index} to={item.src}>{item.publication}, {item.date}</Link>
+         ))}
         </div>
       </div>
 
