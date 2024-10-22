@@ -63,17 +63,12 @@ const VenueDetails = () => {
 
   const {
     name,
-    address,
     description,
     open_at,
     close_at,
-    email,
     host,
-    rating,
-    available,
     basePrice,
     standing,
-    sitting,
     hallmarks,
     photos,
     features,
@@ -83,7 +78,6 @@ const VenueDetails = () => {
   } = venue;
 
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
-
 
   return (
     <main className="font-roboto backdrop-blur-sm">
@@ -108,7 +102,7 @@ const VenueDetails = () => {
             <hr className="text-white" />
             <Features features={features} />
           </div>
-          <CheckoutConfig />
+          <CheckoutConfig basePrice={basePrice} standing={standing} />
         </div>
       </div>
     </main>
