@@ -68,7 +68,7 @@ const VenueDetails = () => {
   if (error) return <div>Error: {error}</div>;
   if (!venue) return <div className='text-white text-roboto'>No venue found</div>;
 
-  const { 
+  const {
     name,
     address,
     description,
@@ -92,6 +92,7 @@ const VenueDetails = () => {
 
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
 
+
   return (
     <main className="font-roboto backdrop-blur-sm">
       <div className="flex flex-col gap-10">
@@ -99,7 +100,13 @@ const VenueDetails = () => {
 
         <div className="grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
           <div className="p-4 flex flex-col gap-5 text-white">
-            <QuickInfo description={description} desx={hallmarks} name={name}/>
+            <QuickInfo
+              description={description}
+              desx={hallmarks}
+              name={name}
+              open_at={open_at}
+              close_at={close_at}
+              />
             <HostInfo host={host} />
             <hr />
             <Highlights />
