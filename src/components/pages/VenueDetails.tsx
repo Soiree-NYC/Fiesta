@@ -80,7 +80,7 @@ const VenueDetails = () => {
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
 
   return (
-    <main className="font-roboto backdrop-blur-sm">
+    <main className="font-roboto backdrop-blur-sm p-8">
       <div className="flex flex-col gap-10">
         <PhotoCase title={name} mainImg={mainImg} xImgs={secondaryImgs} />
 

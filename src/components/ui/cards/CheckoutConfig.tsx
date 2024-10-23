@@ -27,19 +27,17 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
   };
 
   return (
-    <>
-      <div className="flex text-white">
+    <div className='flex flex-col'>
       <div className="flex text-white">
         {packages.map(({ name, color }) => (
           <div
             key={name}
-            className={`${color} h-12 rounded-t-2xl w-52 flex justify-center items-center text-2xl font-roboto cursor-pointer`}
+            className={`${color} h-12 rounded-t-2xl w-dvw flex justify-center items-center text-2xl font-roboto cursor-pointer`}
             style={{ opacity: packageFocus === name ? 1 : 0.5 }}
             onClick={() => setPackageFocus(name)}>
             <h1>{name}</h1>
           </div>
         ))}
-      </div>
       </div>
 
       <div className={`flex flex-col  rounded-b-2xl ${parsePackages()} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2 h-[30rem]`}>
@@ -91,7 +89,7 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
           <strong>${guests * 80 + ((guests * basePrice)/100)*20}</strong>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
