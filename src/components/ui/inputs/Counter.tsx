@@ -11,17 +11,15 @@ type Props = {
 
 const Counter: FC<Props> = ({ count, setCount, min, max }) => {
   const handleMinus = () => {
-    if (count <= min) {
-      alert(`${min} is the minimum number allowed`);
-      setCount(min);
-    } else setCount(count - 1);
+    if (count <= min) setCount(min)
+      else if (count > max) setCount(max)
+      else setCount(count - 1);
   };
 
   const handlePlus = () => {
-    if (count >= max) {
-      alert(`${max} is the maximum number allowed`);
-      setCount(max);
-    } else setCount(count + 1);
+    if (count >= max) setCount(min)
+      else if (count < min) setCount(min)
+      else setCount(count + 1);
   };
 
   return (
