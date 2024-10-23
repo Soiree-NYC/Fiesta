@@ -16,12 +16,20 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
 
   return (
     <>
-      <div className="flex">
-        <div className='bg-red-500 h-12 rounded-t-2xl w-1/3 z-0'/>
-        <div className='bg-green-300 h-12 rounded-t-2xl w-1/3 z-0'/>
-        <div className='bg-yellow-100 h-12 rounded-t-2xl w-1/3 z-0'/>
-        
+      <div className="flex text-white">
+        <div className='bg-olive_r_1 h-12 rounded-t-2xl w-1/3 z-0 flex flex-center justify-center items-center text-2xl font-roboto'>
+          <h1>Limited</h1>
+        </div>
+
+        <div className='bg-olive_r_2 h-12 rounded-t-2xl w-1/3 z-0 flex flex-center justify-center items-center text-2xl font-roboto'>
+          <h1>Recommended</h1>
+        </div>
+
+        <div className='bg-olive_r_3 h-12 rounded-t-2xl w-1/3 z-0 flex flex-center justify-center items-center text-2xl font-roboto'>
+          <h1>Soirée</h1>
+        </div>
       </div>
+      
 
       <div className='flex flex-col border rounded-b-2xl bg-slate-100 p-6 gap-2 h-[30rem]'>
         <div className='self-start flex'>
