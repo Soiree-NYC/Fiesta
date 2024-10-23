@@ -1,4 +1,4 @@
-import { FC, Dispatch, SetStateAction } from 'react';
+import { FC, Dispatch, SetStateAction, useEffect } from 'react';
 
 import RoundedButton from '../buttons/RoundedButton';
 
@@ -10,6 +10,10 @@ type Props = {
 };
 
 const Counter: FC<Props> = ({ count, setCount, min, max }) => {
+  useEffect(() => {
+    setCount(min)
+  },[min]);
+
   const handleMinus = () => {
     if (count <= min) setCount(min)
       else if (count > max) setCount(max)

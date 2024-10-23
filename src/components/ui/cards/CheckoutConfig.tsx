@@ -96,7 +96,7 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
             </div>
             <div className='flex justify-between'>
               <span className='px-1'>Gratuity</span>
-              <span className='px-1'>${((guests * parsePackages('basePrice'))/100)*20}</span>
+              <span className='px-1'>${((guests * parsePackages('basePrice'))/100)*18}</span>
             </div>
             <div className='flex justify-between'>
               <span className='px-1 line-through'>Service fee</span>
