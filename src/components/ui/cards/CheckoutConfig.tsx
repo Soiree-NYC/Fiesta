@@ -13,25 +13,36 @@ type Props = {
 
 const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
   const [guests, setGuests] = useState<number>(10);
+  const [packageFocus, setPackageFocus] = useState<string>("Limited");
+
+  const packages = [
+    { name: 'Limited', color: 'bg-olive_r_1' },
+    { name: 'Recommended', color: 'bg-olive_r_2' },
+    { name: 'Soirée', color: 'bg-olive_r_3' },
+  ];
+
+  const parsePackages = () => {
+    const  color  =  packages.find((packageItem) => packageItem.name === packageFocus);
+    return color?.color;
+  };
 
   return (
     <>
       <div className="flex text-white">
-        <div className='bg-olive_r_1 h-12 rounded-t-2xl w-1/3 z-0 flex flex-center justify-center items-center text-2xl font-roboto'>
-          <h1>Limited</h1>
-        </div>
-
-        <div className='bg-olive_r_2 h-12 rounded-t-2xl w-1/3 z-0 flex flex-center justify-center items-center text-2xl font-roboto'>
-          <h1>Recommended</h1>
-        </div>
-
-        <div className='bg-olive_r_3 h-12 rounded-t-2xl w-1/3 z-0 flex flex-center justify-center items-center text-2xl font-roboto'>
-          <h1>Soirée</h1>
-        </div>
+      <div className="flex text-white">
+        {packages.map(({ name, color }) => (
+          <div
+            key={name}
+            className={`${color} h-12 rounded-t-2xl w-52 flex justify-center items-center text-2xl font-roboto cursor-pointer`}
+            style={{ opacity: packageFocus === name ? 1 : 0.5 }}
+            onClick={() => setPackageFocus(name)}>
+            <h1>{name}</h1>
+          </div>
+        ))}
       </div>
-      
+      </div>
 
-      <div className='flex flex-col border rounded-b-2xl bg-slate-100 p-6 gap-2 h-[30rem]'>
+      <div className={`flex flex-col  rounded-b-2xl ${parsePackages()} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2 h-[30rem]`}>
         <div className='self-start flex'>
           <h1 className='text-3xl font-bold'>${basePrice}</h1>
           <p className='self-end'>/guest</p>
