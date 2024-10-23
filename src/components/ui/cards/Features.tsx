@@ -12,7 +12,7 @@ const Features: FC<Props> = ({ features }) => {
         <img src='https://img.icons8.com/?size=20&id=7856&format=png&color=ffffff'/>
         <strong className='text-xl'>Amenities</strong>
       </div>
-      <div className="flex items-center flex-wrap gap-2 text-sm">
+      <div className="flex items-center flex-wrap gap-1 text-sm">
         {features.map((feature, i) => {
           const { src, description } = featureDetails[feature];
 

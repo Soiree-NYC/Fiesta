@@ -33,7 +33,7 @@ const Highlights: FC<Props> = ({ writeUps, options }) => {
           </div>
           <strong className='text-xl'>Menu options</strong>
         </div>
-        <div className="flex items-center gap-2 text-sm text-slate-300">
+        <div className="flex flex-wrap items-center gap-1 text-sm text-slate-300">
           {options.map((item, i) => {
             const menuItem = menuOptions[item];
             const option_name = menuOptions[item].option;
