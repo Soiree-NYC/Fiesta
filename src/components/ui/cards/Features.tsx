@@ -1,41 +1,27 @@
-const Features = () => {
+import { FC } from 'react';
+import { FeatureKeys, features as featureDetails } from '../../../shared/enums/Feature';
+
+type Props = {
+  features: FeatureKeys[];
+};
+
+const Features: FC<Props> = ({ features }) => {
   return (
-    <div className="grid grid-cols-2  justify-items-center gap-1 p-4">
-      <div className="flex items-center gap-4">
-        <div className="w-6">
-          <img src="https://img.icons8.com/?size=100&id=11263&format=png&color=ffffff" alt="" />
-        </div>
-        <p>Projector</p>
+    <div className='flex flex-col gap-2'>
+      <div className='flex gap-2'>
+        <img src='https://img.icons8.com/?size=20&id=7856&format=png&color=ffffff'/>
+        <strong className='text-xl'>Amenities</strong>
       </div>
-      <div className="flex items-center gap-4">
-        <div className="w-6">
-          <img src="https://img.icons8.com/?size=100&id=26131&format=png&color=ffffff" alt="" />
-        </div>
-        <p>Vintage photobooth</p>
-      </div>
-      <div className="flex items-center gap-4">
-        <div className="w-6">
-          <img src="https://img.icons8.com/?size=100&id=23585&format=png&color=ffffff" alt="" />
-        </div>
-        <p>AC - Central Air</p>
-      </div>
-      <div className="flex items-center gap-4">
-        <div className="w-6">
-          <img src="https://img.icons8.com/?size=100&id=Hwom08A3Vybf&format=png&color=ffffff" alt="" />
-        </div>
-        <p>Mood lighting</p>
-      </div>
-      <div className="flex items-center gap-4">
-        <div className="w-6">
-          <img src="https://img.icons8.com/?size=100&id=36068&format=png&color=ffffff" alt="" />
-        </div>
-        <p>Bespoke menu</p>
-      </div>
-      <div className="flex items-center gap-4">
-        <div className="w-6">
-          <img src="https://img.icons8.com/?size=100&id=9390&format=png&color=ffffff" alt="" />
-        </div>
-        <p>DJ</p>
+      <div className="flex items-center flex-wrap gap-1 text-sm">
+        {features.map((feature, i) => {
+          const { src, description } = featureDetails[feature];
+
+          return (
+            <div key={i} className='flex justify-center mt-2 px-2 py-2 border rounded-full'>
+              <img src={src} alt="" />
+              <span className='ml-2'>{description}</span>
+            </div>
+          )})}
       </div>
     </div>
   );

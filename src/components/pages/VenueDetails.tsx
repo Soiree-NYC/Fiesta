@@ -10,7 +10,6 @@ import HostInfo from "../ui/cards/HostInfo";
 import CheckoutConfig from "../ui/cards/CheckoutConfig";
 import Highlights from "../ui/cards/Highlights";
 import Features from "../ui/cards/Features.tsx";
-import { menuOptions } from '../../shared/types/MenuOptions.ts';
 
 const VenueDetails = () => {
   const [loading, setLoading] = useState(false);
@@ -64,17 +63,12 @@ const VenueDetails = () => {
 
   const {
     name,
-    address,
     description,
     open_at,
     close_at,
-    email,
     host,
-    rating,
-    available,
     basePrice,
     standing,
-    sitting,
     hallmarks,
     photos,
     features,
@@ -85,9 +79,8 @@ const VenueDetails = () => {
 
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
 
-
   return (
-    <main className="font-roboto backdrop-blur-sm">
+    <main className="font-roboto backdrop-blur-sm p-8">
       <div className="flex flex-col gap-10">
         <PhotoCase title={name} mainImg={mainImg} xImgs={secondaryImgs} />
 
@@ -107,9 +100,9 @@ const VenueDetails = () => {
             <hr />
             <Highlights writeUps={writeUps} options={menuOptions} />
             <hr className="text-white" />
-            <Features />
+            <Features features={features} />
           </div>
-          <CheckoutConfig />
+          <CheckoutConfig basePrice={basePrice} standing={standing} />
         </div>
       </div>
     </main>

@@ -11,39 +11,40 @@ type Props = {
 
 const Highlights: FC<Props> = ({ writeUps, options }) => {
   return (
-    <div className="flex justify-around text-slate-white">
+    <div className="flex flex-col gap-5 justify-around text-slate-white">
       <div className="flex flex-col gap-1">
-        <div className="flex gap-1">
+        <div className="flex gap-2">
           <div className="w-6">
-            <img src="https://img.icons8.com/?size=50&id=532&format=png&color=ffffff" alt="" />
+            <img src="https://img.icons8.com/?size=100&id=IzYXNYBBP9ql&format=png&color=ffffff" alt="" />
           </div>
-          <strong>Featured in</strong>
+          <strong className='text-xl'>Featured in</strong>
         </div>
-        <div className="flex flex-col text-sm text-slate-400">
+        <div className="flex flex-col text-sm text-slate-300">
           {writeUps.map((item: Publication, index: number) => (
             <Link key={index} to={item.src}>{item.publication}, {item.date}</Link>
          ))}
         </div>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <div className="flex gap-1">
           <div className="w-6">
-            <img src="https://img.icons8.com/?size=100&id=611&format=png&color=ffffff" alt="" />
+            <img src="https://img.icons8.com/?size=100&id=10732&format=png&color=ffffff" alt="" />
           </div>
-          <strong>Menu options</strong>
+          <strong className='text-xl'>Menu options</strong>
         </div>
-        <div className="flex flex-col gap-0 text-sm text-slate-400">
+        <div className="flex flex-wrap items-center gap-1 text-sm text-slate-300">
           {options.map((item, i) => {
-            const menuItem = menuOptions[item]
+            const menuItem = menuOptions[item];
+            const option_name = menuOptions[item].option;
             if (!menuItem) return null;
+            const {src} = menuItem;
 
-            const {src} = menuItem
             return (
-            <div key={i} className='flex items-center gap-1 mt-2'>
-              {menuOptions && <img src={src} alt="" />}
-              <span>{item}</span>
-            </div>)}
+              <div key={i} className='flex mt-2 p-2 border rounded-full'>
+                <img src={src} alt="" />
+                <span className='ml-2'>{option_name}</span>
+              </div>)}
           )}
         </div>
       </div>
