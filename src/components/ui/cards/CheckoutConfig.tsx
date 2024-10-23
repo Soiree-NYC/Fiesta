@@ -13,6 +13,8 @@ type Props = {
 
 const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
   const [guests, setGuests] = useState<number>(10);
+  const [time, setTime] = useState<{start: string, end: string}>({start: '00:00', end: '00:00'}
+  );
   const [packageFocus, setPackageFocus] = useState<string>("Limited");
 
   const packages = [
@@ -72,12 +74,12 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
         <div className='border rounded-2xl flex flex-col'>
           <div className='grid grid-cols-2'>
             <div className='flex flex-col border-r-2 p-2'>
-              <span className="text-sm self-start px-1">SOIR&#201;E</span>
-              <Time />
+              <span className="text-sm self-start px-1">START</span>
+              <Time time={time} setTime={setTime}/>
             </div>
             <div className="flex flex-col p-2">
-              <span className="text-sm self-start px-1">AFTERPARTY</span>
-              <Time />
+              <span className="text-sm self-start px-1">END</span>
+              <Time time={time} setTime={setTime}/>
             </div>
           </div>
           <div className="border-t-2 p-2 flex justify-between items-center">
