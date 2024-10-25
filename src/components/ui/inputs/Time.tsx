@@ -5,8 +5,7 @@ type Props = {
   setTime: Dispatch<SetStateAction<{start: string, end: string}>>;
 };
 
-const Time: FC<Props> = ({ time, setTime }) => {
-  console.log(time, setTime);
+const Time: FC<Props> = () => {
   return (
     <div className="text-sm">
       <select className='bg-transparent' name="time">

@@ -36,7 +36,7 @@ const Highlights: FC<Props> = ({ writeUps, options }) => {
         <div className="flex flex-wrap items-center gap-1 text-sm text-slate-300">
           {options.map((item, i) => {
             const menuItem = menuOptions[item];
-            const option_name = menuOptions[item].option;
+            const option_name = menuOptions[item]?.option;
             if (!menuItem) return null;
             const {src} = menuItem;
 

@@ -1,4 +1,5 @@
 import { FC, } from 'react';
+// @ts-ignore
 import { Venue } from '../../../shared/types/Venue';
 import { useNavigate } from 'react-router-dom';
 
