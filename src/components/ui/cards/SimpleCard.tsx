@@ -19,7 +19,7 @@ const SimpleCard: FC<Props> = ({ title, neighborhood, price,  description, image
         <p className='text-xs'>{neighborhood}</p>
       </div>
 
-      <img src={image} className='h-4/5 object-cover rounded-b-md'/>
+      <img src={image} className='h-4/5 object-cover rounded-b-md' />
 
       <div className='absolute flex flex-col gap-3 p-3 bottom-0 z-20 bg-gradient-to-t from-black/100 to-transparent rounded-b-md w-full'>
         <p className='text-xs/[10px]'>{description}</p>
@@ -30,7 +30,7 @@ const SimpleCard: FC<Props> = ({ title, neighborhood, price,  description, image
             <p className='text-xs'>minimum per person</p>
           </div>
 
-          <Primary label="Add to List" callback={callback} frosted={true} />
+          <Primary label="More" callback={callback} frosted={true} />
         </div>
       </div>
     </div>

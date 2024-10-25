@@ -1,4 +1,5 @@
 import { FC, } from 'react';
+// @ts-ignore
 import { Venue } from '../../../shared/types/Venue';
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ const Feed: FC<Props> = ({ data }) => {
   const navigate = useNavigate();
 
   return (
-    <div className='gap-5 grid  md:grid-cols-3 grid-cols-5 fit-content'>
+    <div className='gap-5 grid  md:grid-cols-3 grid-cols-5 p-4'>
       {data.map((item, i) => {
         const {
           id,

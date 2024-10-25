@@ -1,4 +1,5 @@
 import { FC, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import AccountAccess from "../buttons/AccountAccess";
 import DropMenu from '../menus/DropMenu';
@@ -18,7 +19,6 @@ const NavBar: FC<Props> = ({ listItems }) => {
       </div>,
       <PlainButton title='Sign up' callback={()=>console.log('yo')} />,
       <PlainButton title='Log in' callback={()=>console.log('yo')} />,
-
     ],
     [
       <PlainButton title='Gift Cards' callback={()=>console.log('yo')} />,
@@ -28,12 +28,14 @@ const NavBar: FC<Props> = ({ listItems }) => {
   ];
 
   return (
-    <nav className='flex flex-col items-between text-white'>
-      <section className='flex justify-between m-3 px-2'>
-        <div className='scale-75 flex text-3xl text-white font-roboto tracking-tight font-medium py-1 px-2'>
-          <img src='/olive.svg' alt="" className='h-10'/>
-          <div>SOIR<span>&#201;</span>E</div>
-        </div>
+    <nav className='flex flex-col justify-between items-center text-white m-2'>
+      <section className='flex items-center justify-between w-full'>
+        <Link to='/'>
+          <div className='flex text-3xl font-roboto tracking-tight font-medium'>
+            <img src='/olive.svg' alt="" className='h-10'/>
+            <div>SOIR<span>&#201;</span>E</div>
+          </div>
+        </Link>
 
         <div className='flex gap-4'>
           <PlainButton title='&#127760;' callback={()=> console.log} />
