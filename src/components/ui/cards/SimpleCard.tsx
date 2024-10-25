@@ -30,7 +30,7 @@ const SimpleCard: FC<Props> = ({ title, neighborhood, price,  description, image
             <p className='text-xs'>minimum per person</p>
           </div>
 
-          <Primary label="Add to List" callback={callback} frosted={true} />
+          <Primary label="More" callback={callback} frosted={true} />
         </div>
       </div>
     </div>
