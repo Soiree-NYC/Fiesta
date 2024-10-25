@@ -46,7 +46,6 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
   };
 
   const min = parsePackages('min_count');
-  console.log(min)
 
   return (
     <div className='flex flex-col'>
@@ -65,17 +64,15 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
         ))}
       </div>
 
-      <div className={`flex flex-col  rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2 `}>
-        <h2 className='leading-5'>{parsePackages('desc')}</h2>
+      <div className={`flex flex-col rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2  justify-center`}>
+        <h2 className='leading-5 h-[5rem]'>{parsePackages('desc')}</h2>
         <div className='self-start flex'>
           <h1 className='text-3xl font-bold'>${parsePackages('basePrice')}</h1>
           <p className='self-end'>/guest</p>
         </div>
 
         <div className='border rounded-2xl flex flex-col'>
-          {/* <div className='flex justify-center items-cener p-2'> */}
-            <Calendar className='flex flex-col border border-x-0 border-t-0 border-b-2 items-center p-2 gap-5 text-center' />
-          {/* </div> */}
+          <Calendar className='flex flex-col border border-x-0 border-t-0 border-b-2 p-2 gap-5 text-center' />
 
           <div className='grid grid-cols-2'>
             <div className='flex flex-col border-r-2 p-2'>
