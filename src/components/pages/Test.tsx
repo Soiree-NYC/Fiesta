@@ -1,10 +1,8 @@
-import CheckoutConfig from "../ui/cards/CheckoutConfig";
-import Time from "../ui/inputs/Time";
+import Calendar from "react-calendar";
 
 const Test = () => {
   return (
     <div className="h-[100vh] ">
-      <Time />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { FC } from 'react';
 import Time from "../inputs/Time";
 import Special from '../buttons/SpecialButton';
 import Counter from '../inputs/Counter';
+import Calendar from 'react-calendar';
 
 type Props = {
   basePrice: number;
@@ -64,7 +65,7 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
         ))}
       </div>
 
-      <div className={`flex flex-col  rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2 h-[34rem]`}>
+      <div className={`flex flex-col  rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2 `}>
         <h2 className='leading-5'>{parsePackages('desc')}</h2>
         <div className='self-start flex'>
           <h1 className='text-3xl font-bold'>${parsePackages('basePrice')}</h1>
@@ -72,6 +73,10 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
         </div>
 
         <div className='border rounded-2xl flex flex-col'>
+          {/* <div className='flex justify-center items-cener p-2'> */}
+            <Calendar className='flex flex-col border border-x-0 border-t-0 border-b-2 items-center p-2 gap-5 text-center' />
+          {/* </div> */}
+
           <div className='grid grid-cols-2'>
             <div className='flex flex-col border-r-2 p-2'>
               <span className="text-sm self-start px-1">START</span>
