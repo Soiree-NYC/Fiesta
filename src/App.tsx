@@ -12,8 +12,8 @@ function App() {
   const [listItems, setListItems] = useState<number>(0);
 
   return (
-    <div className='bg-skyline bg-cover bg-center h-full flex justify-center overflow-auto'>
-      <div className='max-w-screen-xl flex flex-col backdrop-blur-sm'>
+    <div className='bg-skyline bg-cover bg-center flex justify-center overflow-auto fit-content'>
+      <div className='max-w-screen-xl flex flex-col backdrop-blur-sm h-full mt-10'>
         <NavBar listItems={listItems} />
         <Routes>
           <Route path='/' element={<Home venues={{getter: listItems, setter: setListItems}}/>} />
