@@ -1,12 +1,8 @@
-import CheckoutConfig from "../ui/cards/CheckoutConfig";
+import Calendar from "react-calendar";
 
 const Test = () => {
   return (
     <div className="h-[100vh] ">
-      <CheckoutConfig 
-        basePrice={80}
-        standing={100}
-      />
     </div>
   );
 };

@@ -1,20 +1,17 @@
-import { useState } from 'react';
+import { SetStateAction, useState } from 'react';
 
 import { FC } from 'react';
 
-import Time from "../inputs/Time";
 import Special from '../buttons/SpecialButton';
-import Counter from '../inputs/Counter';
+import DateTime from '../../form/DateTime';
 
 type Props = {
   basePrice: number;
   standing: number;
 };
 
-const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
+const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
   const [guests, setGuests] = useState<number>(10);
-  const [time, setTime] = useState<{start: string, end: string}>({start: '00:00', end: '00:00'}
-  );
   const [packageFocus, setPackageFocus] = useState<string>("Limited");
 
   const packages = [
@@ -45,10 +42,9 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
   };
 
   const min = parsePackages('min_count');
-  console.log(min)
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col text-white'>
       <div className="flex text-white">
         {packages.map(({
           name,
@@ -64,29 +60,13 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
         ))}
       </div>
 
-      <div className={`flex flex-col  rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2 h-[34rem]`}>
-        <h2 className='leading-5'>{parsePackages('desc')}</h2>
+      <div className={`flex flex-col rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2`}>
+        <h2 className='leading-5 h-[5rem]'>{parsePackages('desc')}</h2>
         <div className='self-start flex'>
           <h1 className='text-3xl font-bold'>${parsePackages('basePrice')}</h1>
           <p className='self-end'>/guest</p>
         </div>
-
-        <div className='border rounded-2xl flex flex-col'>
-          <div className='grid grid-cols-2'>
-            <div className='flex flex-col border-r-2 p-2'>
-              <span className="text-sm self-start px-1">START</span>
-              <Time time={time} setTime={setTime}/>
-            </div>
-            <div className="flex flex-col p-2">
-              <span className="text-sm self-start px-1">END</span>
-              <Time time={time} setTime={setTime}/>
-            </div>
-          </div>
-          <div className="border-t-2 p-2 flex justify-between items-center">
-            <span className="text-md">GUESTS</span>
-            <Counter count={guests} setCount={setGuests} min={min} max={standing} />
-          </div>
-        </div>
+        <DateTime guests={guests} setGuests={setGuests} min={min} max={standing} />
 
         <div className='flex flex-col'>
           <Special title='Reserve' callback={()=> console.log('yo')} />
@@ -118,4 +98,4 @@ const CheckoutConfig: FC<Props> = ({ basePrice, standing }) => {
   );
 };
 
-export default CheckoutConfig;
+export default PreCheckout;
