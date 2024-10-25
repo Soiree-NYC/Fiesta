@@ -7,7 +7,7 @@ import { Rating, VenueRating } from '../../shared/types/Rating.ts'
 import PhotoCase from "../ui/cards/PhotoCase";
 import QuickInfo from "../ui/cards/QuickInfo";
 import HostInfo from "../ui/cards/HostInfo";
-import CheckoutConfig from "../ui/cards/CheckoutConfig";
+import CheckoutConfig from "../ui/cards/PreCheckout.tsx";
 import Highlights from "../ui/cards/Highlights";
 import Features from "../ui/cards/Features.tsx";
 
