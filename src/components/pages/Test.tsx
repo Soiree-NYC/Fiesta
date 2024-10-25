@@ -1,12 +1,10 @@
 import CheckoutConfig from "../ui/cards/CheckoutConfig";
+import Time from "../ui/inputs/Time";
 
 const Test = () => {
   return (
     <div className="h-[100vh] ">
-      <CheckoutConfig 
-        basePrice={80}
-        standing={100}
-      />
+      <Time />
     </div>
   );
 };
