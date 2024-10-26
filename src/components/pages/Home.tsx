@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import SlideMenu from "../ui/inputs/SlideMenu";
 import Feed from "../ui/cards/Feed";
-import SimpleCard from "../ui/cards/SimpleCard";
 import Primary from "../ui/buttons/Primary";
 
 type Props = {
