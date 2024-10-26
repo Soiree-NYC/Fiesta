@@ -1,5 +1,4 @@
 import { FC, } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 type Props = {
   label: string;
