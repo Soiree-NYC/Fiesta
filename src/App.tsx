@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './styles.css';
 
 import NavBar from './components/ui/layout/NavBar';
@@ -10,11 +10,20 @@ import Test from './components/pages/Test';
 
 function App() {
   const [listItems, setListItems] = useState<number>(0);
+  const { pathname } = useLocation();
+  const exclustion_list = [
+    '/test',
+  ];
 
+  const checkExclustions = (list:string[]) => {
+    return !list.includes(pathname);
+  };
+
+  console.log(checkExclustions(exclustion_list))
   return (
     <div className='bg-skyline bg-cover bg-center flex justify-center overflow-auto'>
       <div className='max-w-screen-xl flex flex-col backdrop-blur-sm h-full pt-10'>
-        <NavBar listItems={listItems} />
+        {checkExclustions(exclustion_list) && <NavBar listItems={listItems} />}
         <Routes>
           <Route path='/' element={<Home venues={{getter: listItems, setter: setListItems}}/>} />
           <Route path='/venue/:id' element={<VenueDetails />} />
