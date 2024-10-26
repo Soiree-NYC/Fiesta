@@ -1,9 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import Primary from "../buttons/Primary";
 
 
 const EarlyAccess = () => {
-  const navigate = useNavigate();
   return (
     <div className='text-4xl text-white font-thin font-roboto w-dvm leading-none flex flex-col gap-32 bg-black bg-opacity-50 px-10 py-10'>
       <h1 className='text-[7rem] font-bold'>
