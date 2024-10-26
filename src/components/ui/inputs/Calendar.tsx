@@ -6,7 +6,7 @@ import { FC, Dispatch, SetStateAction } from 'react';
 type Props = {
   time: {start: string, end: string};
   setTime: Dispatch<SetStateAction<{start: string, end: string}>>;
-};
+}; 
 
 const Time: FC<Props> = ({ time, setTime }) => {
   const [date, setDate] = useState(new Date());
