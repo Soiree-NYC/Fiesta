@@ -6,7 +6,6 @@ import axios from 'axios';
 
 import SlideMenu from "../ui/inputs/SlideMenu";
 import Feed from "../ui/cards/Feed";
-import SimpleCard from "../ui/cards/SimpleCard";
 import Primary from "../ui/buttons/Primary";
 
 type Props = {
@@ -20,6 +19,8 @@ const Home: FC<Props> = ({ venues }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  console.log(loading, error);
 
   useEffect(() => {
     const fetchData = async () => {

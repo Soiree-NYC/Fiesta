@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
+// @ts-ignore
 import { Venue } from '../../shared/types/Venue.ts';
 import { Rating, VenueRating } from '../../shared/types/Rating.ts'
 
