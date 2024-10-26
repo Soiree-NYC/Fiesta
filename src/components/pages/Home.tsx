@@ -20,6 +20,8 @@ const Home: FC<Props> = ({ venues }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  console.log(loading, error);
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
