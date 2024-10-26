@@ -30,7 +30,7 @@ const NavBar: FC<Props> = ({ listItems }) => {
   return (
     <nav className='flex flex-col justify-between items-center text-white m-2'>
       <section className='flex items-center justify-between w-full'>
-        <Link to='/'>
+        <Link to='/home'>
           <div className='flex text-3xl font-roboto tracking-tight font-medium'>
             <img src='/olive.svg' alt="" className='h-10'/>
             <div>SOIR<span>&#201;</span>E</div>
