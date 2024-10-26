@@ -2,8 +2,8 @@
 
 const EarlyAccess = () => {
   return (
-    <div className='text-xl text-white font-roboto w-full leading-none flex flex-col gap-20 p-28 bg-black bg-opacity-50'>
-      <h1 className='text-[6rem] font-bold'>
+    <div className='text-xl text-white font-roboto w-dvm leading-none flex flex-col gap-10 bg-black bg-opacity-50 px-20 py-10'>
+      <h1 className='text-[5rem] font-bold'>
         Soirée helps NYC bars and restaurants fill their private event spaces.
       </h1>
 
