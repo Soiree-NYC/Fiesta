@@ -12,7 +12,7 @@ const Time: FC<Props> = ({ time, setTime }) => {
   const [date, setDate] = useState(new Date());
 
   const handleDateChange = () => {
-    console.log('yo')
+    setDate(date);
   };
 
   console.log(time, setTime);
