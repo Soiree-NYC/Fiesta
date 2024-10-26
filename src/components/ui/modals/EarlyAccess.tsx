@@ -1,9 +1,8 @@
 import Primary from "../buttons/Primary";
 
-
 const EarlyAccess = () => {
   return (
-    <div className='text-4xl text-white font-thin font-roboto w-dvm leading-none flex flex-col gap-32 bg-black bg-opacity-50 px-10 py-10'>
+    <div className='text-4xl text-white font-thin font-roboto w-dvm leading-none flex flex-col gap-32 bg-black bg-opacity-50 px-10 py-10 h-[48rem] overflow-y-auto'>
       <h1 className='text-[7rem] font-bold'>
         Soirée helps NYC bars and restaurants fill their private event spaces.
       </h1>
