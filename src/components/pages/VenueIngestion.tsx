@@ -1,11 +1,10 @@
 import { useState } from "react";
 
 import Primary from "../ui/buttons/Primary";
-import PlainButton from "../ui/buttons/PlainButton";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(4);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -239,7 +238,7 @@ const VenueIngestion = () => {
               <p>Venue provides in-house catering service</p>
               <p>Venue has their own chef and staff.</p>
             </div>
-            <div>
+            <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
                 throw new Error("Function not implemented.");
               } } />
@@ -253,7 +252,7 @@ const VenueIngestion = () => {
               <p>Venue works only with an approved list of extrernal caterers</p>
               <p>External catering can be provided by approved caterers only.</p>
             </div>
-            <div>
+            <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
                 throw new Error("Function not implemented.");
               } } />
@@ -267,7 +266,7 @@ const VenueIngestion = () => {
               <p>BYO catering/food allowed</p>
               <p>Clients can hire a caterer of their choice or bring their own food</p>
             </div>
-            <div>
+            <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
                 throw new Error("Function not implemented.");
               } } />
@@ -281,7 +280,7 @@ const VenueIngestion = () => {
               <p>Refreshments offered for guests</p>
               <p>Provided for free with every booking</p>
             </div>
-            <div>
+            <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
                 throw new Error("Function not implemented.");
               } } />
@@ -299,7 +298,7 @@ const VenueIngestion = () => {
               <p>Alcohol/ liquor licence</p>
               <p>your venue can sell or supply alcohol.</p>
             </div>
-            <div>
+            <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
                 throw new Error("Function not implemented.");
               } } />
@@ -315,7 +314,7 @@ const VenueIngestion = () => {
               <p>BYOB alcohol allowed</p>
               <p>Guest are welcome to bring their own alcoholic beverages</p>
             </div>
-            <div>
+            <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
                 throw new Error("Function not implemented.");
               } } />
@@ -325,6 +324,112 @@ const VenueIngestion = () => {
             </div>
           </div>
         </div>
+      }
+      { step === 4 && 
+      <div className="flex flex-col gap-4">
+        <h1>Venue Details</h1>
+
+        <hr />
+
+        <div>
+          <h2>Parking</h2>
+          <div className="flex justify-between">
+            <p>Free parking on premises</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Free street parking</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Paid parking on premises</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Paid parking off premises</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h1>Accomodation</h1>
+          <div className="flex justify-between">
+            <p>Accommodation is available on-site</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h1>Allowed events</h1>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>Popular for promoted and ticketed events</p>
+              <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div>
+          <h1>Age Policy</h1>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>Age restrictions at the venue</p>
+              <p>Specify if your venue has age limits for event attendees.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+        </div>
+      </div>
       }
 
 
