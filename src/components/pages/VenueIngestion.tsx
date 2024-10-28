@@ -4,7 +4,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(5);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -432,6 +432,140 @@ const VenueIngestion = () => {
       </div>
       }
 
+      { step === 5 && 
+        <div className="flex flex-col gap-2">
+          <h1>Spaces at {`Judy Z's`}</h1>
+          <div className="border rounded-lg p-4">
+            <input type="file" name="" id="" />
+            <Primary label='Finish space profile' />
+          </div>
+          <Primary label="Add another space" />
+          <hr />
+          <div className="flex justify-between">
+            <div className="flex flex-col gap-1">
+              <h1>Space name</h1>
+              <input type="text" name="" id="" placeholder="New Space" />
+            </div>
+          </div>
+
+          <hr />
+
+          <div className="flex justify-between">
+            <div className="flex flex-col gap-1">
+              <h1>What type of space is it?</h1>
+              <p>Enter the type of space that most cloesly respresents the physical space being listed.</p>
+              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
+            </div>
+          </div>
+
+          <hr />
+
+          <div className="flex justify-between">
+            <div className="flex flex-col gap-1">
+              <h1>Guest capacity preferences</h1>
+              <p>Set a minimum number of attendees per event</p>
+              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
+              <p>Set a maximum number of attendees per event</p>
+              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
+            </div>
+          </div>
+
+          <hr />
+
+          <div className="flex justify-between">
+            <div className="flex flex-col gap-1">
+              <h1>Space</h1>
+              <div className="flex justify-between w-96">
+                <p>Floorspace</p>
+                <div className="flex gap-2">
+                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
+                  <select>
+                    <option value="">sqft</option>
+                    <option value="">sqm</option>
+                    <option value="">sqy</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div className="flex flex-col gap-4 text-start w-full h-96 border rounded-lg p-4">
+            <div>
+              <h1>Venue description</h1>
+              <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
+            </div>
+            <textarea className="text-start w-full h-96 border rounded-b-lg p-4" placeholder="Write a description of the space..."/>
+          </div>
+        </div>
+      }
+      { step === 6 && 
+        <div className="flex flex-col gap-2">
+          <h1>Photos</h1>
+
+          <hr />
+
+          <div>
+            <h1>Add venue photos</h1>
+            <p>Be sure to include images of the facade, main areas, etc.</p>
+            <div className="border rounded-lg p-4">
+              <input type="file" name="" id="" />
+              <Primary label='Finish space profile' />
+            </div>
+          </div>
+        </div>
+      }
+      { step === 7 && 
+        <div>
+          <h1>Capacity and layouts</h1>
+          <hr />
+          <div className="flex justify-between">
+            <p>Dining</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Standing</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Cabaret</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Stage and dining</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+        </div>
+      }
 
       <div className="flex justify-between p-4">
         <Primary label={"Back"} callback={function (): void {
