@@ -2,9 +2,10 @@ import { useState } from "react";
 
 import Primary from "../ui/buttons/Primary";
 import PlainButton from "../ui/buttons/PlainButton";
+import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -227,7 +228,106 @@ const VenueIngestion = () => {
           </div>
         </div>
       }
-      
+      {step === 3 && 
+        <div className="w-[50rem]">
+          <h1>Catering and drinks</h1>
+          <hr />
+
+          <h1>Catering options</h1>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>Venue provides in-house catering service</p>
+              <p>Venue has their own chef and staff.</p>
+            </div>
+            <div>
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>Venue works only with an approved list of extrernal caterers</p>
+              <p>External catering can be provided by approved caterers only.</p>
+            </div>
+            <div>
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>BYO catering/food allowed</p>
+              <p>Clients can hire a caterer of their choice or bring their own food</p>
+            </div>
+            <div>
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>Refreshments offered for guests</p>
+              <p>Provided for free with every booking</p>
+            </div>
+            <div>
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <hr />
+
+          <h1>Alcohol provided by the venue</h1>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>Alcohol/ liquor licence</p>
+              <p>your venue can sell or supply alcohol.</p>
+            </div>
+            <div>
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <h1>Bring your own alcohol</h1>
+          <div className="flex justify-between">
+            <div className="flex flex-col">
+              <p>BYOB alcohol allowed</p>
+              <p>Guest are welcome to bring their own alcoholic beverages</p>
+            </div>
+            <div>
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+        </div>
+      }
+
+
       <div className="flex justify-between p-4">
         <Primary label={"Back"} callback={function (): void {
           throw new Error("Function not implemented.");
