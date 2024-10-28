@@ -229,7 +229,7 @@ const VenueIngestion = () => {
         </div>
       }
       {step === 3 && 
-        <div className="w-[50rem]">
+        <div className="w-[50rem] flex flex-col gap-4">
           <h1>Catering and drinks</h1>
           <hr />
 
