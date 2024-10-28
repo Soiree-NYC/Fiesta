@@ -1,9 +1,9 @@
-import EarlyAccess from "../ui/modals/EarlyAccess";
+import VenueIngestion from "./VenueIngestion";
 
 const Test = () => {
   return (
-    <div className="h-[100vh] ">
-      <EarlyAccess />
+    <div className="h-[100vh]">
+      <VenueIngestion />
     </div>
   );
 };
