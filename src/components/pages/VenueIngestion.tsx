@@ -4,7 +4,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(5);
+  const [step, setStep] = useState(8);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -564,6 +564,23 @@ const VenueIngestion = () => {
               } } />
             </div>
           </div>
+        </div>
+      }
+      { step === 8 && 
+        <div className="flex flex-col gap-4">
+          <h1>LIcences</h1>
+          <p>Incdice the licesnse your space holds.</p>
+          <div className="flex justify-between">
+              <p>A civil marriage / partnership can be performed by a recognized official or religious body at your venue</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
         </div>
       }
 
