@@ -4,7 +4,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(9);
+  const [step, setStep] = useState(10);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -79,7 +79,7 @@ const VenueIngestion = () => {
     "Craft Distillery",
   ];
 
-  const handleTagClick = (tag) => {
+  const handleTagClick = (tag: string) => {
     // @ts-ignore
     setTagData(pTagData => ({...pTagData,[tag]: !pTagData[tag]}))
   };
@@ -877,6 +877,56 @@ const VenueIngestion = () => {
             </div>
           </div>
         </div>
+      }
+
+      {step === 10 &&
+        <div className="flex flex-col gap-2">
+          <h1>Cancellation policy</h1>
+          <p>Guests may cencel their booking within 24 hours of the booking confirmation (but no later than 48 hours efore the event) and receive a full refund. Bookings cancelled after 24 hours (or less than 48 hours before the event) will follow the cancellation policy selected below. Cancellations by houst are always fully refunded. 
+          </p>
+
+          <div className="flex justify-between items-start w-1/2">
+            <input type="checkbox" name="" id="" />
+            <div>
+              <h3>Very flexible</h3>
+              <p>Cancellations up to 24 hours from event start time will revieve a full refund.</p>
+              <p>Cancellations for events starting within 24 hours are non-refundable.</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-start w-1/2">
+            <input type="checkbox" name="" id="" />
+            <div>
+              <h3>Flexible</h3>
+              <p>Cancellations up to 7 days in advance will revieve a full refund.</p>
+              <p>Cancellations up to 7 days to 24 hours in advance will revieve a 50% refund.</p>
+              <p>Cancellations for events atarting with 24 hours are non-refundable.</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-start w-1/2">
+            <input type="checkbox" name="" id="" />
+            <div>
+              <h3>Standard 30 day</h3>
+              <p>Cancellations 30 days in advance will revieve a full refund.</p>
+              <p>Cancellations up to 7 to 30 days in advance will revieve a 50% refund.</p>
+              <p>Cancellations for events atarting with 7 days are non-refundable.</p>
+            </div>
+          </div>
+          <div className="flex justify-between items-start w-1/2">
+            <input type="checkbox" name="" id="" />
+            <div>
+              <h3>Standard 60 day</h3>
+              <p>Cancellations 60 days in advance will revieve a full refund.</p>
+              <p>Cancellations up to 60 to 30 days in advance will revieve a 50% refund.</p>
+              <p>Cancellations for events atarting with 30 days are non-refundable.</p>
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+
       }
 
       <div className="flex justify-between p-4">
