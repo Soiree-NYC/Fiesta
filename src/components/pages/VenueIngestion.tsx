@@ -4,7 +4,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(10);
+  const [step, setStep] = useState(1);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -82,6 +82,14 @@ const VenueIngestion = () => {
   const handleTagClick = (tag: string) => {
     // @ts-ignore
     setTagData(pTagData => ({...pTagData,[tag]: !pTagData[tag]}))
+  };
+
+  const handleNext = () => {
+    setStep(step+1)
+  };
+
+  const handlePrev = () => {
+    setStep(step - 1)
   };
 
   return (
@@ -920,20 +928,12 @@ const VenueIngestion = () => {
               <p>Cancellations for events atarting with 30 days are non-refundable.</p>
             </div>
           </div>
-
-
-
-
-
         </div>
-
       }
 
       <div className="flex justify-between p-4">
-        <Primary label={"Back"} callback={function (): void {
-          throw new Error("Function not implemented.");
-        } } />
-        <Primary label="Continue" />
+        <Primary label={"Back"} callback={handlePrev} />
+        <Primary label="Continue" callback={handleNext}/>
       </div>
     </div>
   );
