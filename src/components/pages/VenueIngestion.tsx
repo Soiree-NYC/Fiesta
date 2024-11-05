@@ -4,7 +4,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(8);
+  const [step, setStep] = useState(9);
   const [tagData, setTagData] = useState({
     "Speakeasy": false,
     "Rooftop": false,
@@ -85,7 +85,7 @@ const VenueIngestion = () => {
   };
 
   return (
-    <div className='flex flex-col gap-10'>
+    <div className='flex flex-col gap-10 text-white'>
       {step === 1 && 
       <div className="w-full">
         <h1>Overview</h1>
@@ -568,20 +568,180 @@ const VenueIngestion = () => {
       }
       { step === 8 && 
         <div className="flex flex-col gap-4">
-          <h1>LIcences</h1>
+          <h1>Licences</h1>
           <p>Incdice the licesnse your space holds.</p>
           <div className="flex justify-between">
-              <p>A civil marriage / partnership can be performed by a recognized official or religious body at your venue</p>
-              <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-              </div>
+            <p>A civil marriage / partnership can be performed by a recognized official or religious body at your venue</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
             </div>
+          </div>
+
+          <h1>Custom Facilities</h1>
+          <p>Complement the standard facilities with your own custom facilities for guests.</p>
+          <div className="flex gap-4">
+            <input type="text" />
+            <RoundedButton title='&#43;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+          </div>
+
+          <hr />
+
+          <h1>Music and Sound</h1>
+          <p>Add the music and sound options you provide, including any noise limitations</p>
+          <div className="flex justify-between">
+            <p>Clients can play their own music</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Clients can play their own music</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Clients can bring their own DJ</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <p>Space has noise restriction</p>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <hr />
+
+          <h1>Accessiblity</h1>
+          <p>What accessbility features does the space and venue have?</p>
+
+          <h2>Space Accessbility features</h2>
+          <div className="flex justify-between">
+            <div>
+              <h3>Wheelchair accessible</h3>
+              <p className="wrap w-3/4">The entrance and path is wide enough for a wheelchair user, the space is accessible without steps from the main entrance (there can be ramps or a lift if steps are present).</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <div className="flex justify-between">
+            <div>
+              <h3>Disabled access toilets</h3>
+              <p className="wrap w-3/4">It is step-free from the space (otherwise there should be ramps or a lift to facilitate mobility), toilet room adheres to regulations for accessbile access.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <div className="flex justify-between">
+            <div>
+              <h3>Step-free guest entrance</h3>
+              <p className="wrap w-3/4">The guest entrance is free of steps and barriers and the space is on street level.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <h2>Venue accessiblity feature (changes will be applied to all spaces in the venue)</h2>
+          <div className="flex justify-between">
+            <div>
+              <h3>Accessible parking lot</h3>
+              <p className="wrap w-3/4">There's a private parking spot at least 11 feet (3.35 metres) wide. Or, there is public parking spot designated for a person with disabilities that has clear signage or markings.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div>
+              <h3>Lift to all floors</h3>
+              <p className="wrap w-3/4">If the venue is multi-leveled, there is a lift that serves all floors.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div>
+              <h3>Cargo lift</h3>
+              <p className="wrap w-3/4">If the venue is multi-leveled, there is a cargo lift to facilitate transportation of goods between floors.</p>
+            </div>
+            <div className="flex gap-2">
+              <RoundedButton title='&#10005;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+              <RoundedButton title='&#10003;' callback={function (): void {
+                throw new Error("Function not implemented.");
+              } } />
+            </div>
+          </div>
+
+          <hr />
         </div>
+      }
+      {step === 9 && 
+      <div className="flex flex-col gap-4">
+
+      </div>
       }
 
       <div className="flex justify-between p-4">
