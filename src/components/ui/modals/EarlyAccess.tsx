@@ -8,7 +8,7 @@ const EarlyAccess = () => {
       </h1>
 
       <p>
-        Soirée is the only website built to connect NYC bars and restaurants with customers look to book priate event. We manage themarketing and scheduling process - all you have to do is wait for bookings to come through the door.
+        Soirée is the only website built to connect NYC bars and restaurants with customers look to book priate event. We manage the marketing and scheduling process - all you have to do is wait for bookings to come through the door.
       </p>
 
       <div className='flex flex-col gap-5'>
