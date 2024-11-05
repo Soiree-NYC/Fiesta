@@ -79,6 +79,8 @@ const VenueIngestion = () => {
     "Craft Distillery",
   ];
 
+  console.log(tagData);
+
   const handleTagClick = (tag: string) => {
     // @ts-ignore
     setTagData(pTagData => ({...pTagData,[tag]: !pTagData[tag]}))
