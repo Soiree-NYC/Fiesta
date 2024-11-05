@@ -739,9 +739,144 @@ const VenueIngestion = () => {
         </div>
       }
       {step === 9 && 
-      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center">
+          <h1>Prices and opening hours</h1>
+          <hr />
 
-      </div>
+            <h1>What is your pricing</h1>
+          <div className="flex justify-around gap-2">
+            <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
+              <h1>Flat rate</h1>
+              <p>Charge based on hire fee per hour or per day.</p>
+              <RoundedButton title='Select' callback={() => console.log('yee')} />
+            </div>
+            <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
+              <h1>Dynamic Pricing</h1>
+              <p>Charge based on minimum spend, season, price per person, etc.</p>
+              <RoundedButton title='Select' callback={() => console.log('yee')}/>
+            </div>
+          </div>
+
+          <hr />
+
+          <div className="flex flex-col justify-around gap-2 w-full">
+            <h1>Days and opening hours</h1>
+            <hr />
+            <div className="w-1/4">
+              <div className="flex gap-4 justify-between">
+                <h3>Monday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div className="flex gap-4 justify-between">
+                <h3>Tuesday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div className="flex gap-4 justify-between">
+                <h3>Wednesday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div className="flex gap-4 justify-between">
+                <h3>Thursday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div className="flex gap-4 justify-between">
+                <h3>Friday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div className="flex gap-4 justify-between">
+                <h3>Saturday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+              <div className="flex gap-4 justify-between">
+                <h3>Sunday</h3>
+                <input type="checkbox" name="" id="" />
+              </div>
+            </div>
+
+            <hr />
+
+            <div>
+              <h1>Addtional charges</h1>
+              <div className="flex justify-between items-center w-1/3">
+                <h3>Cleaning fee</h3>
+                <div className="flex gap-2">
+                  <RoundedButton title='&#10005;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                  <RoundedButton title='&#10003;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                </div>
+              </div>
+              <div className="flex justify-between items-center w-1/3">
+                <h3>Gratuity</h3>
+                <div className="flex gap-2">
+                  <RoundedButton title='&#10005;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                  <RoundedButton title='&#10003;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                </div>
+              </div>
+              <div className="flex justify-between items-center w-1/3">
+                <h3>Corking fee</h3>
+                <div className="flex gap-2">
+                  <RoundedButton title='&#10005;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                  <RoundedButton title='&#10003;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                </div>
+              </div>
+              <div className="flex justify-between items-center w-1/3">
+                <h3>Cold storage fee</h3>
+                <div className="flex gap-2">
+                  <RoundedButton title='&#10005;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                  <RoundedButton title='&#10003;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                </div>
+              </div>
+              <div className="flex justify-between items-center w-1/3">
+                <h3>Coat check fee</h3>
+                <div className="flex gap-2">
+                  <RoundedButton title='&#10005;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                  <RoundedButton title='&#10003;' callback={function (): void {
+                    throw new Error("Function not implemented.");
+                  } } />
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div className="flex flex-col gap-2">
+              <h1>Minimum number of hours for a booking</h1>
+              <select name="" id="" className="text-black w-1/3">
+                <option value="">1 hour</option>
+                <option value="">2 hours</option>
+                <option value="">3 hours</option>
+              </select>
+            </div>
+
+            <hr />
+
+            <div>
+              <h1>Pricing details</h1>
+              <div className="flex gap-1">
+                <p>Pricing comment</p>
+                <span className='text-slate-400 '>(Optional)</span>
+              </div>
+              <textarea name="" id="" className="w-full h-52" />
+            </div>
+          </div>
+        </div>
       }
 
       <div className="flex justify-between p-4">
