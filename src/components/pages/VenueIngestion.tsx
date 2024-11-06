@@ -288,6 +288,15 @@ const VenueIngestion = () => {
     "Street Vibes"
 ];
 
+const stateAbbreviations = [
+  "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
+  "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD",
+  "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ",
+  "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
+];
+
+
 
   console.log(tagData);
 
@@ -305,10 +314,10 @@ const VenueIngestion = () => {
   };
 
   return (
-    <div className='flex flex-col h-full text-white justify-between p-4 py-10'>
+    <div className='flex flex-col h-full text-white font-roboto justify-between p-4 py-10'>
       {step === 1 && 
       <div className="flex flex-col gap-10 w-full">
-        <h1 className='text-4xl'>Overview</h1>
+        <h1 className='text-[6rem] leading-[7rem]'>Let's get to know you <br/> and your business!</h1>
 
         <hr />
 
@@ -350,99 +359,48 @@ const VenueIngestion = () => {
       }
       {step === 2 && 
         <div className="w-full flex flex-col gap-4">
-          <h1>Address and location</h1>
+          <h1 className='text-4xl'>Address and location</h1>
           <hr />
 
           <div className="flex flex-col gap-4">
             <div>
-              <h1>Venue Address</h1>
+              <h1 className="font-extrabold text-xl">Venue Address</h1>
               <p>Help customers find your venue.</p>
             </div>
             
             <div>
-              <h1>Country</h1>
+              <h1 className="font-extrabold text-xl">Country</h1>
               <p>United States</p>
             </div>
 
             <div>
-              <h1>Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street"  />
+              <h1 className="font-extrabold text-xl">Street Address</h1>
+              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" />
             </div>
 
             <div>
-              <h1>Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." />
+              <h1 className="font-extrabold text-xl">Street Address line 2</h1>
+              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" />
             </div>
 
-            <div>
+            <div className="flex  gap-4">
               <div>
-                <h1>City</h1>
-                <input type="text" placeholder="New York" />
+                <h1 className="font-extrabold text-xl">City</h1>
+                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" />
               </div>
               <div>
-                <h1>Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" />
+                <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" />
               </div>
             </div>
 
             <div>
-              <h1>State</h1>
-              <select name="" id="">
-                <option value="New York">NY</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
+              <h1 className="font-extrabold text-xl">State</h1>
+              <p className="border rounded-lg w-1/12 p-2">NY</p>
             </div>
 
             <div>
-              <h1>Show your location on Google Maps</h1>
+              <h1 className="font-extrabold text-xl">Show your location on Google Maps</h1>
               <p>Drag the pin to the correct location on the map.</p>
               <div className="h-[50rem] w-[50rem] border">map</div>
             </div>
