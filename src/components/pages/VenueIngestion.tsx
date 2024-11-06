@@ -77,7 +77,216 @@ const VenueIngestion = () => {
     "Patio",
     "BYOB",
     "Craft Distillery",
-  ];
+    "Accessible",
+    "Accessibility bathrooms",
+    "Gastropub",
+    "Pub",
+    "Garden",
+    "Terrace",
+    "Tequila",
+    "Rum",
+    "Wine",
+    "Vodka",
+    "Whiskey",
+    "Gin",
+    "Tapas",
+    "Mediterranean",
+    "Caribbean",
+    "Latin",
+    "Afro",
+    "Asian",
+    "Polynesian",
+    "Greek",
+    "Italian",
+    "French",
+    "Spanish",
+    "Mexican",
+    "German",
+    "Irish",
+    "Scottish",
+    "Korean",
+    "Japanese",
+    "Chinese",
+    "Scandinavian",
+    "Middle Eastern",
+    "Fusion",
+    "Vegan",
+    "Vegetarian",
+    "Organic",
+    "Farm-to-Table",
+    "Fine Dining",
+    "Casual Dining",
+    "Family Friendly",
+    "Romantic",
+    "High-End",
+    "Trendy",
+    "Late Night",
+    "Happy Hour",
+    "Food Truck",
+    "Self-Serve",
+    "Outdoor Bar",
+    "Roof Deck",
+    "Brunch",
+    "Breakfast",
+    "Late-Night Eats",
+    "Low-Key",
+    "High Energy",
+    "Music Lounge",
+    "Dance Hall",
+    "Cozy",
+    "Minimalist",
+    "Luxury",
+    "Barbecue",
+    "Bistro",
+    "Pop-Up",
+    "Seasonal",
+    "Cocktail Classes",
+    "Wine Tasting",
+    "Distillery Tours",
+    "Microbrewery",
+    "Craft Cocktails",
+    "Non-Alcoholic Options",
+    "Board Games",
+    "Trivia Nights",
+    "Karaoke Nights",
+    "Outdoor Fire Pits",
+    "Food & Drink Pairing",
+    "Locally Sourced",
+    "Historical Building",
+    "Seaside View",
+    "Live DJ",
+    "Silent Disco",
+    "Whiskey Tasting",
+    "Live Comedy",
+    "Poetry Readings",
+    "Film Screenings",
+    "Rooftop Garden",
+    "Tap Takeovers",
+    "Champagne Bar",
+    "Martini Lounge",
+    "Poolside",
+    "Brewpub",
+    "Petite Plates",
+    "Sunset Views",
+    "Vegan-Friendly",
+    "Farmhouse Style",
+    "Cocktail Flights",
+    "Retro Arcade",
+    "Community Events",
+    "Open Mic",
+    "Sports Viewing",
+    "Speakeasy Vibes",
+    "Supper Club",
+    "Underwater Theme",
+    "Garden Patio",
+    "Taproom",
+    "Wine Cellar",
+    "Martini Bar",
+    "Craft Spirits",
+    "Neon Lighting",
+    "Mystical Vibes",
+    "Beachside",
+    "Ski Lodge",
+    "Winery",
+    "Rock Climbing Wall",
+    "Experimental Cocktails",
+    "Mixology Workshops",
+    "Smooth Jazz",
+    "Big Band Swing",
+    "Roaring Twenties",
+    "Neo-Vintage",
+    "Botanical Garden",
+    "Pirate Theme",
+    "Speakeasy Hidden Entrance",
+    "Dim Sum",
+    "Southern Comfort Food",
+    "Cajun & Creole",
+    "Brazilian BBQ",
+    "Dance Classes",
+    "Retro Diner",
+    "Game Night",
+    "Fine Wine Selection",
+    "Single Malt Whiskeys",
+    "Mixologist Specials",
+    "Eco-Friendly",
+    "Plant-Based Menu",
+    "Street Food",
+    "Authentic Experience",
+    "Virtual Reality Games",
+    "Trivia Competitions",
+    "Ramen & Sake",
+    "Street Art Vibes",
+    "Creative Cocktails",
+    "Absinthe Bar",
+    "Apothecary Theme",
+    "Speakeasy Jazz",
+    "Neon Jungle",
+    "Art Gallery",
+    "Wilderness Retreat",
+    "Forest Hideaway",
+    "Outdoor Cinema",
+    "Outdoor Adventures",
+    "Vegan BBQ",
+    "Wine & Cheese Pairing",
+    "Bourbon Tastings",
+    "Oyster Bar",
+    "Wine Cellar Tours",
+    "Hot Chocolate Bar",
+    "Piano Lounge",
+    "Luxury Suite",
+    "Craft Ice Cream",
+    "Holiday Theme",
+    "Cocktail Lab",
+    "Private Chef",
+    "Gastro Lounge",
+    "VIP Lounge",
+    "Virtual Mixology",
+    "Carnival Theme",
+    "Retro Cabaret",
+    "Burlesque Shows",
+    "Secret Passageways",
+    "Lava Rock Grill",
+    "Forest Setting",
+    "Handcrafted Decor",
+    "Beach Cabana",
+    "Alpine Chalet",
+    "Country Style",
+    "Desert Oasis",
+    "Oceanfront",
+    "Waterfall View",
+    "Mountain View",
+    "Urban Rooftop",
+    "Modernist",
+    "Hidden Gem",
+    "Moonlit Patio",
+    "Rooftop Pool",
+    "International Cuisine",
+    "Snow Lounge",
+    "Cigar Lounge",
+    "Experimental Cuisine",
+    "Immersive Decor",
+    "Luxury Beachfront",
+    "Vintage Cars",
+    "Art Installations",
+    "Glasshouse",
+    "Winter Wonderland",
+    "Igloo Bar",
+    "Fire and Ice Theme",
+    "Ice Sculptures",
+    "Puppy Meetups",
+    "Live Flamenco",
+    "Wine & Whiskey Flights",
+    "Gin Distillery",
+    "Chef's Table",
+    "Space Age Theme",
+    "80's Retro Vibe",
+    "Silent Movies",
+    "Cliffside",
+    "Mezcal Bar",
+    "Ocean-Inspired Decor",
+    "Indie Vibes",
+    "Street Vibes"
+];
 
   console.log(tagData);
 
@@ -95,39 +304,42 @@ const VenueIngestion = () => {
   };
 
   return (
-    <div className='flex flex-col gap-10 text-white'>
+    <div className='flex flex-col  text-white font-roboto justify-between p-4 py-10 backdrop-blur-md'>
       {step === 1 && 
-      <div className="w-full">
-        <h1>Overview</h1>
+      <div className="flex flex-col gap-10 w-full">
+        <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
-        <div className='flex flex-col'>
-          <label htmlFor="">Venue Name</label>
-          <input type="text" className="w-1/5"/>
+        <hr />
+
+        <div className='flex flex-col gap-2'>
+          <label htmlFor="venueName" className="font-extrabold text-xl">Venue Name</label>
+          <input type="text" name='venueName' className="w-1/4 rounded-lg bg-transparent border p-2"/>
         </div>
 
         <hr />
 
-        <div className='flex flex-col gap-3 border rounded-lg p-4'> 
+        <div className='flex flex-col gap-4 border rounded-lg p-4'> 
           <div className="flex flex-col">
-            <h1>Venue Type</h1>
+            <h1 className="font-extrabold text-xl">Venue Type / Vibe Check</h1>
             <p>Select one or more options that best describe your venue.</p>
           </div>
 
           <hr />
 
-          <div className='flex flex-wrap gap-2 '>
+          <div className='flex flex-wrap gap-3'>
             {tags.map((tag,i) => (
               <Primary
                 label={tag}
                 key={i}
-                callback={() => handleTagClick(tag)} />
+                callback={() => handleTagClick(tag)}
+                size="lg" />
             ))}
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 text-start w-full h-96 border rounded-lg">
-          <div>
-            <h1>Venue description</h1>
+        <div className="flex flex-col gap-4 text-start w-full border rounded-lg">
+          <div className="p-4">
+            <h1 className="font-extrabold text-xl">Venue description</h1>
             <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
           </div>
 
@@ -138,99 +350,48 @@ const VenueIngestion = () => {
       }
       {step === 2 && 
         <div className="w-full flex flex-col gap-4">
-          <h1>Address and location</h1>
+          <h1 className='text-4xl'>Address and location</h1>
           <hr />
 
           <div className="flex flex-col gap-4">
             <div>
-              <h1>Venue Address</h1>
+              <h1 className="font-extrabold text-xl">Venue Address</h1>
               <p>Help customers find your venue.</p>
             </div>
             
             <div>
-              <h1>Country</h1>
+              <h1 className="font-extrabold text-xl">Country</h1>
               <p>United States</p>
             </div>
 
             <div>
-              <h1>Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street"  />
+              <h1 className="font-extrabold text-xl">Street Address</h1>
+              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" />
             </div>
 
             <div>
-              <h1>Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." />
+              <h1 className="font-extrabold text-xl">Street Address line 2</h1>
+              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" />
             </div>
 
-            <div>
+            <div className="flex  gap-4">
               <div>
-                <h1>City</h1>
-                <input type="text" placeholder="New York" />
+                <h1 className="font-extrabold text-xl">City</h1>
+                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" />
               </div>
               <div>
-                <h1>Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" />
+                <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" />
               </div>
             </div>
 
             <div>
-              <h1>State</h1>
-              <select name="" id="">
-                <option value="New York">NY</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-              </select>
+              <h1 className="font-extrabold text-xl">State</h1>
+              <p className="border rounded-lg w-1/12 p-2">NY</p>
             </div>
 
             <div>
-              <h1>Show your location on Google Maps</h1>
+              <h1 className="font-extrabold text-xl">Show your location on Google Maps</h1>
               <p>Drag the pin to the correct location on the map.</p>
               <div className="h-[50rem] w-[50rem] border">map</div>
             </div>
@@ -933,9 +1094,9 @@ const VenueIngestion = () => {
         </div>
       }
 
-      <div className="flex justify-between p-4">
-        <Primary label={"Back"} callback={handlePrev} />
-        <Primary label="Continue" callback={handleNext}/>
+      <div className="flex justify-between p-4 mb-10">
+        <Primary label="Back" callback={handlePrev} size='3xl' />
+        <Primary label="Continue" callback={handleNext} size='3xl' />
       </div>
     </div>
   );

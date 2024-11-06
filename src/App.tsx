@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className='bg-skyline bg-cover bg-center flex justify-center overflow-auto'>
-      <div className='max-w-screen-xl flex flex-col backdrop-blur-sm h-full pt-10'>
+      <div className='max-w-screen-xl flex flex-col pt-10'>
         {checkExclustions(exclustion_list) && <NavBar listItems={listItems} />}
         <Routes>
           <Route path='/' element={<EarlyAccess />} />
