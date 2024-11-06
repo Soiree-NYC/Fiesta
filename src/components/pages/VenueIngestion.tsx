@@ -314,10 +314,10 @@ const stateAbbreviations = [
   };
 
   return (
-    <div className='flex flex-col h-full text-white font-roboto justify-between p-4 py-10'>
+    <div className='flex flex-col  text-white font-roboto justify-between p-4 py-10 backdrop-blur-md'>
       {step === 1 && 
       <div className="flex flex-col gap-10 w-full">
-        <h1 className='text-[6rem] leading-[7rem]'>Let's get to know you <br/> and your business!</h1>
+        <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
         <hr />
 
@@ -330,21 +330,19 @@ const stateAbbreviations = [
 
         <div className='flex flex-col gap-4 border rounded-lg p-4'> 
           <div className="flex flex-col">
-            <h1 className="font-extrabold text-xl">Venue Type</h1>
+            <h1 className="font-extrabold text-xl">Venue Type / Vibe Check</h1>
             <p>Select one or more options that best describe your venue.</p>
           </div>
 
           <hr />
 
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex flex-wrap gap-3'>
             {tags.map((tag,i) => (
               <Primary
                 label={tag}
                 key={i}
                 callback={() => handleTagClick(tag)}
-                size='lg'
-          
-                />
+                size="lg" />
             ))}
           </div>
         </div>
@@ -1107,8 +1105,8 @@ const stateAbbreviations = [
       }
 
       <div className="flex justify-between p-4 mb-10">
-        <Primary label={"Back"} callback={handlePrev} />
-        <Primary label="Continue" callback={handleNext}/>
+        <Primary label="Back" callback={handlePrev} size='3xl' />
+        <Primary label="Continue" callback={handleNext} size='3xl' />
       </div>
     </div>
   );
