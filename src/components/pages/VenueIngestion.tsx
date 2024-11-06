@@ -336,12 +336,15 @@ const stateAbbreviations = [
 
           <hr />
 
-          <div className='flex flex-wrap gap-2 '>
+          <div className='flex flex-wrap gap-2'>
             {tags.map((tag,i) => (
               <Primary
                 label={tag}
                 key={i}
-                callback={() => handleTagClick(tag)} />
+                callback={() => handleTagClick(tag)}
+                size='lg'
+          
+                />
             ))}
           </div>
         </div>
