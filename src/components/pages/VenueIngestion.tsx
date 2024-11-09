@@ -475,8 +475,8 @@ const VenueIngestion = () => {
           <h1 className="font-extrabold text-xl">Alcohol provided by the venue</h1>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p className="font-extrabold"  >Alcohol/ liquor licence</p>
-              <p className="text-slate-300"> your venue can sell or supply alcohol.</p>
+              <p className="font-extrabold"  >Liquor licence</p>
+              <p className="text-slate-300"> Your venue can sell or supply alcohol.</p>
             </div>
             <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
@@ -488,10 +488,9 @@ const VenueIngestion = () => {
             </div>
           </div>
 
-          <h1>Bring your own alcohol</h1>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p>BYOB alcohol allowed</p>
+              <p className="font-extrabold">BYOB alcohol allowed</p>
               <p>Guest are welcome to bring their own alcoholic beverages</p>
             </div>
             <div className="flex gap-2">
