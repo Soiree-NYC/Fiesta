@@ -343,7 +343,7 @@ const VenueIngestion = () => {
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
 
-            <textarea className="text-start w-full h-96 border rounded-b-lg p-4" placeholder="Write a description of your venue..."/>
+            <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of your venue..."/>
           </div>
 
           <hr />
@@ -688,7 +688,7 @@ const VenueIngestion = () => {
               <h1 className="font-extrabold text-xl">Venue description</h1>
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
-            <textarea className="h-96 border rounded-b-lg p-4" placeholder="Write a description of the space..."/>
+            <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of the space..."/>
           </div>
         </div>
       }
