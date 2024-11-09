@@ -606,18 +606,24 @@ const VenueIngestion = () => {
       }
 
       { step === 5 && 
-        <div className="flex flex-col gap-2">
-          <h1>Spaces at {`Judy Z's`}</h1>
-          <div className="border rounded-lg p-4">
-            <input type="file" name="" id="" />
-            <Primary label='Finish space profile' />
+        <div className="flex flex-col gap-6">
+          <h1 className="font-extrabold text-4xl">Spaces at {`Judy Z's`}</h1>
+          <hr />
+          
+          <div className="flex flex-col gap-4 ">
+            <div className="border rounded-lg p-4 ">
+              <input type="file" name="" id="" />
+              <Primary label='Finish space profile' />
+            </div>
+            <div>
+              <Primary label="+ Add another space" />
+            </div>
           </div>
-          <Primary label="Add another space" />
           <hr />
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1>Space name</h1>
-              <input type="text" name="" id="" placeholder="New Space" />
+              <h1 className="font-extrabold text-xl">Space name</h1>
+              <input type="text" name="" id="" placeholder="New Space" className="bg-transparent border rounded-lg p-2" />
             </div>
           </div>
 
@@ -625,9 +631,9 @@ const VenueIngestion = () => {
 
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1>What type of space is it?</h1>
+              <h1 className="font-extrabold text-xl">What type of space is it?</h1>
               <p>Enter the type of space that most cloesly respresents the physical space being listed.</p>
-              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
+              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
             </div>
           </div>
 
@@ -635,11 +641,17 @@ const VenueIngestion = () => {
 
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1>Guest capacity preferences</h1>
-              <p>Set a minimum number of attendees per event</p>
-              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
-              <p>Set a maximum number of attendees per event</p>
-              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
+              <h1 className="font-extrabold text-lg">Guest capacity preferences</h1>
+              <div className="flex flex-col gap-6">
+                <div>
+                  <p>Set a minimum number of attendees per event</p>
+                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+                </div>
+                <div>
+                  <p>Set a maximum number of attendees per event</p>
+                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -647,12 +659,12 @@ const VenueIngestion = () => {
 
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1>Space</h1>
-              <div className="flex justify-between w-96">
+              <h1 className="font-extrabold text-lg">Space</h1>
+              <div className="flex justify-between flex-col">
                 <p>Floorspace</p>
                 <div className="flex gap-2">
-                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" />
-                  <select>
+                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+                  <select className="bg-transparent">
                     <option value="">sqft</option>
                     <option value="">sqm</option>
                     <option value="">sqy</option>
@@ -666,7 +678,7 @@ const VenueIngestion = () => {
 
           <div className="flex flex-col gap-4 text-start w-full h-96 border rounded-lg p-4">
             <div>
-              <h1>Venue description</h1>
+              <h1 className="font-extrabold text-xl">Venue description</h1>
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
             <textarea className="text-start w-full h-96 border rounded-b-lg p-4" placeholder="Write a description of the space..."/>
