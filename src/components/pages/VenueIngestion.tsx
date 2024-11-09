@@ -304,9 +304,9 @@ const VenueIngestion = () => {
   };
 
   return (
-    <div className='flex flex-col  text-white font-roboto justify-between p-4 py-10 backdrop-blur-md'>
+    <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
       {step === 1 && 
-      <div className="flex flex-col gap-10 w-full">
+      <div className="flex flex-col gap-10 min-h-screen">
         <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
         <hr />
@@ -349,7 +349,7 @@ const VenueIngestion = () => {
         <hr /></div>
       }
       {step === 2 && 
-        <div className="w-full flex flex-col gap-4">
+        <div className="flex flex-col gap-4 min-h-screen">
           <h1 className='text-4xl'>Address and location</h1>
           <hr />
 
@@ -390,16 +390,18 @@ const VenueIngestion = () => {
               <p className="border rounded-lg w-1/12 p-2">NY</p>
             </div>
 
+            <hr />
+
             <div>
               <h1 className="font-extrabold text-xl">Show your location on Google Maps</h1>
               <p>Drag the pin to the correct location on the map.</p>
-              <div className="h-[50rem] w-[50rem] border">map</div>
+              <div className="h-[50rem] w-[50rem] border rounded-lg my-4">map</div>
             </div>
           </div>
         </div>
       }
       {step === 3 && 
-        <div className="w-[50rem] flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <h1>Catering and drinks</h1>
           <hr />
 
