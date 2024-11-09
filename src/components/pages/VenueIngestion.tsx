@@ -402,14 +402,14 @@ const VenueIngestion = () => {
       }
       {step === 3 && 
         <div className="flex flex-col gap-4">
-          <h1>Catering and drinks</h1>
+          <h1 className="text-4xl">Catering and drinks</h1>
           <hr />
 
-          <h1>Catering options</h1>
+          <h1 className="font-extrabold text-xl">Catering options</h1>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p>Venue provides in-house catering service</p>
-              <p>Venue has their own chef and staff.</p>
+              <p className="font-extrabold"> Venue provides in-house catering service</p>
+              <p className="text-slate-300"> Venue has their own chef and staff.</p>
             </div>
             <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
@@ -422,8 +422,8 @@ const VenueIngestion = () => {
           </div>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p>Venue works only with an approved list of extrernal caterers</p>
-              <p>External catering can be provided by approved caterers only.</p>
+              <p className="font-extrabold"  >Venue works only with an approved list of extrernal caterers</p>
+              <p className="text-slate-300"> External catering can be provided by approved caterers only.</p>
             </div>
             <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
@@ -436,8 +436,8 @@ const VenueIngestion = () => {
           </div>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p>BYO catering/food allowed</p>
-              <p>Clients can hire a caterer of their choice or bring their own food</p>
+              <p className="font-extrabold"  >BYO catering/food allowed</p>
+              <p className="text-slate-300"> Clients can hire a caterer of their choice or bring their own food</p>
             </div>
             <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
@@ -450,8 +450,8 @@ const VenueIngestion = () => {
           </div>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p>Refreshments offered for guests</p>
-              <p>Provided for free with every booking</p>
+              <p className="font-extrabold"  >Refreshments offered for guests</p>
+              <p className="text-slate-300"> Provided for free with every booking</p>
             </div>
             <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
@@ -465,11 +465,11 @@ const VenueIngestion = () => {
 
           <hr />
 
-          <h1>Alcohol provided by the venue</h1>
+          <h1 className="font-extrabold text-xl">Alcohol provided by the venue</h1>
           <div className="flex justify-between">
             <div className="flex flex-col">
-              <p>Alcohol/ liquor licence</p>
-              <p>your venue can sell or supply alcohol.</p>
+              <p className="font-extrabold"  >Alcohol/ liquor licence</p>
+              <p className="text-slate-300"> your venue can sell or supply alcohol.</p>
             </div>
             <div className="flex gap-2">
               <RoundedButton title='&#10005;' callback={function (): void {
@@ -500,12 +500,12 @@ const VenueIngestion = () => {
       }
       { step === 4 && 
       <div className="flex flex-col gap-4">
-        <h1>Venue Details</h1>
+        <h1 className="font-extrabold text-4xl">Venue Details</h1>
 
         <hr />
 
         <div>
-          <h2>Parking</h2>
+          <h2 className="font-extrabold text-xl">Parking</h2>
           <div className="flex justify-between">
             <p>Free parking on premises</p>
             <div className="flex gap-2">
@@ -553,7 +553,7 @@ const VenueIngestion = () => {
         </div>
         <hr />
         <div>
-          <h1>Accomodation</h1>
+          <h1 className="font-extrabold text-xl">Accomodation</h1>
           <div className="flex justify-between">
             <p>Accommodation is available on-site</p>
             <div className="flex gap-2">
@@ -568,7 +568,7 @@ const VenueIngestion = () => {
         </div>
         <hr />
         <div>
-          <h1>Allowed events</h1>
+          <h1 className="font-extrabold text-xl">Allowed events</h1>
           <div className="flex justify-between">
             <div className="flex flex-col">
               <p>Popular for promoted and ticketed events</p>
@@ -586,7 +586,7 @@ const VenueIngestion = () => {
         </div>
         <hr />
         <div>
-          <h1>Age Policy</h1>
+          <h1 className="font-extrabold text-xl">Age Policy</h1>
           <div className="flex justify-between">
             <div className="flex flex-col">
               <p>Age restrictions at the venue</p>
