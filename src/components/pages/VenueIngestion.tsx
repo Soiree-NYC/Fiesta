@@ -305,50 +305,52 @@ const VenueIngestion = () => {
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
-      {step === 1 && 
-      <div className="flex flex-col gap-10 min-h-screen">
-        <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
+      { step === 1 &&
+        <div className="flex flex-col gap-10 min-h-screen">
+          <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
-        <hr />
+          <hr />
 
-        <div className='flex flex-col gap-2'>
-          <label htmlFor="venueName" className="font-extrabold text-xl">Venue Name</label>
-          <input type="text" name='venueName' className="w-1/4 rounded-lg bg-transparent border p-2"/>
-        </div>
-
-        <hr />
-
-        <div className='flex flex-col gap-4 border rounded-lg p-4'> 
-          <div className="flex flex-col">
-            <h1 className="font-extrabold text-xl">Venue Type / Vibe Check</h1>
-            <p>Select one or more options that best describe your venue.</p>
+          <div className='flex flex-col gap-2'>
+            <label htmlFor="venueName" className="font-extrabold text-xl">Venue Name</label>
+            <input type="text" name='venueName' className="w-1/4 rounded-lg bg-transparent border p-2"/>
           </div>
 
           <hr />
 
-          <div className='flex flex-wrap gap-3'>
-            {tags.map((tag,i) => (
-              <Primary
-                label={tag}
-                key={i}
-                callback={() => handleTagClick(tag)}
-                size="lg" />
-            ))}
+          <div className='flex flex-col gap-4 border rounded-lg p-4'> 
+            <div className="flex flex-col">
+              <h1 className="font-extrabold text-xl">Venue Type / Vibe Check</h1>
+              <p>Select one or more options that best describe your venue.</p>
+            </div>
+
+            <hr />
+
+            <div className='flex flex-wrap gap-3'>
+              {tags.map((tag,i) => (
+                <Primary
+                  label={tag}
+                  key={i}
+                  callback={() => handleTagClick(tag)}
+                  size="lg" />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col gap-4 text-start w-full border rounded-lg">
-          <div className="p-4">
-            <h1 className="font-extrabold text-xl">Venue description</h1>
-            <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
+          <div className="flex flex-col gap-4 text-start w-full border rounded-lg">
+            <div className="p-4">
+              <h1 className="font-extrabold text-xl">Venue description</h1>
+              <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
+            </div>
+
+            <textarea className="text-start w-full h-96 border rounded-b-lg p-4" placeholder="Write a description of your venue..."/>
           </div>
 
-          <textarea className="text-start w-full h-96 border rounded-b-lg p-4" placeholder="Write a description of your venue..."/>
+          <hr />
         </div>
-
-        <hr /></div>
       }
-      {step === 2 && 
+
+      { step === 2 && 
         <div className="flex flex-col gap-4 min-h-screen">
           <h1 className='text-4xl'>Address and location</h1>
           <hr />
@@ -400,9 +402,11 @@ const VenueIngestion = () => {
           </div>
         </div>
       }
-      {step === 3 && 
+
+      { step === 3 && 
         <div className="flex flex-col gap-4">
           <h1 className="text-4xl">Catering and drinks</h1>
+
           <hr />
 
           <h1 className="font-extrabold text-xl">Catering options</h1>
@@ -420,6 +424,7 @@ const VenueIngestion = () => {
               } } />
             </div>
           </div>
+
           <div className="flex justify-between">
             <div className="flex flex-col">
               <p className="font-extrabold"  >Venue works only with an approved list of extrernal caterers</p>
@@ -434,6 +439,7 @@ const VenueIngestion = () => {
               } } />
             </div>
           </div>
+
           <div className="flex justify-between">
             <div className="flex flex-col">
               <p className="font-extrabold"  >BYO catering/food allowed</p>
@@ -448,6 +454,7 @@ const VenueIngestion = () => {
               } } />
             </div>
           </div>
+
           <div className="flex justify-between">
             <div className="flex flex-col">
               <p className="font-extrabold"  >Refreshments offered for guests</p>
@@ -498,119 +505,136 @@ const VenueIngestion = () => {
           </div>
         </div>
       }
-      { step === 4 && 
-      <div className="flex flex-col gap-4">
-        <h1 className="font-extrabold text-4xl">Venue Details</h1>
 
-        <hr />
+      { step === 4 &&
+        <div className="flex flex-col gap-4">
+          <h1 className="font-extrabold text-4xl">Venue Details</h1>
 
-        <div>
-          <h2 className="font-extrabold text-xl">Parking</h2>
-          <div className="flex justify-between">
-            <p>Free parking on premises</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+          <hr />
+
+          <div>
+            <h2 className="font-extrabold text-xl">Parking</h2>
+            <div className="flex justify-between">
+              <p>Free parking on premises</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <p>Free street parking</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <p>Paid parking on premises</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <p>Paid parking off premises</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
             </div>
           </div>
-          <div className="flex justify-between">
-            <p>Free street parking</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+          <hr />
+          <div>
+            <h1 className="font-extrabold text-xl">Accomodation</h1>
+            <div className="flex justify-between">
+              <p>Accommodation is available on-site</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
             </div>
           </div>
-          <div className="flex justify-between">
-            <p>Paid parking on premises</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+          <hr />
+          <div>
+            <h1 className="font-extrabold text-xl">Allowed events</h1>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <p>Popular for promoted and ticketed events</p>
+                <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
+              </div>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
             </div>
           </div>
-          <div className="flex justify-between">
-            <p>Paid parking off premises</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+          <hr />
+          <div>
+            <h1 className="font-extrabold text-xl">Age Policy</h1>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <p>Age restrictions at the venue</p>
+                <p>Specify if your venue has age limits for event attendees.</p>
+              </div>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
             </div>
           </div>
         </div>
-        <hr />
-        <div>
-          <h1 className="font-extrabold text-xl">Accomodation</h1>
-          <div className="flex justify-between">
-            <p>Accommodation is available on-site</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div>
-          <h1 className="font-extrabold text-xl">Allowed events</h1>
-          <div className="flex justify-between">
-            <div className="flex flex-col">
-              <p>Popular for promoted and ticketed events</p>
-              <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
-            </div>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-        </div>
-        <hr />
-        <div>
-          <h1 className="font-extrabold text-xl">Age Policy</h1>
-          <div className="flex justify-between">
-            <div className="flex flex-col">
-              <p>Age restrictions at the venue</p>
-              <p>Specify if your venue has age limits for event attendees.</p>
-            </div>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-        </div>
-      </div>
       }
 
-      { step === 5 && 
+      { step === 5 &&
         <div className="flex flex-col gap-6">
           <h1 className="font-extrabold text-4xl">Spaces at {`Judy Z's`}</h1>
+
           <hr />
           
           <div className="flex flex-col gap-4 ">
+            <div className="flex justify-between">
+              <div className="flex flex-col gap-1">
+                <h1 className="font-extrabold text-xl">Space name</h1>
+                <input type="text" name="" id="" placeholder="New Space" className="bg-transparent border rounded-lg p-2" />
+              </div>
+            </div>
+
+            <div className="flex justify-between">
+              <div className="flex flex-col gap-1">
+                <h1 className="font-extrabold text-xl">What type of space is it?</h1>
+                <p>Enter the type of space that most cloesly respresents the physical space being listed.</p>
+                <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+              </div>
+            </div>
+
             <div className="border rounded-lg p-4 ">
               <input type="file" name="" id="" />
               <Primary label='Finish space profile' />
@@ -619,29 +643,12 @@ const VenueIngestion = () => {
               <Primary label="+ Add another space" />
             </div>
           </div>
-          <hr />
-          <div className="flex justify-between">
-            <div className="flex flex-col gap-1">
-              <h1 className="font-extrabold text-xl">Space name</h1>
-              <input type="text" name="" id="" placeholder="New Space" className="bg-transparent border rounded-lg p-2" />
-            </div>
-          </div>
 
           <hr />
 
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1 className="font-extrabold text-xl">What type of space is it?</h1>
-              <p>Enter the type of space that most cloesly respresents the physical space being listed.</p>
-              <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
-            </div>
-          </div>
-
-          <hr />
-
-          <div className="flex justify-between">
-            <div className="flex flex-col gap-1">
-              <h1 className="font-extrabold text-lg">Guest capacity preferences</h1>
+              <h1 className="font-extrabold text-xl">Guest capacity preferences</h1>
               <div className="flex flex-col gap-6">
                 <div>
                   <p>Set a minimum number of attendees per event</p>
@@ -659,7 +666,7 @@ const VenueIngestion = () => {
 
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1 className="font-extrabold text-lg">Space</h1>
+              <h1 className="font-extrabold text-xl">Space</h1>
               <div className="flex justify-between flex-col">
                 <p>Floorspace</p>
                 <div className="flex gap-2">
@@ -676,85 +683,45 @@ const VenueIngestion = () => {
 
           <hr />
 
-          <div className="flex flex-col gap-4 text-start w-full h-96 border rounded-lg p-4">
-            <div>
+          <div className="flex flex-col gap-4 text-start w-full h-96 border rounded-lg">
+            <div className="p-4">
               <h1 className="font-extrabold text-xl">Venue description</h1>
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
-            <textarea className="text-start w-full h-96 border rounded-b-lg p-4" placeholder="Write a description of the space..."/>
+            <textarea className="h-96 border rounded-b-lg p-4" placeholder="Write a description of the space..."/>
           </div>
         </div>
       }
-      { step === 6 && 
-        <div className="flex flex-col gap-2">
-          <h1>Photos</h1>
+
+      { step === 6 &&
+        <div className="flex flex-col gap-4">
+          <h1 className="font-extrabold text-4xl">Photos</h1>
 
           <hr />
 
-          <div>
-            <h1>Add venue photos</h1>
-            <p>Be sure to include images of the facade, main areas, etc.</p>
-            <div className="border rounded-lg p-4">
+          <div className="flex flex-col gap-4">
+            <div>
+              <h1 className="font-extrabold text-xl">Add venue photos</h1>
+              <p>Be sure to include images of the facade, main areas, etc.</p>
+            </div>
+            <div className="border rounded-lg p-4 w-1/2">
               <input type="file" name="" id="" />
               <Primary label='Finish space profile' />
             </div>
           </div>
         </div>
       }
+
       { step === 7 && 
-        <div>
-          <h1>Capacity and layouts</h1>
-          <hr />
-          <div className="flex justify-between">
-            <p>Dining</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <p>Standing</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <p>Cabaret</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <p>Stage and dining</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-        </div>
-      }
-      { step === 8 && 
         <div className="flex flex-col gap-4">
-          <h1>Licences</h1>
-          <p>Incdice the licesnse your space holds.</p>
+          <h1 className="font-extrabold text-4xl">Licences</h1>
+
+          <hr />
+
+          <div>
+
+          </div>
+          <h2 className="font-extrabold text-xl">Indicate the licenses your space holds.</h2>
           <div className="flex justify-between">
             <p>A civil marriage / partnership can be performed by a recognized official or religious body at your venue</p>
             <div className="flex gap-2">
@@ -767,10 +734,10 @@ const VenueIngestion = () => {
             </div>
           </div>
 
-          <h1>Custom Facilities</h1>
-          <p>Complement the standard facilities with your own custom facilities for guests.</p>
+          <h2 className="font-extrabold text-xl">More licenses</h2>
+          <p>Fill in other licenses your space holds..</p>
           <div className="flex gap-4">
-            <input type="text" />
+            <input type="text" className="bg-transparent border rounded-lg "/>
             <RoundedButton title='&#43;' callback={function (): void {
                   throw new Error("Function not implemented.");
                 } } />
@@ -778,62 +745,80 @@ const VenueIngestion = () => {
 
           <hr />
 
-          <h1>Music and Sound</h1>
-          <p>Add the music and sound options you provide, including any noise limitations</p>
-          <div className="flex justify-between">
-            <p>Clients can play their own music</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <p>Clients can play their own music</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <p>Clients can bring their own DJ</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
-          </div>
-          <div className="flex justify-between">
-            <p>Space has noise restriction</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-            </div>
+          <h2 className="font-extrabold text-xl">Custom Facilities</h2>
+          <p>Complement the standard facilities with your own custom facilities for guests.</p>
+          <div className="flex gap-4">
+            <input type="text" className="bg-transparent border rounded-lg"/>
+            <RoundedButton title='&#43;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
           </div>
 
           <hr />
 
-          <h1>Accessiblity</h1>
-          <p>What accessbility features does the space and venue have?</p>
+          <h1 className="font-extrabold text-xl ">Music and Sound</h1>
+          <p>Add the music and sound options you provide, including any noise limitations</p>
 
-          <h2>Space Accessbility features</h2>
-          <div className="flex justify-between">
+          <div className="w-1/2">
+            <div className="flex justify-between items-center">
+              <p>Clients can play their own music</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <p>Clients can play their own music</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <p>Clients can bring their own DJ</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+            <div className="flex justify-between items-center">
+              <p>Space has noise restriction</p>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+          </div>
+
+
+          <hr />
+
+          <div>
+            <h1 className="font-extrabold text-xl">Accessiblity</h1>
+            <p>What accessbility features does the space and venue have?</p>
+          </div>
+
+          <h2 className="font-extrabold text-xl">Space Accessbility features</h2>
+
+          <div className="flex justify-between items-center">
             <div>
-              <h3>Wheelchair accessible</h3>
+              <h3 className="font-extrabold text-lg">Wheelchair accessible</h3>
               <p className="wrap w-3/4">The entrance and path is wide enough for a wheelchair user, the space is accessible without steps from the main entrance (there can be ramps or a lift if steps are present).</p>
             </div>
             <div className="flex gap-2">
@@ -846,9 +831,9 @@ const VenueIngestion = () => {
             </div>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div>
-              <h3>Disabled access toilets</h3>
+              <h3 className="font-extrabold text-lg">Disabled access toilets</h3>
               <p className="wrap w-3/4">It is step-free from the space (otherwise there should be ramps or a lift to facilitate mobility), toilet room adheres to regulations for accessbile access.</p>
             </div>
             <div className="flex gap-2">
@@ -861,9 +846,9 @@ const VenueIngestion = () => {
             </div>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div>
-              <h3>Step-free guest entrance</h3>
+            <h3 className="font-extrabold text-lg">Step-free guest entrance</h3>
               <p className="wrap w-3/4">The guest entrance is free of steps and barriers and the space is on street level.</p>
             </div>
             <div className="flex gap-2">
@@ -876,10 +861,9 @@ const VenueIngestion = () => {
             </div>
           </div>
 
-          <h2>Venue accessiblity feature (changes will be applied to all spaces in the venue)</h2>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div>
-              <h3>Accessible parking lot</h3>
+            <h3 className="font-extrabold text-lg">Accessible parking lot</h3>
               <p className="wrap w-3/4">There's a private parking spot at least 11 feet (3.35 metres) wide. Or, there is public parking spot designated for a person with disabilities that has clear signage or markings.</p>
             </div>
             <div className="flex gap-2">
@@ -891,9 +875,10 @@ const VenueIngestion = () => {
               } } />
             </div>
           </div>
-          <div className="flex justify-between">
+
+          <div className="flex justify-between items-center">
             <div>
-              <h3>Lift to all floors</h3>
+            <h3 className="font-extrabold text-lg">Lift to all floors</h3>
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a lift that serves all floors.</p>
             </div>
             <div className="flex gap-2">
@@ -905,9 +890,10 @@ const VenueIngestion = () => {
               } } />
             </div>
           </div>
-          <div className="flex justify-between">
+
+          <div className="flex justify-between items-center">
             <div>
-              <h3>Cargo lift</h3>
+            <h3 className="font-extrabold text-lg">Cargo lift</h3>
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a cargo lift to facilitate transportation of goods between floors.</p>
             </div>
             <div className="flex gap-2">
@@ -921,14 +907,16 @@ const VenueIngestion = () => {
           </div>
 
           <hr />
-        </div>
+        </div> 
       }
-      {step === 9 && 
-        <div className="flex flex-col gap-4 items-center">
-          <h1>Prices and opening hours</h1>
+
+      {step === 8 &&
+        <div className="flex flex-col gap-10">
+          <h1 className="font-extrabold text-4xl">Prices and opening hours</h1>
+
           <hr />
 
-            <h1>What is your pricing</h1>
+          <h1 className="font-extrabold text-xl">What is your pricing?</h1>
           <div className="flex justify-around gap-2">
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Flat rate</h1>
@@ -944,162 +932,190 @@ const VenueIngestion = () => {
 
           <hr />
 
-          <div className="flex flex-col justify-around gap-2 w-full">
-            <h1>Days and opening hours</h1>
-            <hr />
-            <div className="w-1/4">
+          <div className="flex flex-col justify-around gap-4">
+            <h1 className="font-extrabold text-xl">Days and opening hours</h1>
+            <div className="flex flex-col gap-2 w-1/4">
               <div className="flex gap-4 justify-between">
                 <h3>Monday</h3>
-                <input type="checkbox" name="" id="" />
+                <div className="flex gap-2">
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
+                </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Tuesday</h3>
-                <input type="checkbox" name="" id="" />
+                <div className="flex gap-2">
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
+                </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Wednesday</h3>
-                <input type="checkbox" name="" id="" />
+                <div className="flex gap-2">
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
+                </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Thursday</h3>
-                <input type="checkbox" name="" id="" />
+                <div className="flex gap-2">
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
+                </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Friday</h3>
-                <input type="checkbox" name="" id="" />
+                <div className="flex gap-2">
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
+                </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Saturday</h3>
-                <input type="checkbox" name="" id="" />
+                <div className="flex gap-2">
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
+                </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Sunday</h3>
-                <input type="checkbox" name="" id="" />
-              </div>
-            </div>
-
-            <hr />
-
-            <div>
-              <h1>Addtional charges</h1>
-              <div className="flex justify-between items-center w-1/3">
-                <h3>Cleaning fee</h3>
                 <div className="flex gap-2">
-                  <RoundedButton title='&#10005;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                  <RoundedButton title='&#10003;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                </div>
-              </div>
-              <div className="flex justify-between items-center w-1/3">
-                <h3>Gratuity</h3>
-                <div className="flex gap-2">
-                  <RoundedButton title='&#10005;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                  <RoundedButton title='&#10003;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                </div>
-              </div>
-              <div className="flex justify-between items-center w-1/3">
-                <h3>Corking fee</h3>
-                <div className="flex gap-2">
-                  <RoundedButton title='&#10005;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                  <RoundedButton title='&#10003;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                </div>
-              </div>
-              <div className="flex justify-between items-center w-1/3">
-                <h3>Cold storage fee</h3>
-                <div className="flex gap-2">
-                  <RoundedButton title='&#10005;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                  <RoundedButton title='&#10003;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                </div>
-              </div>
-              <div className="flex justify-between items-center w-1/3">
-                <h3>Coat check fee</h3>
-                <div className="flex gap-2">
-                  <RoundedButton title='&#10005;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
-                  <RoundedButton title='&#10003;' callback={function (): void {
-                    throw new Error("Function not implemented.");
-                  } } />
+                  <Primary label="Open"/>
+                  <Primary label="Closed"/>
                 </div>
               </div>
             </div>
+          </div>
 
-            <hr />
-
-            <div className="flex flex-col gap-2">
-              <h1>Minimum number of hours for a booking</h1>
-              <select name="" id="" className="text-black w-1/3">
-                <option value="">1 hour</option>
-                <option value="">2 hours</option>
-                <option value="">3 hours</option>
-              </select>
+          <div className="flex flex-col gap-2">
+            <h1 className="font-extrabold text-xl">Addtional charges</h1>
+           
+            <div className="flex justify-between items-center w-1/4">
+              <h3>Cleaning fee</h3>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
             </div>
+           
+            <div className="flex justify-between items-center w-1/4">
+              <h3>Gratuity</h3>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+           
+            <div className="flex justify-between items-center w-1/4">
+              <h3>Corking fee</h3>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+           
+            <div className="flex justify-between items-center w-1/4">
+              <h3>Cold storage fee</h3>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+           
+            <div className="flex justify-between items-center w-1/4">
+              <h3>Coat check fee</h3>
+              <div className="flex gap-2">
+                <RoundedButton title='&#10005;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+                <RoundedButton title='&#10003;' callback={function (): void {
+                  throw new Error("Function not implemented.");
+                } } />
+              </div>
+            </div>
+          </div>
 
-            <hr />
+          <hr />
 
-            <div>
-              <h1>Pricing details</h1>
+          <div className="flex flex-col gap-2">
+            <h1 className="font-extrabold text-xl">Minimum number of hours for a booking</h1>
+            <select name="" id="" className="bg-transparent border rounded-lg p-2  w-1/3">
+              <option value="">1 hour</option>
+              <option value="">2 hours</option>
+              <option value="">3 hours</option>
+            </select>
+          </div>
+
+          <div className="flex flex-col gap-2 border rounded-lg ">
+            <div className="p-2">
+              <h1 className="font-extrabold text-xl">Pricing details</h1>
               <div className="flex gap-1">
                 <p>Pricing comment</p>
                 <span className='text-slate-400 '>(Optional)</span>
               </div>
-              <textarea name="" id="" className="w-full h-52" />
             </div>
+            <textarea name="" id="" placeholder='Comment here...' className="w-full h-52 p-2" />
           </div>
         </div>
       }
 
-      {step === 10 &&
-        <div className="flex flex-col gap-2">
-          <h1>Cancellation policy</h1>
-          <p>Guests may cencel their booking within 24 hours of the booking confirmation (but no later than 48 hours efore the event) and receive a full refund. Bookings cancelled after 24 hours (or less than 48 hours before the event) will follow the cancellation policy selected below. Cancellations by houst are always fully refunded. 
+      { step === 9 &&
+        <div className="flex flex-col gap-4">
+          <h1 className="font-extrabold text-4xl">Cancellation policy</h1>
+
+          <hr />
+          <p>Guests may cencel their booking within 24 hours of the booking confirmation (but no later than 48 hours efore the event) and receive a full refund. Bookings cancelled after 24 hours (or less than 48 hours before the event) will follow the cancellation policy selected below. Cancellations by houst are always fully refunded.
           </p>
 
-          <div className="flex justify-between items-start w-1/2">
-            <input type="checkbox" name="" id="" />
-            <div>
-              <h3>Very flexible</h3>
+          <div className="flex items-center gap-10">
+            <input type="checkbox" name="" id=""/>
+            <div className="flex flex-col w-1/2">
+              <h3 className="font-extrabold text-xl">Very flexible</h3>
               <p>Cancellations up to 24 hours from event start time will revieve a full refund.</p>
               <p>Cancellations for events starting within 24 hours are non-refundable.</p>
             </div>
           </div>
-          <div className="flex justify-between items-start w-1/2">
+
+          <div className="flex items-center gap-10">
             <input type="checkbox" name="" id="" />
-            <div>
-              <h3>Flexible</h3>
+            <div className="flex flex-col w-1/2">
+              <h3 className="font-extrabold text-xl">Flexible</h3>
               <p>Cancellations up to 7 days in advance will revieve a full refund.</p>
               <p>Cancellations up to 7 days to 24 hours in advance will revieve a 50% refund.</p>
               <p>Cancellations for events atarting with 24 hours are non-refundable.</p>
             </div>
           </div>
-          <div className="flex justify-between items-start w-1/2">
+
+          <div className="flex items-center gap-10">
             <input type="checkbox" name="" id="" />
-            <div>
-              <h3>Standard 30 day</h3>
+            <div className="flex flex-col w-1/2">
+              <h3 className="font-extrabold text-xl">Standard 30 day</h3>
               <p>Cancellations 30 days in advance will revieve a full refund.</p>
               <p>Cancellations up to 7 to 30 days in advance will revieve a 50% refund.</p>
               <p>Cancellations for events atarting with 7 days are non-refundable.</p>
             </div>
           </div>
-          <div className="flex justify-between items-start w-1/2">
+
+          <div className="flex items-center gap-10">
             <input type="checkbox" name="" id="" />
-            <div>
-              <h3>Standard 60 day</h3>
+            <div className="flex flex-col w-1/2">
+              <h3 className="font-extrabold text-xl">Standard 60 day</h3>
               <p>Cancellations 60 days in advance will revieve a full refund.</p>
               <p>Cancellations up to 60 to 30 days in advance will revieve a 50% refund.</p>
               <p>Cancellations for events atarting with 30 days are non-refundable.</p>
