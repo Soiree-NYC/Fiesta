@@ -921,12 +921,12 @@ const VenueIngestion = () => {
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Flat rate</h1>
               <p>Charge based on hire fee per hour or per day.</p>
-              <RoundedButton title='Select' callback={() => console.log('yee')} />
+              <Primary label="Select"/>
             </div>
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Dynamic Pricing</h1>
               <p>Charge based on minimum spend, season, price per person, etc.</p>
-              <RoundedButton title='Select' callback={() => console.log('yee')}/>
+              <Primary label="Select"/>
             </div>
           </div>
 
