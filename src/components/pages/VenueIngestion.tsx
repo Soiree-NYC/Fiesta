@@ -6,10 +6,93 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(9);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
+  const [ingestionData, setIngestionData] = useState({
+    venueName: "",
+    vibeCheck: tagData,
+    venueDescription: '',
+    address: {
+      streetAddress: '',
+      streetAddress1: '',
+      city: '',
+      zip: '',
+      state: '',
+    },
+    catering: {
+      inHouse: false,
+      thirdParty: false,
+      byoFood: '',
+      refreshments: false,
+      liqLicense: false,
+      byob: false,
+    },
+    parking: {
+      freeOnSite: false,
+      freeOffSite: false,
+      paidOnSite: false,
+      paidOffSite: false,
+    },
+    allowedEvents: false,
+    agePolicy: false,
+    spaces: [
+      {
+        name: '',
+        type: '',
+        photos: [],
+        minCapacity: 0,
+        maxCapacity: 0,
+        floorspace: 0,
+        description: '',
+      }
+    ],
+    photos: [],
+    licenses: {
+      civilMarriage: false,
+      moreLicenses: [],
+    },
+    miscFacilities: [],
+    music: {
+      clientMusic: false,
+      clientDJ: false,
+      noiseRestriction: false,
+    },
+    accessbility: {
+      wheelchairAccessible: false,
+      accessibleRestrooms: false,
+      stepFreeEntrance: false,
+      accessibleParking: false,
+      lift: false,
+      cargoLift: false,
+    },
+    prices: {
+      flatRate: false,
+      hourlyRate: false,
+      dynamicRate: false,
+      additionalFees: {
+        cleaningFee: false,
+        gratuity: false,
+        corking: false,
+        coldStorage: false,
+        coatCheck: false,
+      },
+      pricingDetails: false,
+    },
+    days: {
+      monday: false,
+      tuesday: false,
+      wednesday: false,
+      thursday: false,
+      friday: false,
+      saturday: false,
+      sunday: false,
+    },
+    leadTime: 0,
+    cancelPolicy: 0,
+  })
+
 
   const handleTagClick = (tag: Tag) => {
     // @ts-ignore
@@ -26,7 +109,7 @@ const VenueIngestion = () => {
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
-      { step === 1 &&
+      { step === 0 &&
         <div className="flex flex-col gap-10 min-h-screen">
           <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
@@ -71,7 +154,7 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 2 && 
+      { step === 1 &&
         <div className="flex flex-col gap-4 min-h-screen">
           <h1 className='text-4xl'>Address and location</h1>
           <hr />
@@ -124,7 +207,7 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 3 && 
+      { step === 2 &&
         <div className="flex flex-col gap-4">
           <h1 className="text-4xl">Catering and drinks</h1>
 
@@ -226,7 +309,7 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 4 &&
+      { step === 3 &&
         <div className="flex flex-col gap-4">
           <h1 className="font-extrabold text-4xl">Venue Details</h1>
 
@@ -333,7 +416,7 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 5 &&
+      { step === 4 &&
         <div className="flex flex-col gap-6">
           <h1 className="font-extrabold text-4xl">Spaces at {`Judy Z's`}</h1>
 
@@ -413,7 +496,7 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 6 &&
+      { step === 5 &&
         <div className="flex flex-col gap-4">
           <h1 className="font-extrabold text-4xl">Photos</h1>
 
@@ -432,7 +515,7 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 7 && 
+      { step === 6 &&
         <div className="flex flex-col gap-4">
           <h1 className="font-extrabold text-4xl">Licences</h1>
 
@@ -630,7 +713,7 @@ const VenueIngestion = () => {
         </div> 
       }
 
-      {step === 8 &&
+      {step === 7 &&
         <div className="flex flex-col gap-10">
           <h1 className="font-extrabold text-4xl">Prices and opening hours</h1>
 
@@ -783,19 +866,19 @@ const VenueIngestion = () => {
           </div>
 
           <div className="flex flex-col gap-2 border rounded-lg ">
-            <div className="p-2">
+            <div className="p-4">
               <h1 className="font-extrabold text-xl">Pricing details</h1>
               <div className="flex gap-1">
                 <p>Pricing comment</p>
                 <span className='text-slate-400 '>(Optional)</span>
               </div>
             </div>
-            <textarea name="" id="" placeholder='Comment here...' className="w-full h-52 p-2" />
+            <textarea name="" id="" placeholder='Comment here...' className="w-full h-52 p-4" />
           </div>
         </div>
       }
 
-      { step === 9 &&
+      { step === 8 &&
         <div className="flex flex-col gap-4">
           <h1 className="font-extrabold text-4xl">Cancellation policy</h1>
 
