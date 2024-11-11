@@ -1,12 +1,13 @@
 import { useState } from "react";
 
+import { ChangeEvent } from "react";
 import { Tag, tags } from "../../shared/types/Tags";
 
 import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(9);
+  const [step, setStep] = useState(0);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -19,7 +20,7 @@ const VenueIngestion = () => {
       streetAddress1: '',
       city: '',
       zip: '',
-      state: '',
+      state: 'NY',
     },
     catering: {
       inHouse: false,
@@ -42,9 +43,9 @@ const VenueIngestion = () => {
         name: '',
         type: '',
         photos: [],
-        minCapacity: 0,
-        maxCapacity: 0,
-        floorspace: 0,
+        minCapacity: '',
+        maxCapacity:'',
+        floorspace: '',
         description: '',
       }
     ],
@@ -89,10 +90,9 @@ const VenueIngestion = () => {
       saturday: false,
       sunday: false,
     },
-    leadTime: 0,
-    cancelPolicy: 0,
-  })
-
+    leadTime: '',
+    cancelPolicy: '',
+  });
 
   const handleTagClick = (tag: Tag) => {
     // @ts-ignore
@@ -107,6 +107,32 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = event.target;
+    const inputValue = type === 'checkbox' ? checked : value;
+
+    setIngestionData( prevData => {
+      const keys = name.split('.');
+      let updatedData = { ...prevData };
+      let current = updatedData;
+
+      for (let i = 0; i < keys.length - 1; i++) {
+        const key = keys[i];
+        current[key] = { ...current[key] };
+        current = current[key];
+      };
+
+      const lastKey = key[keys.length -1];
+
+      if (typeof current[lastKey] === 'boolean') current[lastKey] = !current[lastKey]
+      else current[lastKey] = inputValue;
+
+      return updatedData;
+    });
+  };
+
+  console.log(ingestionData.venueName)
+
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
       { step === 0 &&
@@ -117,7 +143,7 @@ const VenueIngestion = () => {
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="venueName" className="font-extrabold text-xl">Venue Name</label>
-            <input type="text" className="w-1/4 rounded-lg bg-transparent border p-2"/>
+            <input type="text" className="w-1/4 rounded-lg bg-transparent border p-2" value={ingestionData.venueName} onChange={handleInputChange} />
           </div>
 
           <hr />
@@ -172,22 +198,22 @@ const VenueIngestion = () => {
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" />
+              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" value={ingestionData.address.streetAddress} onChange={handleInputChange} />
             </div>
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" />
+              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" value={ingestionData.address.streetAddress1} onChange={handleInputChange}/>
             </div>
 
             <div className="flex  gap-4">
               <div>
                 <h1 className="font-extrabold text-xl">City</h1>
-                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" />
+                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" value={ingestionData.address.state} onChange={handleInputChange} />
               </div>
               <div>
                 <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" />
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" value={ingestionData.address.zip} onChange={handleInputChange} />
               </div>
             </div>
 
@@ -220,12 +246,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Venue has their own chef and staff.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleInputChange} />
+              <RoundedButton title='&#10003;' callback={handleInputChange} />
             </div>
           </div>
 
@@ -235,12 +257,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> External catering can be provided by approved caterers only.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleInputChange} />
+              <RoundedButton title='&#10003;' callback={handleInputChange} />
             </div>
           </div>
 
@@ -250,12 +268,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Clients can hire a caterer of their choice or bring their own food</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleInputChange} />
+              <RoundedButton title='&#10003;' callback={handleInputChange} />
             </div>
           </div>
 
@@ -265,12 +279,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Provided for free with every booking</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleInputChange} />
+              <RoundedButton title='&#10003;' callback={handleInputChange} />
             </div>
           </div>
 
@@ -283,12 +293,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Your venue can sell or supply alcohol.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleInputChange} />
+              <RoundedButton title='&#10003;' callback={handleInputChange} />
             </div>
           </div>
 
@@ -298,12 +304,8 @@ const VenueIngestion = () => {
               <p>Guest are welcome to bring their own alcoholic beverages</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleInputChange} />
+              <RoundedButton title='&#10003;' callback={handleInputChange} />
             </div>
           </div>
         </div>
@@ -320,45 +322,29 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Free parking on premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Free street parking</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking on premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking off premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
           </div>
@@ -368,12 +354,8 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Accommodation is available on-site</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
           </div>
@@ -386,12 +368,8 @@ const VenueIngestion = () => {
                 <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
               </div>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
           </div>
@@ -404,12 +382,8 @@ const VenueIngestion = () => {
                 <p>Specify if your venue has age limits for event attendees.</p>
               </div>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleInputChange} />
+                <RoundedButton title='&#10003;' callback={handleInputChange} />
               </div>
             </div>
           </div>
