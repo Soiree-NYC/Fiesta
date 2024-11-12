@@ -390,29 +390,29 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Free parking on premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Free street parking</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking on premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking off premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
           </div>
@@ -422,8 +422,8 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Accommodation is available on-site</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
           </div>
@@ -436,8 +436,8 @@ const VenueIngestion = () => {
                 <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
               </div>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
           </div>
@@ -450,8 +450,8 @@ const VenueIngestion = () => {
                 <p>Specify if your venue has age limits for event attendees.</p>
               </div>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
               </div>
             </div>
           </div>
