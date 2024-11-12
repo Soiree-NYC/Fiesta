@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(1);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -95,7 +95,16 @@ const VenueIngestion = () => {
         [name]: value,
       }
     });
-    console.log(value)
+  };
+
+  const handleAddress = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
   };
 
   const handleCatering = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -190,6 +199,8 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
+  console.log(catering)
+
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
       { step === 0 &&
@@ -255,22 +266,22 @@ const VenueIngestion = () => {
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2"  />
+              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" name="streetAddress1" onChange={handleAddress} />
             </div>
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2"/>
+              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" name="streetAddress2" onChange={handleAddress} />
             </div>
 
             <div className="flex  gap-4">
               <div>
                 <h1 className="font-extrabold text-xl">City</h1>
-                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2"  />
+                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" name="city" onChange={handleAddress} />
               </div>
               <div>
                 <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2"  />
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" name="zip" onChange={handleAddress}  />
               </div>
             </div>
 
@@ -303,8 +314,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Venue has their own chef and staff.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-              <RoundedButton title='&#10003;' callback={() => console.log('yo')}/>
+              <RoundedButton title='&#10005;' callback={handleCatering} />
+              <RoundedButton title='&#10003;' callback={handleCatering} />
             </div>
           </div>
 
@@ -314,8 +325,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> External catering can be provided by approved caterers only.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleCatering} />
+              <RoundedButton title='&#10003;' callback={handleCatering} />
             </div>
           </div>
 
@@ -325,8 +336,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Clients can hire a caterer of their choice or bring their own food</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleCatering} />
+              <RoundedButton title='&#10003;' callback={handleCatering} />
             </div>
           </div>
 
@@ -336,8 +347,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Provided for free with every booking</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleCatering} />
+              <RoundedButton title='&#10003;' callback={handleCatering} />
             </div>
           </div>
 
@@ -350,8 +361,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Your venue can sell or supply alcohol.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => console.log('yo')}/>
-              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleCatering}/>
+              <RoundedButton title='&#10003;' callback={handleCatering} />
             </div>
           </div>
 
@@ -361,8 +372,8 @@ const VenueIngestion = () => {
               <p>Guest are welcome to bring their own alcoholic beverages</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
-              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10005;' callback={handleCatering} />
+              <RoundedButton title='&#10003;' callback={handleCatering} />
             </div>
           </div>
         </div>

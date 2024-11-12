@@ -6,6 +6,7 @@ type Props = {
 };
 
 const RoundedButton: FC<Props> = ({ title, callback }) => {
+  console.log('clicked')
   return (
     <button className='border rounded-full text-xl p-4' onClick={callback}>{title}</button>
   );
