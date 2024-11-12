@@ -230,7 +230,7 @@ const VenueIngestion = () => {
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
 
-            <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of your venue..."/>
+            <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of your venue..." name="venueDescription" onChange={handleOverview} />
           </div>
 
           <hr />
