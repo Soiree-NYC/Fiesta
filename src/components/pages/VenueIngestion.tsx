@@ -11,92 +11,175 @@ const VenueIngestion = () => {
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
-  const [ingestionData, setIngestionData] = useState({
+  const [overview, setOverview] = useState({
     venueName: "",
     vibeCheck: tagData,
     venueDescription: '',
-    address: {
-      streetAddress: '',
-      streetAddress1: '',
-      city: '',
-      zip: '',
-      state: 'NY',
-    },
-    catering: {
-      inHouse: false,
-      thirdParty: false,
-      byoFood: '',
-      refreshments: false,
-      liqLicense: false,
-      byob: false,
-    },
-    parking: {
-      freeOnSite: false,
-      freeOffSite: false,
-      paidOnSite: false,
-      paidOffSite: false,
-    },
+  });
+  const [address, setAddress] = useState({
+    streetAddress1: '',
+    streetAddress2: '',
+    city: '',
+    zip: '',
+    state: 'NY',
+    country: 'USA',
+  });
+  const [catering, setCatering] = useState({
+    inHouse: false,
+    thirdParty: false,
+    byoFood: '',
+    refreshments: false,
+    liqLicense: false,
+    byob: false,
+  });
+  const [venueDetails, setVenueDetails] = useState({
+    freeOnSite: false,
+    freeOffSite: false,
+    paidOnSite: false,
+    paidOffSite: false,
     allowedEvents: false,
     agePolicy: false,
-    spaces: [
-      {
-        name: '',
-        type: '',
-        photos: [],
-        minCapacity: '',
-        maxCapacity:'',
-        floorspace: '',
-        description: '',
-      }
-    ],
-    photos: [],
-    licenses: {
-      civilMarriage: false,
-      moreLicenses: [],
+  });
+  const [spaces, setSpaces] = useState([]);
+//  spaces: [{name: '',type: '',photos: [],minCapacity: '',maxCapacity:'',floorspace: '',description: '',}],
+  const [venuePhotos, setVenuePhotos] = useState([]);
+  const [licences, setLicences] =useState({ civilMarriage: false, moreLicenses: [] });
+  
+  const [facilities, setFacilities]  = useState([]);
+  const [music, setMusic] = useState({
+    clientMusic: false,
+    clientDJ: false,
+    noiseRestriction: false,
+  });
+  const [accessbility, setAccessbility] = useState({
+    wheelchairAccessible: false,
+    accessibleRestrooms: false,
+    stepFreeEntrance: false,
+    accessibleParking: false,
+    lift: false,
+    cargoLift: false,
+  });
+  const [pricing, setPricing] = useState({
+    flatRate: false,
+    hourlyRate: false,
+    dynamicRate: false,
+    additionalFees: {
+      cleaningFee: false,
+      gratuity: false,
+      corking: false,
+      coldStorage: false,
+      coatCheck: false,
     },
-    miscFacilities: [],
-    music: {
-      clientMusic: false,
-      clientDJ: false,
-      noiseRestriction: false,
+    pricingDetails: false,
     },
-    accessbility: {
-      wheelchairAccessible: false,
-      accessibleRestrooms: false,
-      stepFreeEntrance: false,
-      accessibleParking: false,
-      lift: false,
-      cargoLift: false,
-    },
-    prices: {
-      flatRate: false,
-      hourlyRate: false,
-      dynamicRate: false,
-      additionalFees: {
-        cleaningFee: false,
-        gratuity: false,
-        corking: false,
-        coldStorage: false,
-        coatCheck: false,
-      },
-      pricingDetails: false,
-    },
-    days: {
-      monday: false,
-      tuesday: false,
-      wednesday: false,
-      thursday: false,
-      friday: false,
-      saturday: false,
-      sunday: false,
-    },
+  );
+  const [openingHours, setOpeningHours] = useState({
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+    sunday: false,
+  });
+  const [cancelPolicy, setCancelPolicy] = useState({
     leadTime: '',
     cancelPolicy: '',
   });
 
+  const handleOverview = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target
+    setOverview(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      }
+    });
+    console.log(value)
+  };
+
+  const handleCatering = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handleVenueDetails = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handleSpaces = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handleFacilities = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target;
+    
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+    console.log(value)
+  };
+  const handleAccessiblity = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target;
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handlePricing = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target;
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handleOpeningHours = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target;
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handleCancelPolicy = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target;
+    setAddress(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  }; 
+
   const handleTagClick = (tag: Tag) => {
     // @ts-ignore
-    setTagData(pTagData => ({ ...pTagData, [tag]: !pTagData[tag] }))
+    setTagData(pTagData => {
+      return {
+        ...pTagData, [tag]: !pTagData[tag] 
+      }
+    });
   };
 
   const handleNext = () => {
@@ -106,32 +189,6 @@ const VenueIngestion = () => {
   const handlePrev = () => {
     setStep(step - 1)
   };
-
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = event.target;
-    const inputValue = type === 'checkbox' ? checked : value;
-
-    setIngestionData( prevData => {
-      const keys = name.split('.');
-      let updatedData = { ...prevData };
-      let current = updatedData;
-
-      for (let i = 0; i < keys.length - 1; i++) {
-        const key = keys[i];
-        current[key] = { ...current[key] };
-        current = current[key];
-      };
-
-      const lastKey = key[keys.length -1];
-
-      if (typeof current[lastKey] === 'boolean') current[lastKey] = !current[lastKey]
-      else current[lastKey] = inputValue;
-
-      return updatedData;
-    });
-  };
-
-  console.log(ingestionData.venueName)
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
@@ -143,7 +200,7 @@ const VenueIngestion = () => {
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="venueName" className="font-extrabold text-xl">Venue Name</label>
-            <input type="text" className="w-1/4 rounded-lg bg-transparent border p-2" value={ingestionData.venueName} onChange={handleInputChange} />
+            <input type="text" className="w-1/4 rounded-lg bg-transparent border p-2" name="venueName" value={overview.venueName} onChange={handleOverview} />
           </div>
 
           <hr />
@@ -198,22 +255,22 @@ const VenueIngestion = () => {
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" value={ingestionData.address.streetAddress} onChange={handleInputChange} />
+              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2"  />
             </div>
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" value={ingestionData.address.streetAddress1} onChange={handleInputChange}/>
+              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2"/>
             </div>
 
             <div className="flex  gap-4">
               <div>
                 <h1 className="font-extrabold text-xl">City</h1>
-                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" value={ingestionData.address.state} onChange={handleInputChange} />
+                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2"  />
               </div>
               <div>
                 <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" value={ingestionData.address.zip} onChange={handleInputChange} />
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2"  />
               </div>
             </div>
 
@@ -246,8 +303,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Venue has their own chef and staff.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleInputChange} />
-              <RoundedButton title='&#10003;' callback={handleInputChange} />
+              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10003;' callback={() => console.log('yo')}/>
             </div>
           </div>
 
@@ -257,8 +314,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> External catering can be provided by approved caterers only.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleInputChange} />
-              <RoundedButton title='&#10003;' callback={handleInputChange} />
+              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
             </div>
           </div>
 
@@ -268,8 +325,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Clients can hire a caterer of their choice or bring their own food</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleInputChange} />
-              <RoundedButton title='&#10003;' callback={handleInputChange} />
+              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
             </div>
           </div>
 
@@ -279,8 +336,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Provided for free with every booking</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleInputChange} />
-              <RoundedButton title='&#10003;' callback={handleInputChange} />
+              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
             </div>
           </div>
 
@@ -293,8 +350,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Your venue can sell or supply alcohol.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleInputChange} />
-              <RoundedButton title='&#10003;' callback={handleInputChange} />
+              <RoundedButton title='&#10005;' callback={() => console.log('yo')}/>
+              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
             </div>
           </div>
 
@@ -304,8 +361,8 @@ const VenueIngestion = () => {
               <p>Guest are welcome to bring their own alcoholic beverages</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleInputChange} />
-              <RoundedButton title='&#10003;' callback={handleInputChange} />
+              <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+              <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
             </div>
           </div>
         </div>
@@ -322,29 +379,29 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Free parking on premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Free street parking</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking on premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking off premises</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
           </div>
@@ -354,8 +411,8 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Accommodation is available on-site</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
           </div>
@@ -368,8 +425,8 @@ const VenueIngestion = () => {
                 <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
               </div>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
           </div>
@@ -382,8 +439,8 @@ const VenueIngestion = () => {
                 <p>Specify if your venue has age limits for event attendees.</p>
               </div>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleInputChange} />
-                <RoundedButton title='&#10003;' callback={handleInputChange} />
+                <RoundedButton title='&#10005;' callback={() => console.log('yo')} />
+                <RoundedButton title='&#10003;' callback={() => console.log('yo')} />
               </div>
             </div>
           </div>
