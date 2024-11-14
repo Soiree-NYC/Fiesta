@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(6);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -40,8 +40,17 @@ const VenueIngestion = () => {
     allowedEvents: false,
     agePolicy: false,
   });
+  const [space, setSpace] = useState({
+    name: '',
+    type: '',
+    photos: [],
+    minCapacity: '',
+    maxCapacity:'',
+    floorspace: '',
+    floorspaceType: 'sqft',
+    description: '',
+  });
   const [spaces, setSpaces] = useState([]);
-//  spaces: [{name: '',type: '',photos: [],minCapacity: '',maxCapacity:'',floorspace: '',description: '',}],
   const [venuePhotos, setVenuePhotos] = useState([]);
   const [licences, setLicences] =useState({ civilMarriage: false, moreLicenses: [] });
   
@@ -125,9 +134,26 @@ const VenueIngestion = () => {
       };
     });
   };
-  const handleSpaces = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleSpace = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target
-    setAddress(prev => {
+    setSpace(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+  const handleSpaces = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    // @ts-ignore
+    setSpaces([...spaces, space])
+  }
+  const handleVenuePhotos = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const files = Array.from(e.target.files);
+    setVenuePhotos(prevImages => [...prevImages, ...files]);
+  }
+  const handleLicenses = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, } = e.target;
+    setLicences(prev => {
       return {
         ...prev,
         [name]: value,
@@ -136,14 +162,12 @@ const VenueIngestion = () => {
   };
   const handleFacilities = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target;
-    
     setAddress(prev => {
       return {
         ...prev,
         [name]: value,
       };
     });
-    console.log(value)
   };
   const handleAccessiblity = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target;
@@ -186,7 +210,7 @@ const VenueIngestion = () => {
     // @ts-ignore
     setTagData(pTagData => {
       return {
-        ...pTagData, [tag]: !pTagData[tag] 
+        ...pTagData, [tag]: !pTagData[tag]
       }
     });
   };
@@ -199,7 +223,8 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  console.log(catering)
+  console.log(space)
+  console.log(spaces)
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
@@ -460,7 +485,7 @@ const VenueIngestion = () => {
 
       { step === 4 &&
         <div className="flex flex-col gap-6">
-          <h1 className="font-extrabold text-4xl">Spaces at {`Judy Z's`}</h1>
+          <h1 className="font-extrabold text-4xl">Spaces at {overview.venueName}</h1>
 
           <hr />
           
@@ -468,7 +493,7 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <div className="flex flex-col gap-1">
                 <h1 className="font-extrabold text-xl">Space name</h1>
-                <input type="text" name="" id="" placeholder="New Space" className="bg-transparent border rounded-lg p-2" />
+                <input type="text" name='name' id="" placeholder="New Space" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
               </div>
             </div>
 
@@ -476,16 +501,8 @@ const VenueIngestion = () => {
               <div className="flex flex-col gap-1">
                 <h1 className="font-extrabold text-xl">What type of space is it?</h1>
                 <p>Enter the type of space that most cloesly respresents the physical space being listed.</p>
-                <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+                <input type="text" name="type" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
               </div>
-            </div>
-
-            <div className="border rounded-lg p-4 ">
-              <input type="file" name="" id="" />
-              <Primary label='Finish space profile' />
-            </div>
-            <div>
-              <Primary label="+ Add another space" />
             </div>
           </div>
 
@@ -497,26 +514,24 @@ const VenueIngestion = () => {
               <div className="flex flex-col gap-6">
                 <div>
                   <p>Set a minimum number of attendees per event</p>
-                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+                  <input type="text" name="minCapacity" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
                 </div>
                 <div>
                   <p>Set a maximum number of attendees per event</p>
-                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
+                  <input type="text" name="maxCapacity" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
                 </div>
               </div>
             </div>
           </div>
 
-          <hr />
-
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
-              <h1 className="font-extrabold text-xl">Space</h1>
+              <h1 className="font-extrabold text-xl">Space Size</h1>
               <div className="flex justify-between flex-col">
                 <p>Floorspace</p>
                 <div className="flex gap-2">
-                  <input type="text" name="" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2"/>
-                  <select className="bg-transparent">
+                  <input type="text" name="floorspace" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
+                  <select className="bg-transparent" value={space.floorspaceType} onChange={handleSpace} >
                     <option value="">sqft</option>
                     <option value="">sqm</option>
                     <option value="">sqy</option>
@@ -533,8 +548,15 @@ const VenueIngestion = () => {
               <h1 className="font-extrabold text-xl">Venue description</h1>
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
-            <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of the space..."/>
+            <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of the space..." onChange={handleSpace} />
           </div>
+
+          <div className="border rounded-lg p-4 ">
+              <input type="file" multiple name="" id="" />
+            </div>
+            <div>
+              <Primary label="+ Add another space" callback={handleSpaces} />
+            </div>
         </div>
       }
 
@@ -550,8 +572,8 @@ const VenueIngestion = () => {
               <p>Be sure to include images of the facade, main areas, etc.</p>
             </div>
             <div className="border rounded-lg p-4 w-1/2">
-              <input type="file" name="" id="" />
-              <Primary label='Finish space profile' />
+              <input type="file" multiple name="" id="" />
+              <Primary label='Finish space profile' callback={handleVenuePhotos}/>
             </div>
           </div>
         </div>
@@ -563,29 +585,20 @@ const VenueIngestion = () => {
 
           <hr />
 
-          <div>
-
-          </div>
           <h2 className="font-extrabold text-xl">Indicate the licenses your space holds.</h2>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <p>A civil marriage / partnership can be performed by a recognized official or religious body at your venue</p>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleLicenses} />
+              <RoundedButton title='&#10003;' callback={handleLicenses} />
             </div>
           </div>
 
           <h2 className="font-extrabold text-xl">More licenses</h2>
           <p>Fill in other licenses your space holds..</p>
           <div className="flex gap-4">
-            <input type="text" className="bg-transparent border rounded-lg "/>
-            <RoundedButton title='&#43;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+            <input type="text" className="bg-transparent border rounded-lg" name="moreLicenses" />
+            <RoundedButton title='&#43;' callback={handleLicenses} />
           </div>
 
           <hr />
