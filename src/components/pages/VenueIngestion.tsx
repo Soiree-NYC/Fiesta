@@ -763,50 +763,50 @@ const VenueIngestion = () => {
               <div className="flex gap-4 justify-between">
                 <h3>Monday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Tuesday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Wednesday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Thursday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Friday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Saturday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between">
                 <h3>Sunday</h3>
                 <div className="flex gap-2">
-                  <Primary label="Open"/>
-                  <Primary label="Closed"/>
+                <RoundedButton title="Open" callback={handlePricing}/>
+                <RoundedButton title="Closed" callback={handlePricing}/>
                 </div>
               </div>
             </div>
