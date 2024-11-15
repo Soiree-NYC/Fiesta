@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(6);
+  const [step, setStep] = useState(7);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -158,6 +158,15 @@ const VenueIngestion = () => {
         ...prev,
         [name]: value,
       };
+    });
+  };
+  const handleMusic = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setMusic(prev => {
+      return {
+        ...prev,
+        [name]: value,
+      }
     });
   };
   const handleFacilities = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -607,9 +616,7 @@ const VenueIngestion = () => {
           <p>Complement the standard facilities with your own custom facilities for guests.</p>
           <div className="flex gap-4">
             <input type="text" className="bg-transparent border rounded-lg"/>
-            <RoundedButton title='&#43;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+            <RoundedButton title='&#43;' callback={handleLicenses} />
           </div>
 
           <hr />
@@ -621,45 +628,29 @@ const VenueIngestion = () => {
             <div className="flex justify-between items-center">
               <p>Clients can play their own music</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleMusic} />
+                <RoundedButton title='&#10003;' callback={handleMusic} />
               </div>
             </div>
             <div className="flex justify-between items-center">
               <p>Clients can play their own music</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleMusic} />
+                <RoundedButton title='&#10003;' callback={handleMusic} />
               </div>
             </div>
             <div className="flex justify-between items-center">
               <p>Clients can bring their own DJ</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleMusic} />
+                <RoundedButton title='&#10003;' callback={handleMusic} />
               </div>
             </div>
             <div className="flex justify-between items-center">
               <p>Space has noise restriction</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handleMusic} />
+                <RoundedButton title='&#10003;' callback={handleMusic} />
               </div>
             </div>
           </div>
@@ -680,12 +671,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">The entrance and path is wide enough for a wheelchair user, the space is accessible without steps from the main entrance (there can be ramps or a lift if steps are present).</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
             </div>
           </div>
 
@@ -695,12 +682,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">It is step-free from the space (otherwise there should be ramps or a lift to facilitate mobility), toilet room adheres to regulations for accessbile access.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
             </div>
           </div>
 
@@ -710,12 +693,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">The guest entrance is free of steps and barriers and the space is on street level.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
             </div>
           </div>
 
@@ -725,12 +704,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">There's a private parking spot at least 11 feet (3.35 metres) wide. Or, there is public parking spot designated for a person with disabilities that has clear signage or markings.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
             </div>
           </div>
 
@@ -740,12 +715,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a lift that serves all floors.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
             </div>
           </div>
 
@@ -755,12 +726,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a cargo lift to facilitate transportation of goods between floors.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
-              <RoundedButton title='&#10003;' callback={function (): void {
-                throw new Error("Function not implemented.");
-              } } />
+              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
             </div>
           </div>
 
@@ -779,12 +746,12 @@ const VenueIngestion = () => {
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Flat rate</h1>
               <p>Charge based on hire fee per hour or per day.</p>
-              <Primary label="Select"/>
+              <RoundedButton title="Select" callback={handlePricing}/>
             </div>
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Dynamic Pricing</h1>
               <p>Charge based on minimum spend, season, price per person, etc.</p>
-              <Primary label="Select"/>
+              <RoundedButton title="Select" callback={handlePricing}/>
             </div>
           </div>
 
