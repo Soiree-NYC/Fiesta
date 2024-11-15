@@ -82,6 +82,7 @@ const VenueIngestion = () => {
     pricingDetails: false,
     },
   );
+  console.log(pricing)
   const [openingHours, setOpeningHours] = useState({
     monday: false,
     tuesday: false,
@@ -90,7 +91,9 @@ const VenueIngestion = () => {
     friday: false,
     saturday: false,
     sunday: false,
+    minimumHours: '',
   });
+  console.log(openingHours)
   const [cancelPolicy, setCancelPolicy] = useState({
     leadTime: '',
     cancelPolicy: '',
@@ -206,14 +209,10 @@ const VenueIngestion = () => {
     });
   };
   const handleCancelPolicy = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setAddress(prev => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
-  }; 
+    const { value, } = e.target;
+    //@ts-ignore
+    setAddress(value);
+  };
 
   const handleTagClick = (tag: Tag) => {
     // @ts-ignore
@@ -231,9 +230,6 @@ const VenueIngestion = () => {
   const handlePrev = () => {
     setStep(step - 1)
   };
-
-  console.log(space)
-  console.log(spaces)
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
@@ -760,53 +756,53 @@ const VenueIngestion = () => {
           <div className="flex flex-col justify-around gap-4">
             <h1 className="font-extrabold text-xl">Days and opening hours</h1>
             <div className="flex flex-col gap-2 w-1/4">
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Monday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Tuesday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Wednesday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Thursday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Friday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Saturday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
-              <div className="flex gap-4 justify-between">
+              <div className="flex gap-4 justify-between items-center">
                 <h3>Sunday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handlePricing}/>
-                <RoundedButton title="Closed" callback={handlePricing}/>
+                <RoundedButton title="Open" callback={handleOpeningHours}/>
+                <RoundedButton title="Closed" callback={handleOpeningHours}/>
                 </div>
               </div>
             </div>
@@ -830,48 +826,32 @@ const VenueIngestion = () => {
             <div className="flex justify-between items-center w-1/4">
               <h3>Gratuity</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handlePricing} />
+                <RoundedButton title='&#10003;' callback={handlePricing} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Corking fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handlePricing} />
+                <RoundedButton title='&#10003;' callback={handlePricing} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Cold storage fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handlePricing} />
+                <RoundedButton title='&#10003;' callback={handlePricing} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Coat check fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={handlePricing} />
+                <RoundedButton title='&#10003;' callback={handlePricing} />
               </div>
             </div>
           </div>
@@ -880,10 +860,10 @@ const VenueIngestion = () => {
 
           <div className="flex flex-col gap-2">
             <h1 className="font-extrabold text-xl">Minimum number of hours for a booking</h1>
-            <select name="" id="" className="bg-transparent border rounded-lg p-2  w-1/3">
-              <option value="">1 hour</option>
-              <option value="">2 hours</option>
-              <option value="">3 hours</option>
+            <select name="" id="" className="bg-transparent border rounded-lg p-2 w-1/3" value={openingHours.minimumHours}>
+              <option value="1">1 hour</option>
+              <option value="2">2 hours</option>
+              <option value="3">3 hours</option>
             </select>
           </div>
 
@@ -895,7 +875,7 @@ const VenueIngestion = () => {
                 <span className='text-slate-400 '>(Optional)</span>
               </div>
             </div>
-            <textarea name="" id="" placeholder='Comment here...' className="w-full h-52 p-4" />
+            <textarea name="pricingDetails" id="" placeholder='Comment here...' className="w-full h-52 p-4" onChange={handlePricing}/>
           </div>
         </div>
       }
@@ -909,7 +889,7 @@ const VenueIngestion = () => {
           </p>
 
           <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id=""/>
+            <input type="checkbox" name="cancel_1" id=""value={'cancel_policy_1'} onChange={handleCancelPolicy} />
             <div className="flex flex-col w-1/2">
               <h3 className="font-extrabold text-xl">Very flexible</h3>
               <p>Cancellations up to 24 hours from event start time will revieve a full refund.</p>
@@ -918,7 +898,7 @@ const VenueIngestion = () => {
           </div>
 
           <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" value={'cancel_policy_2'} onChange={handleCancelPolicy} />
             <div className="flex flex-col w-1/2">
               <h3 className="font-extrabold text-xl">Flexible</h3>
               <p>Cancellations up to 7 days in advance will revieve a full refund.</p>
@@ -928,7 +908,7 @@ const VenueIngestion = () => {
           </div>
 
           <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" value={'cancel_policy_3'} onChange={handleCancelPolicy} />
             <div className="flex flex-col w-1/2">
               <h3 className="font-extrabold text-xl">Standard 30 day</h3>
               <p>Cancellations 30 days in advance will revieve a full refund.</p>
@@ -938,7 +918,7 @@ const VenueIngestion = () => {
           </div>
 
           <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id="" />
+            <input type="checkbox" name="" id="" value={'cancel_policy_4'} onChange={handleCancelPolicy} />
             <div className="flex flex-col w-1/2">
               <h3 className="font-extrabold text-xl">Standard 60 day</h3>
               <p>Cancellations 60 days in advance will revieve a full refund.</p>
