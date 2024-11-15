@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(4);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -148,8 +148,18 @@ const VenueIngestion = () => {
   };
   const handleSpaces = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     // @ts-ignore
-    setSpaces([...spaces, space])
-  }
+    setSpaces([...spaces, space]);
+    setSpace({
+      name: '',
+      type: '',
+      photos: [],
+      minCapacity: '',
+      maxCapacity: '',
+      floorspace: '',
+      floorspaceType: 'sqft',
+      description: '',
+    });
+  };
   const handleVenuePhotos = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const files = Array.from(e.target.files);
     setVenuePhotos(prevImages => [...prevImages, ...files]);
@@ -239,7 +249,7 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  console.log('venue',venueDetails)
+  console.log(spaces);
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
@@ -466,8 +476,8 @@ const VenueIngestion = () => {
                 <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
               </div>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('agePolicy')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('agePolicy')} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('allowedEvents')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('allowedEvents')} />
               </div>
             </div>
           </div>
@@ -480,8 +490,8 @@ const VenueIngestion = () => {
                 <p>Specify if your venue has age limits for event attendees.</p>
               </div>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('agePolicy')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('agePolicy')} />
               </div>
             </div>
           </div>
@@ -536,7 +546,7 @@ const VenueIngestion = () => {
                 <p>Floorspace</p>
                 <div className="flex gap-2">
                   <input type="text" name="floorspace" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
-                  <select className="bg-transparent" value={space.floorspaceType} onChange={handleSpace} >
+                  <select className="bg-transparent" value={space.floorspaceType} onChange={handleSpace}>
                     <option value="">sqft</option>
                     <option value="">sqm</option>
                     <option value="">sqy</option>
