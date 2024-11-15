@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(2);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -28,7 +28,7 @@ const VenueIngestion = () => {
   const [catering, setCatering] = useState({
     inHouse: false,
     thirdParty: false,
-    byoFood: '',
+    byoFood: false,
     refreshments: false,
     liqLicense: false,
     byob: false,
@@ -120,17 +120,17 @@ const VenueIngestion = () => {
     });
   };
 
-  const handleCatering = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target
-    setAddress(prev => {
+  const handleCatering = (key) => {
+    console.log(key)
+    setCatering(prev => {
       return {
         ...prev,
-        [name]: value,
+        [key]: !catering[key],
       };
     });
   };
   const handleVenueDetails = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target
+    const { name, value, } = e.target;
     setAddress(prev => {
       return {
         ...prev,
@@ -215,15 +215,6 @@ const VenueIngestion = () => {
     setAddress(value);
   };
 
-  // const handleTagClick = (tag: Tag) => {
-  //   // @ts-ignore
-  //   setTagData(pTagData => {
-  //     return {
-  //       ...pTagData, [tag]: !pTagData[tag]
-  //     }
-  //   });
-  // };
-
   const handleTagClick = (tag: Tag) => {
     setTagData(prevTagData => {
       const updatedTagData = {
@@ -249,7 +240,7 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  console.log(overview)
+  console.log(catering)
   
 
   return (
@@ -365,8 +356,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Venue has their own chef and staff.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleCatering} />
-              <RoundedButton title='&#10003;' callback={handleCatering} />
+              <RoundedButton title='&#10005;' callback={() => handleCatering('inHouse')} />
+              <RoundedButton title='&#10003;' callback={() => handleCatering('inHouse')} />
             </div>
           </div>
 
@@ -376,8 +367,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> External catering can be provided by approved caterers only.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleCatering} />
-              <RoundedButton title='&#10003;' callback={handleCatering} />
+              <RoundedButton title='&#10005;' callback={() => handleCatering('thirdParty')} />
+              <RoundedButton title='&#10003;' callback={() => handleCatering('thirdParty')} />
             </div>
           </div>
 
@@ -387,8 +378,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Clients can hire a caterer of their choice or bring their own food</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleCatering} />
-              <RoundedButton title='&#10003;' callback={handleCatering} />
+              <RoundedButton title='&#10005;' callback={() => handleCatering('byoFood')} />
+              <RoundedButton title='&#10003;' callback={() => handleCatering('byoFood')} />
             </div>
           </div>
 
@@ -398,8 +389,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Provided for free with every booking</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleCatering} />
-              <RoundedButton title='&#10003;' callback={handleCatering} />
+              <RoundedButton title='&#10005;' callback={() => handleCatering('refreshments')} />
+              <RoundedButton title='&#10003;' callback={() => handleCatering('refreshments')} />
             </div>
           </div>
 
@@ -412,8 +403,8 @@ const VenueIngestion = () => {
               <p className="text-slate-300"> Your venue can sell or supply alcohol.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleCatering}/>
-              <RoundedButton title='&#10003;' callback={handleCatering} />
+              <RoundedButton title='&#10005;' callback={() => handleCatering('liqLicense')}/>
+              <RoundedButton title='&#10003;' callback={() => handleCatering('liqLicense')} />
             </div>
           </div>
 
@@ -423,8 +414,8 @@ const VenueIngestion = () => {
               <p>Guest are welcome to bring their own alcoholic beverages</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleCatering} />
-              <RoundedButton title='&#10003;' callback={handleCatering} />
+              <RoundedButton title='&#10005;' callback={() => handleCatering('byob')} />
+              <RoundedButton title='&#10003;' callback={() => handleCatering('byob')} />
             </div>
           </div>
         </div>
