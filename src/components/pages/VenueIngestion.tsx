@@ -180,12 +180,11 @@ const VenueIngestion = () => {
     setFacilities([...facilities, facility ]);
     setFacility('');
   };
-  const handleAccessiblity = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setAddress(prev => {
+  const handleAccessiblity = (key) => {
+    setAccessbility(prev => {
       return {
         ...prev,
-        [name]: value,
+        [key]: !accessbility[key],
       };
     });
   };
@@ -652,8 +651,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">The entrance and path is wide enough for a wheelchair user, the space is accessible without steps from the main entrance (there can be ramps or a lift if steps are present).</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
-              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('wheelchairAccessible')} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('wheelchairAccessible')} />
             </div>
           </div>
 
@@ -663,8 +662,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">It is step-free from the space (otherwise there should be ramps or a lift to facilitate mobility), toilet room adheres to regulations for accessbile access.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
-              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
+            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('accessibleRestrooms')} />
+            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('accessibleRestrooms')} />
             </div>
           </div>
 
@@ -674,8 +673,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">The guest entrance is free of steps and barriers and the space is on street level.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
-              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
+            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('stepFreeEntrance')} />
+            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('stepFreeEntrance')} />
             </div>
           </div>
 
@@ -685,8 +684,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">There's a private parking spot at least 11 feet (3.35 metres) wide. Or, there is public parking spot designated for a person with disabilities that has clear signage or markings.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
-              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
+            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('accessibleParking')} />
+            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('accessibleParking')} />
             </div>
           </div>
 
@@ -696,8 +695,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a lift that serves all floors.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
-              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
+            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('lift')} />
+            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('lift')} />
             </div>
           </div>
 
@@ -707,8 +706,8 @@ const VenueIngestion = () => {
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a cargo lift to facilitate transportation of goods between floors.</p>
             </div>
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleAccessiblity} />
-              <RoundedButton title='&#10003;' callback={handleAccessiblity} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('cargoLift')} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('cargoLift')} />
             </div>
           </div>
 
