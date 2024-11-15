@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -120,8 +120,7 @@ const VenueIngestion = () => {
     });
   };
 
-  const handleCatering = (key) => {
-    console.log(key)
+  const handleCatering = (key: string) => {
     setCatering(prev => {
       return {
         ...prev,
@@ -129,14 +128,14 @@ const VenueIngestion = () => {
       };
     });
   };
-  const handleVenueDetails = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setAddress(prev => {
+  const handleVenueDetails = (key: string) => {
+    setVenueDetails(prev => {
       return {
         ...prev,
-        [name]: value,
+        [key]: !venueDetails[key],
       };
     });
+    console.log('key', key)
   };
   const handleSpace = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target
@@ -240,8 +239,7 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  console.log(catering)
-  
+  console.log('venue',venueDetails)
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
@@ -432,44 +430,34 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Free parking on premises</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('freeOnSite')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('freeOnSite')} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Free street parking</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('freeOffSite')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('freeOffSite')} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking on premises</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('paidOnSite')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('paidOnSite')} />
               </div>
             </div>
             <div className="flex justify-between">
               <p>Paid parking off premises</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('paidOffSite')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('paidOffSite')} />
               </div>
             </div>
           </div>
           <hr />
-          <div>
-            <h1 className="font-extrabold text-xl">Accomodation</h1>
-            <div className="flex justify-between">
-              <p>Accommodation is available on-site</p>
-              <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
-              </div>
-            </div>
-          </div>
-          <hr />
+          
           <div>
             <h1 className="font-extrabold text-xl">Allowed events</h1>
             <div className="flex justify-between">
@@ -478,8 +466,8 @@ const VenueIngestion = () => {
                 <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
               </div>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleVenueDetails} />
-              <RoundedButton title='&#10003;' callback={handleVenueDetails} />
+              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('agePolicy')} />
+              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('agePolicy')} />
               </div>
             </div>
           </div>
