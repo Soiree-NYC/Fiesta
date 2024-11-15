@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(7);
+  const [step, setStep] = useState(0);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -16,6 +16,7 @@ const VenueIngestion = () => {
     vibeCheck: tagData,
     venueDescription: '',
   });
+  
   const [address, setAddress] = useState({
     streetAddress1: '',
     streetAddress2: '',
@@ -82,7 +83,7 @@ const VenueIngestion = () => {
     pricingDetails: false,
     },
   );
-  console.log(pricing)
+  
   const [openingHours, setOpeningHours] = useState({
     monday: false,
     tuesday: false,
@@ -93,7 +94,7 @@ const VenueIngestion = () => {
     sunday: false,
     minimumHours: '',
   });
-  console.log(openingHours)
+  
   const [cancelPolicy, setCancelPolicy] = useState({
     leadTime: '',
     cancelPolicy: '',
@@ -214,14 +215,31 @@ const VenueIngestion = () => {
     setAddress(value);
   };
 
+  // const handleTagClick = (tag: Tag) => {
+  //   // @ts-ignore
+  //   setTagData(pTagData => {
+  //     return {
+  //       ...pTagData, [tag]: !pTagData[tag]
+  //     }
+  //   });
+  // };
+
   const handleTagClick = (tag: Tag) => {
-    // @ts-ignore
-    setTagData(pTagData => {
-      return {
-        ...pTagData, [tag]: !pTagData[tag]
-      }
+    setTagData(prevTagData => {
+      const updatedTagData = {
+        ...prevTagData,
+        [tag]: !prevTagData[tag],
+      };
+  
+      setOverview(prevOverview => ({
+        ...prevOverview,
+        vibeCheck: updatedTagData,
+      }));
+  
+      return updatedTagData;
     });
   };
+  
 
   const handleNext = () => {
     setStep(step+1)
@@ -230,6 +248,9 @@ const VenueIngestion = () => {
   const handlePrev = () => {
     setStep(step - 1)
   };
+
+  console.log(overview)
+  
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
