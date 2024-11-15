@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(6);
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -53,11 +53,11 @@ const VenueIngestion = () => {
   });
   const [spaces, setSpaces] = useState([]);
   const [venuePhotos, setVenuePhotos] = useState([]);
-  const [licences, setLicences] =useState({ civilMarriage: false, moreLicenses: [] });
-  
   const [facilities, setFacilities]  = useState([]);
+  const [facility, setFacility]  = useState('');
   const [music, setMusic] = useState({
     clientMusic: false,
+    clientBand: false,
     clientDJ: false,
     noiseRestriction: false,
   });
@@ -135,7 +135,6 @@ const VenueIngestion = () => {
         [key]: !venueDetails[key],
       };
     });
-    console.log('key', key)
   };
   const handleSpace = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target
@@ -161,35 +160,25 @@ const VenueIngestion = () => {
     });
   };
   const handleVenuePhotos = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const files = Array.from(e.target.files);
+    const files = e.target.files ? Array.from(e.target.files) : [];
     setVenuePhotos(prevImages => [...prevImages, ...files]);
-  }
-  const handleLicenses = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setLicences(prev => {
-      return {
-        ...prev,
-        [name]: value,
-      };
-    });
   };
-  const handleMusic = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
+  const handleMusic = (key) => {
     setMusic(prev => {
       return {
         ...prev,
-        [name]: value,
-      }
-    });
-  };
-  const handleFacilities = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setAddress(prev => {
-      return {
-        ...prev,
-        [name]: value,
+        [key]: !music[key],
       };
     });
+  };
+  console.log(music)
+  const handleFacility = (e: ChangeEvent<HTMLInputElement>) => {
+    setFacility(e.target.value);
+  };
+  const handleFacilities = () => {
+    //@ts-ignore
+    setFacilities([...facilities, facility ]);
+    setFacility('');
   };
   const handleAccessiblity = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target;
@@ -248,9 +237,7 @@ const VenueIngestion = () => {
   const handlePrev = () => {
     setStep(step - 1)
   };
-
-  console.log(spaces);
-
+  
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
       { step === 0 &&
@@ -587,8 +574,7 @@ const VenueIngestion = () => {
               <p>Be sure to include images of the facade, main areas, etc.</p>
             </div>
             <div className="border rounded-lg p-4 w-1/2">
-              <input type="file" multiple name="" id="" />
-              <Primary label='Finish space profile' callback={handleVenuePhotos}/>
+              <input type="file" multiple name="venuePhotos" id="" onChange={handleVenuePhotos}/>
             </div>
           </div>
         </div>
@@ -596,33 +582,22 @@ const VenueIngestion = () => {
 
       { step === 6 &&
         <div className="flex flex-col gap-4">
-          <h1 className="font-extrabold text-4xl">Licences</h1>
-
-          <hr />
-
-          <h2 className="font-extrabold text-xl">Indicate the licenses your space holds.</h2>
-          <div className="flex justify-between items-center">
-            <p>A civil marriage / partnership can be performed by a recognized official or religious body at your venue</p>
-            <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={handleLicenses} />
-              <RoundedButton title='&#10003;' callback={handleLicenses} />
-            </div>
-          </div>
-
-          <h2 className="font-extrabold text-xl">More licenses</h2>
-          <p>Fill in other licenses your space holds..</p>
-          <div className="flex gap-4">
-            <input type="text" className="bg-transparent border rounded-lg" name="moreLicenses" />
-            <RoundedButton title='&#43;' callback={handleLicenses} />
-          </div>
-
+          <h1 className="font-extrabold text-4xl">Facilities and Accessibility</h1>
+          
           <hr />
 
           <h2 className="font-extrabold text-xl">Custom Facilities</h2>
           <p>Complement the standard facilities with your own custom facilities for guests.</p>
           <div className="flex gap-4">
-            <input type="text" className="bg-transparent border rounded-lg"/>
-            <RoundedButton title='&#43;' callback={handleLicenses} />
+            <input type="text" className="bg-transparent border rounded-lg" value={facility} onChange={handleFacility} />
+            <RoundedButton title='&#43;' callback={handleFacilities} />
+            {facilities.map(item => {
+              return (
+                <div key={item} className="flex items-center">
+                  <Primary label={item} />
+                </div>
+              )
+            })}
           </div>
 
           <hr />
@@ -634,29 +609,29 @@ const VenueIngestion = () => {
             <div className="flex justify-between items-center">
               <p>Clients can play their own music</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleMusic} />
-                <RoundedButton title='&#10003;' callback={handleMusic} />
+                <RoundedButton title='&#10005;' callback={() => handleMusic('clientMusic')} />
+                <RoundedButton title='&#10003;' callback={() => handleMusic('clientMusic')} />
               </div>
             </div>
             <div className="flex justify-between items-center">
-              <p>Clients can play their own music</p>
+              <p>Clients bring their own band</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleMusic} />
-                <RoundedButton title='&#10003;' callback={handleMusic} />
+              <RoundedButton title='&#10005;' callback={() => handleMusic('clientBand')} />
+              <RoundedButton title='&#10003;' callback={() => handleMusic('clientBand')} />
               </div>
             </div>
             <div className="flex justify-between items-center">
               <p>Clients can bring their own DJ</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleMusic} />
-                <RoundedButton title='&#10003;' callback={handleMusic} />
+              <RoundedButton title='&#10005;' callback={() => handleMusic('clientDJ')} />
+              <RoundedButton title='&#10003;' callback={() => handleMusic('clientDJ')} />
               </div>
             </div>
             <div className="flex justify-between items-center">
               <p>Space has noise restriction</p>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handleMusic} />
-                <RoundedButton title='&#10003;' callback={handleMusic} />
+              <RoundedButton title='&#10005;' callback={() => handleMusic('noiseRestriction')} />
+              <RoundedButton title='&#10003;' callback={() => handleMusic('noiseRestriction')} />
               </div>
             </div>
           </div>
