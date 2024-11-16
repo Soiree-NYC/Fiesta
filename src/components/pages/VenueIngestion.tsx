@@ -7,10 +7,12 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(6);
+  const [step, setStep] = useState(7);
+  
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
+
   const [overview, setOverview] = useState({
     venueName: "",
     vibeCheck: tagData,
@@ -25,6 +27,7 @@ const VenueIngestion = () => {
     state: 'NY',
     country: 'USA',
   });
+
   const [catering, setCatering] = useState({
     inHouse: false,
     thirdParty: false,
@@ -33,6 +36,7 @@ const VenueIngestion = () => {
     liqLicense: false,
     byob: false,
   });
+
   const [venueDetails, setVenueDetails] = useState({
     freeOnSite: false,
     freeOffSite: false,
@@ -41,6 +45,7 @@ const VenueIngestion = () => {
     allowedEvents: false,
     agePolicy: false,
   });
+
   const [space, setSpace] = useState({
     name: '',
     type: '',
@@ -51,17 +56,23 @@ const VenueIngestion = () => {
     floorspaceType: 'sqft',
     description: '',
   });
+
   const [spaces, setSpaces] = useState([]);
+
   const [venuePhotos, setVenuePhotos] = useState([]);
+
   const [facilities, setFacilities]  = useState([]);
+
   const [facility, setFacility]  = useState('');
+
   const [music, setMusic] = useState({
     clientMusic: false,
     clientBand: false,
     clientDJ: false,
     noiseRestriction: false,
   });
-  const [accessbility, setAccessbility] = useState({
+
+  const [accessibility, setAccessibility] = useState({
     wheelchairAccessible: false,
     accessibleRestrooms: false,
     stepFreeEntrance: false,
@@ -69,20 +80,22 @@ const VenueIngestion = () => {
     lift: false,
     cargoLift: false,
   });
+
   const [pricing, setPricing] = useState({
     flatRate: false,
     hourlyRate: false,
     dynamicRate: false,
-    additionalFees: {
-      cleaningFee: false,
-      gratuity: false,
-      corking: false,
-      coldStorage: false,
-      coatCheck: false,
-    },
-    pricingDetails: false,
-    },
-  );
+    pricingDetails: '',
+  });
+  console.log(pricing)
+
+  const [additionalFees, setAdditionalFees] = useState({
+    cleaningFee: false,
+    gratuity: false,
+    corking: false,
+    coldStorage: false,
+    coatCheck: false,
+  });
   
   const [openingHours, setOpeningHours] = useState({
     monday: false,
@@ -101,7 +114,7 @@ const VenueIngestion = () => {
   });
 
   const handleOverview = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target
+    const { name, value, } = e.target;
     setOverview(prev => {
       return {
         ...prev,
@@ -124,18 +137,22 @@ const VenueIngestion = () => {
     setCatering(prev => {
       return {
         ...prev,
+        //@ts-ignore
         [key]: !catering[key],
       };
     });
   };
+
   const handleVenueDetails = (key: string) => {
     setVenueDetails(prev => {
       return {
         ...prev,
+        //@ts-ignore
         [key]: !venueDetails[key],
       };
     });
   };
+
   const handleSpace = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target
     setSpace(prev => {
@@ -145,6 +162,7 @@ const VenueIngestion = () => {
       };
     });
   };
+
   const handleSpaces = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     // @ts-ignore
     setSpaces([...spaces, space]);
@@ -159,53 +177,80 @@ const VenueIngestion = () => {
       description: '',
     });
   };
+
   const handleVenuePhotos = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    //@ts-ignore
     const files = e.target.files ? Array.from(e.target.files) : [];
-    setVenuePhotos(prevImages => [...prevImages, ...files]);
+    //@ts-ignore
   };
-  const handleMusic = (key) => {
+
+  const handleMusic = (key: string) => {
     setMusic(prev => {
       return {
         ...prev,
+        //@ts-ignore
         [key]: !music[key],
       };
     });
   };
-  console.log(music)
+  
   const handleFacility = (e: ChangeEvent<HTMLInputElement>) => {
     setFacility(e.target.value);
   };
+
   const handleFacilities = () => {
     //@ts-ignore
     setFacilities([...facilities, facility ]);
     setFacility('');
   };
-  const handleAccessiblity = (key) => {
-    setAccessbility(prev => {
+
+  const handleAccessiblity = (key: string) => {
+    setAccessibility(prev => {
       return {
         ...prev,
-        [key]: !accessbility[key],
+        //@ts-ignore
+        [key]: !accessibility[key],
       };
     });
   };
-  const handlePricing = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setAddress(prev => {
+
+  const handlePricing = (key: string) => {
+    setPricing(prev => {
       return {
         ...prev,
-        [name]: value,
+        [key]: !pricing[key],
       };
     });
   };
-  const handleOpeningHours = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, } = e.target;
-    setAddress(prev => {
+
+  const handlePricingDetails = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { value } = e.target;
+    setPricing(prev => {
       return {
         ...prev,
-        [name]: value,
+        pricingDetails: value,
+      };
+    });
+  }
+
+  const handleOpeningHours = (key: string, bool: boolean) => {
+    setOpeningHours(prev => {
+      return {
+        ...prev,
+        [key]: bool,
       };
     });
   };
+  const handleMinimumHours = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { value } = e.target;
+    setOpeningHours(prev => {
+      return {
+        ...prev,
+        minimumHours: value,
+      };
+    });
+  };
+
   const handleCancelPolicy = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { value, } = e.target;
     //@ts-ignore
@@ -236,7 +281,24 @@ const VenueIngestion = () => {
   const handlePrev = () => {
     setStep(step - 1)
   };
-  
+
+  console.log(
+    // overview,
+    // address,
+    // catering,
+    // venueDetails,
+    // space,
+    // spaces,
+    // venuePhotos,
+    // facilities,
+    // facility,
+    // music,
+    // accessibility,
+    // pricing,
+    openingHours,
+    // cancelPolicy,
+  )
+
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
       { step === 0 &&
@@ -532,6 +594,7 @@ const VenueIngestion = () => {
                 <p>Floorspace</p>
                 <div className="flex gap-2">
                   <input type="text" name="floorspace" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
+                  
                   <select className="bg-transparent" value={space.floorspaceType} onChange={handleSpace}>
                     <option value="">sqft</option>
                     <option value="">sqm</option>
@@ -555,9 +618,9 @@ const VenueIngestion = () => {
           <div className="border rounded-lg p-4 ">
               <input type="file" multiple name="" id="" />
             </div>
-            <div>
+            {/* <div>
               <Primary label="+ Add another space" callback={handleSpaces} />
-            </div>
+            </div> */}
         </div>
       }
 
@@ -725,13 +788,18 @@ const VenueIngestion = () => {
           <div className="flex justify-around gap-2">
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Flat rate</h1>
-              <p>Charge based on hire fee per hour or per day.</p>
-              <RoundedButton title="Select" callback={handlePricing}/>
+              <p>Charge based on hire fee per event.</p>
+              <RoundedButton title="Select" callback={() => handlePricing('flatRate')}/>
+            </div>
+            <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
+              <h1>Hourly rate</h1>
+              <p>Charge based on hire fee per hour.</p>
+              <RoundedButton title="Select" callback={() => handlePricing('hourlyRate')}/>
             </div>
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Dynamic Pricing</h1>
-              <p>Charge based on minimum spend, season, price per person, etc.</p>
-              <RoundedButton title="Select" callback={handlePricing}/>
+              <p>Charge based on the market</p>
+              <RoundedButton title="Select" callback={() => handlePricing('dynamicPricing')}/>
             </div>
           </div>
 
@@ -743,50 +811,50 @@ const VenueIngestion = () => {
               <div className="flex gap-4 justify-between items-center">
                 <h3>Monday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('monday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('monday', false)}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between items-center">
                 <h3>Tuesday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('tuesday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('tuesday', false)}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between items-center">
                 <h3>Wednesday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('wednesday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('wednesday', false)}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between items-center">
                 <h3>Thursday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('thursday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('thursday', false)}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between items-center">
                 <h3>Friday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('friday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('friday', false)}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between items-center">
                 <h3>Saturday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('saturday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('saturday', false)}/>
                 </div>
               </div>
               <div className="flex gap-4 justify-between items-center">
                 <h3>Sunday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={handleOpeningHours}/>
-                <RoundedButton title="Closed" callback={handleOpeningHours}/>
+                <RoundedButton title="Open" callback={() => handleOpeningHours('sunday', true)}/>
+                <RoundedButton title="Closed" callback={() => handleOpeningHours('sunday', false)}/>
                 </div>
               </div>
             </div>
@@ -844,7 +912,7 @@ const VenueIngestion = () => {
 
           <div className="flex flex-col gap-2">
             <h1 className="font-extrabold text-xl">Minimum number of hours for a booking</h1>
-            <select name="" id="" className="bg-transparent border rounded-lg p-2 w-1/3" value={openingHours.minimumHours}>
+            <select name="" id="" className="bg-transparent border rounded-lg p-2 w-1/3" value={openingHours.minimumHours} onChange={handleMinimumHours}>
               <option value="1">1 hour</option>
               <option value="2">2 hours</option>
               <option value="3">3 hours</option>
@@ -859,7 +927,7 @@ const VenueIngestion = () => {
                 <span className='text-slate-400 '>(Optional)</span>
               </div>
             </div>
-            <textarea name="pricingDetails" id="" placeholder='Comment here...' className="w-full h-52 p-4" onChange={handlePricing}/>
+            <textarea name="pricingDetails" id="" placeholder='Comment here...' className="w-full h-52 p-4 text-black" value={pricing.pricingDetails} onChange={handlePricingDetails} />
           </div>
         </div>
       }
@@ -873,7 +941,7 @@ const VenueIngestion = () => {
           </p>
 
           <div className="flex items-center gap-10">
-            <input type="checkbox" name="cancel_1" id=""value={'cancel_policy_1'} onChange={handleCancelPolicy} />
+            <input type="checkbox" name="cancel_1" id="" value={'cancel_policy_1'} onChange={handleCancelPolicy} />
             <div className="flex flex-col w-1/2">
               <h3 className="font-extrabold text-xl">Very flexible</h3>
               <p>Cancellations up to 24 hours from event start time will revieve a full refund.</p>
