@@ -952,7 +952,6 @@ const VenueIngestion = () => {
           are always fully refunded.
         </p>
 
-        {/* Policy Options */}
         {[
           {
             id: 'cancel_policy_1',
