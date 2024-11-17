@@ -114,7 +114,6 @@ const VenueIngestion = () => {
 
   const [selectedPolicy, setSelectedPolicy] = useState('');
 
-
   const handleOverview = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target;
     setOverview(prev => {
@@ -244,6 +243,7 @@ const VenueIngestion = () => {
       };
     });
   };
+
   const handleMinimumHours = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { value } = e.target;
     setOpeningHours(prev => {
@@ -279,7 +279,6 @@ const VenueIngestion = () => {
       return updatedTagData;
     });
   };
-  
 
   const handleNext = () => {
     setStep(step+1)
@@ -289,11 +288,13 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
+  console.log(tagData)
+
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px] min-h-[90vh]'>
       { step === 0 &&
-        <div className="flex flex-col font-extrabold gap-10 min-h-screen">
-          <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
+        <div className="flex flex-col gap-10 min-h-screen">
+          <h1 className='text-[6rem] font-extrabold leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
           <hr />
 
@@ -317,6 +318,7 @@ const VenueIngestion = () => {
                 <Primary
                   label={tag}
                   key={i}
+                  frosted={tagData[tag]}
                   callback={() => handleTagClick(tag)}
                   size="lg" />
               ))}
