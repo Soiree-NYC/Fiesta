@@ -289,29 +289,10 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  // console.log(
-    // overview,
-    // address,
-    // catering,
-    // venueDetails,
-    // space,
-    // spaces,
-    // venuePhotos,
-    // facilities,
-    // facility,
-    // music,
-    // accessibility,
-    // pricing,
-    // openingHours,
-    // cancelPolicy.cancelPolicy,
-    // 'cancel'
-  // )
-  console.log(cancelPolicy)
-
   return (
-    <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
+    <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px] min-h-[90vh]'>
       { step === 0 &&
-        <div className="flex flex-col gap-10 min-h-screen">
+        <div className="flex flex-col font-extrabold gap-10 min-h-screen">
           <h1 className='text-[6rem] leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
           <hr />
@@ -357,7 +338,7 @@ const VenueIngestion = () => {
 
       { step === 1 &&
         <div className="flex flex-col gap-4 min-h-screen">
-          <h1 className='text-4xl'>Address and location</h1>
+          <h1 className='text-4xl font-extrabold'>Address and location</h1>
           <hr />
 
           <div className="flex flex-col gap-4">
@@ -410,7 +391,7 @@ const VenueIngestion = () => {
 
       { step === 2 &&
         <div className="flex flex-col gap-4">
-          <h1 className="text-4xl">Catering and drinks</h1>
+          <h1 className="text-4xl font-extrabold">Catering and drinks</h1>
 
           <hr />
 
