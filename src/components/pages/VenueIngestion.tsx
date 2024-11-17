@@ -87,7 +87,6 @@ const VenueIngestion = () => {
     dynamicRate: false,
     pricingDetails: '',
   });
-  console.log(pricing)
 
   const [additionalFees, setAdditionalFees] = useState({
     cleaningFee: false,
@@ -112,6 +111,9 @@ const VenueIngestion = () => {
     leadTime: '',
     cancelPolicy: '',
   });
+
+  const [selectedPolicy, setSelectedPolicy] = useState('');
+
 
   const handleOverview = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, } = e.target;
@@ -251,10 +253,14 @@ const VenueIngestion = () => {
     });
   };
 
-  const handleCancelPolicy = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { value, } = e.target;
-    //@ts-ignore
-    setAddress(value);
+  const handleCancelPolicy = (policy: string) => {
+    setCancelPolicy(prev => {
+      return {
+        ...prev,
+        cancelPolicy: policy
+      }
+    });
+    setSelectedPolicy(policy)
   };
 
   const handleTagClick = (tag: Tag) => {
@@ -282,7 +288,7 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  console.log(
+  // console.log(
     // overview,
     // address,
     // catering,
@@ -295,9 +301,11 @@ const VenueIngestion = () => {
     // music,
     // accessibility,
     // pricing,
-    openingHours,
-    // cancelPolicy,
-  )
+    // openingHours,
+    // cancelPolicy.cancelPolicy,
+    // 'cancel'
+  // )
+  console.log(cancelPolicy)
 
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px]  min-h-[90vh]'>
@@ -932,53 +940,73 @@ const VenueIngestion = () => {
         </div>
       }
 
-      { step === 8 &&
-        <div className="flex flex-col gap-4">
-          <h1 className="font-extrabold text-4xl">Cancellation policy</h1>
+      { step === 8 && (
+      <div className="flex flex-col gap-4">
+        <h1 className="font-extrabold text-4xl">Cancellation policy</h1>
+        <hr />
+        <p>
+          Guests may cancel their booking within 24 hours of the booking confirmation 
+          (but no later than 48 hours before the event) and receive a full refund. 
+          Bookings cancelled after 24 hours (or less than 48 hours before the event) 
+          will follow the cancellation policy selected below. Cancellations by host 
+          are always fully refunded.
+        </p>
 
-          <hr />
-          <p>Guests may cencel their booking within 24 hours of the booking confirmation (but no later than 48 hours efore the event) and receive a full refund. Bookings cancelled after 24 hours (or less than 48 hours before the event) will follow the cancellation policy selected below. Cancellations by houst are always fully refunded.
-          </p>
-
-          <div className="flex items-center gap-10">
-            <input type="checkbox" name="cancel_1" id="" value={'cancel_policy_1'} onChange={handleCancelPolicy} />
+        {/* Policy Options */}
+        {[
+          {
+            id: 'cancel_policy_1',
+            title: 'Very flexible',
+            description: [
+              'Cancellations up to 24 hours from event start time will receive a full refund.',
+              'Cancellations for events starting within 24 hours are non-refundable.',
+            ],
+          },
+          {
+            id: 'cancel_policy_2',
+            title: 'Flexible',
+            description: [
+              'Cancellations up to 7 days in advance will receive a full refund.',
+              'Cancellations up to 7 days to 24 hours in advance will receive a 50% refund.',
+              'Cancellations for events starting within 24 hours are non-refundable.',
+            ],
+          },
+          {
+            id: 'cancel_policy_3',
+            title: 'Standard 30 day',
+            description: [
+              'Cancellations 30 days in advance will receive a full refund.',
+              'Cancellations up to 7 to 30 days in advance will receive a 50% refund.',
+              'Cancellations for events starting within 7 days are non-refundable.',
+            ],
+          },
+          {
+            id: 'cancel_policy_4',
+            title: 'Standard 60 day',
+            description: [
+              'Cancellations 60 days in advance will receive a full refund.',
+              'Cancellations up to 60 to 30 days in advance will receive a 50% refund.',
+              'Cancellations for events starting within 30 days are non-refundable.',
+            ],
+          },
+        ].map((policy) => (
+          <div key={policy.id} className="flex items-center gap-10">
+            <input
+              type="radio"
+              name="cancel_policy"
+              value={policy.id}
+              onChange={() => handleCancelPolicy(policy.id)}
+              checked={selectedPolicy === policy.id}
+            />
             <div className="flex flex-col w-1/2">
-              <h3 className="font-extrabold text-xl">Very flexible</h3>
-              <p>Cancellations up to 24 hours from event start time will revieve a full refund.</p>
-              <p>Cancellations for events starting within 24 hours are non-refundable.</p>
+              <h3 className="font-extrabold text-xl">{policy.title}</h3>
+              {policy.description.map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
             </div>
           </div>
-
-          <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id="" value={'cancel_policy_2'} onChange={handleCancelPolicy} />
-            <div className="flex flex-col w-1/2">
-              <h3 className="font-extrabold text-xl">Flexible</h3>
-              <p>Cancellations up to 7 days in advance will revieve a full refund.</p>
-              <p>Cancellations up to 7 days to 24 hours in advance will revieve a 50% refund.</p>
-              <p>Cancellations for events atarting with 24 hours are non-refundable.</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id="" value={'cancel_policy_3'} onChange={handleCancelPolicy} />
-            <div className="flex flex-col w-1/2">
-              <h3 className="font-extrabold text-xl">Standard 30 day</h3>
-              <p>Cancellations 30 days in advance will revieve a full refund.</p>
-              <p>Cancellations up to 7 to 30 days in advance will revieve a 50% refund.</p>
-              <p>Cancellations for events atarting with 7 days are non-refundable.</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-10">
-            <input type="checkbox" name="" id="" value={'cancel_policy_4'} onChange={handleCancelPolicy} />
-            <div className="flex flex-col w-1/2">
-              <h3 className="font-extrabold text-xl">Standard 60 day</h3>
-              <p>Cancellations 60 days in advance will revieve a full refund.</p>
-              <p>Cancellations up to 60 to 30 days in advance will revieve a 50% refund.</p>
-              <p>Cancellations for events atarting with 30 days are non-refundable.</p>
-            </div>
-          </div>
-        </div>
+        ))}
+      </div>)
       }
 
       <div className="flex justify-between p-4 mb-10">
