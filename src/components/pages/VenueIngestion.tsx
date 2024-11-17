@@ -165,7 +165,7 @@ const VenueIngestion = () => {
     });
   };
 
-  const handleSpaces = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleSpaces = () => {
     // @ts-ignore
     setSpaces([...spaces, space]);
     setSpace({
@@ -625,7 +625,12 @@ const VenueIngestion = () => {
           </div>
 
           <div className="border rounded-lg p-4 ">
+            <h1 className="font-extrabold text-xl">Add an image of this space</h1>
             <input type="file" multiple name="" id="" />
+          </div>
+
+          <div>
+            <Primary label="+Add another space" callback={handleSpaces}/>
           </div>
         </div>
       }
