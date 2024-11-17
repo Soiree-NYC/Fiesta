@@ -7,7 +7,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
-  const [step, setStep] = useState(7);
+  const [step, setStep] = useState(0);
   
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
@@ -184,6 +184,7 @@ const VenueIngestion = () => {
     //@ts-ignore
     const files = e.target.files ? Array.from(e.target.files) : [];
     //@ts-ignore
+    setVenuePhotos([...files]);
   };
 
   const handleMusic = (key: string) => {
@@ -624,11 +625,8 @@ const VenueIngestion = () => {
           </div>
 
           <div className="border rounded-lg p-4 ">
-              <input type="file" multiple name="" id="" />
-            </div>
-            {/* <div>
-              <Primary label="+ Add another space" callback={handleSpaces} />
-            </div> */}
+            <input type="file" multiple name="" id="" />
+          </div>
         </div>
       }
 
