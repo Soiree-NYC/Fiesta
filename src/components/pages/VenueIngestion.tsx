@@ -618,7 +618,8 @@ const VenueIngestion = () => {
                 <p>Floorspace</p>
                 <div className="flex gap-2">
                   <input type="text" name="floorspace" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
-                  
+
+                  {/* @ts-ignore */}
                   <select className="bg-transparent" value={space.floorspaceType} onChange={handleSpace}>
                     <option value="">sqft</option>
                     <option value="">sqm</option>
@@ -953,6 +954,7 @@ const VenueIngestion = () => {
 
           <div className="flex flex-col gap-2">
             <h1 className="font-extrabold text-xl">Minimum number of hours for a booking</h1>
+            {/* @ts-ignore */}
             <select name="" id="" className="bg-transparent border rounded-lg p-2 w-1/3" value={openingHours.minimumHours} onChange={handleMinimumHours}>
               <option value="1">1 hour</option>
               <option value="2">2 hours</option>
