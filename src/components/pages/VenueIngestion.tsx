@@ -14,7 +14,7 @@ const VenueIngestion = () => {
       top: 0,
       behavior: 'smooth',
     });
-  },[step]);
+  }, [step]);
 
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
