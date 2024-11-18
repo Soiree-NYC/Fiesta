@@ -278,7 +278,8 @@ const VenueIngestion = () => {
         cancelPolicy: policy
       }
     });
-    setSelectedPolicy(policy)
+
+    setSelectedPolicy(policy);
   };
 
   const handleTagClick = (tag: Tag) => {
@@ -384,6 +385,7 @@ const VenueIngestion = () => {
                 <h1 className="font-extrabold text-xl">City</h1>
                 <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" name="city" onChange={handleAddress} />
               </div>
+
               <div>
                 <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
                 <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" name="zip" onChange={handleAddress}  />
@@ -495,29 +497,32 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <p>Free parking on premises</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('freeOnSite')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('freeOnSite')} />
+                <RoundedButton title='&#10005;' callback={() => handleVenueDetails('freeOnSite')} />
+                <RoundedButton title='&#10003;' callback={() => handleVenueDetails('freeOnSite')} />
               </div>
             </div>
+
             <div className="flex justify-between">
               <p>Free street parking</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('freeOffSite')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('freeOffSite')} />
+                <RoundedButton title='&#10005;' callback={() => handleVenueDetails('freeOffSite')} />
+                <RoundedButton title='&#10003;' callback={() => handleVenueDetails('freeOffSite')} />
               </div>
             </div>
+
             <div className="flex justify-between">
               <p>Paid parking on premises</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('paidOnSite')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('paidOnSite')} />
+                <RoundedButton title='&#10005;' callback={() => handleVenueDetails('paidOnSite')} />
+                <RoundedButton title='&#10003;' callback={() => handleVenueDetails('paidOnSite')} />
               </div>
             </div>
+
             <div className="flex justify-between">
               <p>Paid parking off premises</p>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('paidOffSite')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('paidOffSite')} />
+                <RoundedButton title='&#10005;' callback={() => handleVenueDetails('paidOffSite')} />
+                <RoundedButton title='&#10003;' callback={() => handleVenueDetails('paidOffSite')} />
               </div>
             </div>
           </div>
@@ -531,9 +536,10 @@ const VenueIngestion = () => {
                 <p>Popular for promoted and ticketed events</p>
                 <p>You are frequently hosting promoted and ticketed events for which the organizer can publicly advertise and sell tickets.</p>
               </div>
+
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('allowedEvents')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('allowedEvents')} />
+                <RoundedButton title='&#10005;' callback={() => handleVenueDetails('allowedEvents')} />
+                <RoundedButton title='&#10003;' callback={() => handleVenueDetails('allowedEvents')} />
               </div>
             </div>
           </div>
@@ -547,9 +553,10 @@ const VenueIngestion = () => {
                 <p>Age restrictions at the venue</p>
                 <p>Specify if your venue has age limits for event attendees.</p>
               </div>
+
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleVenueDetails('agePolicy')} />
-              <RoundedButton title='&#10003;' callback={() => handleVenueDetails('agePolicy')} />
+                <RoundedButton title='&#10005;' callback={() => handleVenueDetails('agePolicy')} />
+                <RoundedButton title='&#10003;' callback={() => handleVenueDetails('agePolicy')} />
               </div>
             </div>
           </div>
@@ -589,6 +596,7 @@ const VenueIngestion = () => {
                   <p>Set a minimum number of attendees per event</p>
                   <input type="text" name="minCapacity" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
                 </div>
+
                 <div>
                   <p>Set a maximum number of attendees per event</p>
                   <input type="text" name="maxCapacity" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
@@ -600,6 +608,7 @@ const VenueIngestion = () => {
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
               <h1 className="font-extrabold text-xl">Space Size</h1>
+
               <div className="flex justify-between flex-col">
                 <p>Floorspace</p>
                 <div className="flex gap-2">
@@ -622,6 +631,7 @@ const VenueIngestion = () => {
               <h1 className="font-extrabold text-xl">Venue description</h1>
               <p>Write a brief description of your venue, this will be seen in your venue profile and user feeds.</p>
             </div>
+
             <textarea className="text-start w-full h-96 border rounded-b-lg p-4 text-black" placeholder="Write a description of the space..." onChange={handleSpace} />
           </div>
 
@@ -647,6 +657,7 @@ const VenueIngestion = () => {
               <h1 className="font-extrabold text-xl">Add venue photos</h1>
               <p>Be sure to include images of the facade, main areas, etc.</p>
             </div>
+
             <div className="border rounded-lg p-4 w-1/2">
               <input type="file" multiple name="venuePhotos" id="" onChange={handleVenuePhotos}/>
             </div>
@@ -662,6 +673,7 @@ const VenueIngestion = () => {
 
           <h2 className="font-extrabold text-xl">Custom Facilities</h2>
           <p>Complement the standard facilities with your own custom facilities for guests.</p>
+
           <div className="flex gap-4">
             <input type="text" className="bg-transparent border rounded-lg" value={facility} onChange={handleFacility} />
             <RoundedButton title='&#43;' callback={handleFacilities} />
