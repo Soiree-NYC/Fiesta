@@ -25,7 +25,7 @@ const VenueIngestion = () => {
     vibeCheck: tagData,
     venueDescription: '',
   });
-  
+
   const [address, setAddress] = useState({
     streetAddress1: '',
     streetAddress2: '',
@@ -213,12 +213,12 @@ const VenueIngestion = () => {
     setFacility('');
   };
 
-  const handleAccessiblity = (key: string) => {
+  const handleAccessiblity = (key: string, bool: boolean) => {
     setAccessibility(prev => {
       return {
         ...prev,
         //@ts-ignore
-        [key]: !accessibility[key],
+        [key]: bool,
       };
     });
   };
@@ -227,11 +227,12 @@ const VenueIngestion = () => {
     setPricing(prev => {
       return {
         ...prev,
+        //@ts-ignore
         [key]: !pricing[key],
       };
     });
   };
-  
+
   const handleAdditionalFees = (key: string, bool: boolean) => {
     setAdditionalFees(prev => {
       return {
@@ -249,7 +250,7 @@ const VenueIngestion = () => {
         pricingDetails: value,
       };
     });
-  }
+  };
 
   const handleOpeningHours = (key: string, bool: boolean) => {
     setOpeningHours(prev => {
@@ -286,22 +287,22 @@ const VenueIngestion = () => {
         ...prevTagData,
         [tag]: !prevTagData[tag],
       };
-  
+
       setOverview(prevOverview => ({
         ...prevOverview,
         vibeCheck: updatedTagData,
       }));
-  
+
       return updatedTagData;
     });
   };
 
   const handleNext = () => {
-    setStep(step+1)
-  }; 
+    setStep(step+1);
+  };
 
   const handlePrev = () => {
-    setStep(step - 1)
+    setStep(step - 1);
   };
 
   return (
@@ -520,8 +521,9 @@ const VenueIngestion = () => {
               </div>
             </div>
           </div>
+
           <hr />
-          
+
           <div>
             <h1 className="font-extrabold text-xl">Allowed events</h1>
             <div className="flex justify-between">
@@ -535,7 +537,9 @@ const VenueIngestion = () => {
               </div>
             </div>
           </div>
+
           <hr />
+
           <div>
             <h1 className="font-extrabold text-xl">Age Policy</h1>
             <div className="flex justify-between">
@@ -557,7 +561,7 @@ const VenueIngestion = () => {
           <h1 className="font-extrabold text-4xl">Spaces at {overview.venueName}</h1>
 
           <hr />
-          
+
           <div className="flex flex-col gap-4 ">
             <div className="flex justify-between">
               <div className="flex flex-col gap-1">
@@ -661,7 +665,7 @@ const VenueIngestion = () => {
           <div className="flex gap-4">
             <input type="text" className="bg-transparent border rounded-lg" value={facility} onChange={handleFacility} />
             <RoundedButton title='&#43;' callback={handleFacilities} />
-            {facilities.map(item => {
+            { facilities.map(item => {
               return (
                 <div key={item} className="flex items-center">
                   <Primary label={item} />
@@ -683,6 +687,7 @@ const VenueIngestion = () => {
                 <RoundedButton title='&#10003;' callback={() => handleMusic('clientMusic')} />
               </div>
             </div>
+
             <div className="flex justify-between items-center">
               <p>Clients bring their own band</p>
               <div className="flex gap-2">
@@ -690,6 +695,7 @@ const VenueIngestion = () => {
               <RoundedButton title='&#10003;' callback={() => handleMusic('clientBand')} />
               </div>
             </div>
+
             <div className="flex justify-between items-center">
               <p>Clients can bring their own DJ</p>
               <div className="flex gap-2">
@@ -697,6 +703,7 @@ const VenueIngestion = () => {
               <RoundedButton title='&#10003;' callback={() => handleMusic('clientDJ')} />
               </div>
             </div>
+
             <div className="flex justify-between items-center">
               <p>Space has noise restriction</p>
               <div className="flex gap-2">
@@ -705,7 +712,6 @@ const VenueIngestion = () => {
               </div>
             </div>
           </div>
-
 
           <hr />
 
@@ -721,9 +727,10 @@ const VenueIngestion = () => {
               <h3 className="font-extrabold text-lg">Wheelchair accessible</h3>
               <p className="wrap w-3/4">The entrance and path is wide enough for a wheelchair user, the space is accessible without steps from the main entrance (there can be ramps or a lift if steps are present).</p>
             </div>
+
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('wheelchairAccessible')} />
-              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('wheelchairAccessible')} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('wheelchairAccessible', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('wheelchairAccessible', false)} />
             </div>
           </div>
 
@@ -732,53 +739,58 @@ const VenueIngestion = () => {
               <h3 className="font-extrabold text-lg">Disabled access toilets</h3>
               <p className="wrap w-3/4">It is step-free from the space (otherwise there should be ramps or a lift to facilitate mobility), toilet room adheres to regulations for accessbile access.</p>
             </div>
+
             <div className="flex gap-2">
-            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('accessibleRestrooms')} />
-            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('accessibleRestrooms')} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('accessibleRestrooms', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('accessibleRestrooms', false)} />
             </div>
           </div>
 
           <div className="flex justify-between items-center">
             <div>
-            <h3 className="font-extrabold text-lg">Step-free guest entrance</h3>
+              <h3 className="font-extrabold text-lg">Step-free guest entrance</h3>
               <p className="wrap w-3/4">The guest entrance is free of steps and barriers and the space is on street level.</p>
             </div>
+
             <div className="flex gap-2">
-            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('stepFreeEntrance')} />
-            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('stepFreeEntrance')} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('stepFreeEntrance', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('stepFreeEntrance', false)} />
             </div>
           </div>
 
           <div className="flex justify-between items-center">
             <div>
-            <h3 className="font-extrabold text-lg">Accessible parking lot</h3>
+              <h3 className="font-extrabold text-lg">Accessible parking lot</h3>
               <p className="wrap w-3/4">There's a private parking spot at least 11 feet (3.35 metres) wide. Or, there is public parking spot designated for a person with disabilities that has clear signage or markings.</p>
             </div>
+
             <div className="flex gap-2">
-            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('accessibleParking')} />
-            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('accessibleParking')} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('accessibleParking', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('accessibleParking', false)} />
             </div>
           </div>
 
           <div className="flex justify-between items-center">
             <div>
-            <h3 className="font-extrabold text-lg">Lift to all floors</h3>
+              <h3 className="font-extrabold text-lg">Lift to all floors</h3>
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a lift that serves all floors.</p>
             </div>
+
             <div className="flex gap-2">
-            <RoundedButton title='&#10005;' callback={() => handleAccessiblity('lift')} />
-            <RoundedButton title='&#10003;' callback={() => handleAccessiblity('lift')} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('lift', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('lift', false)} />
             </div>
           </div>
 
           <div className="flex justify-between items-center">
             <div>
-            <h3 className="font-extrabold text-lg">Cargo lift</h3>
+              <h3 className="font-extrabold text-lg">Cargo lift</h3>
               <p className="wrap w-3/4">If the venue is multi-leveled, there is a cargo lift to facilitate transportation of goods between floors.</p>
             </div>
+
             <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('cargoLift')} />
-              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('cargoLift')} />
+              <RoundedButton title='&#10005;' callback={() => handleAccessiblity('cargoLift', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAccessiblity('cargoLift', false)} />
             </div>
           </div>
 
@@ -786,7 +798,7 @@ const VenueIngestion = () => {
         </div> 
       }
 
-      {step === 7 &&
+      { step === 7 &&
         <div className="flex flex-col gap-10">
           <h1 className="font-extrabold text-4xl">Prices and opening hours</h1>
 
@@ -799,11 +811,13 @@ const VenueIngestion = () => {
               <p>Charge based on hire fee per event.</p>
               <RoundedButton title="Select" callback={() => handlePricing('flatRate')}/>
             </div>
+
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Hourly rate</h1>
               <p>Charge based on hire fee per hour.</p>
               <RoundedButton title="Select" callback={() => handlePricing('hourlyRate')}/>
             </div>
+
             <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
               <h1>Dynamic Pricing</h1>
               <p>Charge based on the market</p>
@@ -819,50 +833,56 @@ const VenueIngestion = () => {
               <div className="flex gap-4 justify-between items-center">
                 <h3>Monday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('monday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('monday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('monday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('monday', false)}/>
                 </div>
               </div>
+
               <div className="flex gap-4 justify-between items-center">
                 <h3>Tuesday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('tuesday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('tuesday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('tuesday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('tuesday', false)}/>
                 </div>
               </div>
+
               <div className="flex gap-4 justify-between items-center">
                 <h3>Wednesday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('wednesday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('wednesday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('wednesday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('wednesday', false)}/>
                 </div>
               </div>
+
               <div className="flex gap-4 justify-between items-center">
                 <h3>Thursday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('thursday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('thursday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('thursday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('thursday', false)}/>
                 </div>
               </div>
+
               <div className="flex gap-4 justify-between items-center">
                 <h3>Friday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('friday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('friday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('friday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('friday', false)}/>
                 </div>
               </div>
+
               <div className="flex gap-4 justify-between items-center">
                 <h3>Saturday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('saturday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('saturday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('saturday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('saturday', false)}/>
                 </div>
               </div>
+
               <div className="flex gap-4 justify-between items-center">
                 <h3>Sunday</h3>
                 <div className="flex gap-2">
-                <RoundedButton title="Open" callback={() => handleOpeningHours('sunday', true)}/>
-                <RoundedButton title="Closed" callback={() => handleOpeningHours('sunday', false)}/>
+                  <RoundedButton title="Open" callback={() => handleOpeningHours('sunday', true)}/>
+                  <RoundedButton title="Closed" callback={() => handleOpeningHours('sunday', false)}/>
                 </div>
               </div>
             </div>
@@ -882,32 +902,32 @@ const VenueIngestion = () => {
             <div className="flex justify-between items-center w-1/4">
               <h3>Gratuity</h3>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('gratuity', true)} />
-              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('gratuity', false)} />
+                <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('gratuity', true)} />
+                <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('gratuity', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Corking fee</h3>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('corkingFee', true)} />
-              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('corkingFee', false)} />
+                <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('corkingFee', true)} />
+                <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('corkingFee', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Cold storage fee</h3>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coldStorage', true)} />
-              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('coldStorage', false)} />
+                <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coldStorage', true)} />
+                <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('coldStorage', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Coat check fee</h3>
               <div className="flex gap-2">
-              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coatCheck', true)} />
-              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('coatCheck', false)} />
+                <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coatCheck', true)} />
+                <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('coatCheck', false)} />
               </div>
             </div>
           </div>
@@ -931,6 +951,7 @@ const VenueIngestion = () => {
                 <span className='text-slate-400 '>(Optional)</span>
               </div>
             </div>
+
             <textarea name="pricingDetails" id="" placeholder='Comment here...' className="w-full h-52 p-4 text-black" value={pricing.pricingDetails} onChange={handlePricingDetails} />
           </div>
         </div>
@@ -939,7 +960,9 @@ const VenueIngestion = () => {
       { step === 8 && (
       <div className="flex flex-col gap-4">
         <h1 className="font-extrabold text-4xl">Cancellation policy</h1>
+
         <hr />
+
         <p>
           Guests may cancel their booking within 24 hours of the booking confirmation 
           (but no later than 48 hours before the event) and receive a full refund. 
@@ -993,6 +1016,7 @@ const VenueIngestion = () => {
               onChange={() => handleCancelPolicy(policy.id)}
               checked={selectedPolicy === policy.id}
             />
+
             <div className="flex flex-col w-1/2">
               <h3 className="font-extrabold text-xl">{policy.title}</h3>
               {policy.description.map((line, index) => (
