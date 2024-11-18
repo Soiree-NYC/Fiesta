@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { ChangeEvent } from "react";
 import { Tag, tags } from "../../shared/types/Tags";
@@ -8,7 +8,14 @@ import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
   const [step, setStep] = useState(0);
-  
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  },[step]);
+
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
@@ -224,6 +231,15 @@ const VenueIngestion = () => {
       };
     });
   };
+  
+  const handleAdditionalFees = (key: string, bool: boolean) => {
+    setAdditionalFees(prev => {
+      return {
+        ...prev,
+        [key]: bool,
+      };
+    });
+  };
 
   const handlePricingDetails = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { value } = e.target;
@@ -288,8 +304,6 @@ const VenueIngestion = () => {
     setStep(step - 1)
   };
 
-  console.log(tagData)
-
   return (
     <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px] min-h-[90vh]'>
       { step === 0 &&
@@ -339,7 +353,7 @@ const VenueIngestion = () => {
       }
 
       { step === 1 &&
-        <div className="flex flex-col gap-4 min-h-screen">
+        <div className="flex flex-col gap-4">
           <h1 className='text-4xl font-extrabold'>Address and location</h1>
           <hr />
 
@@ -382,11 +396,11 @@ const VenueIngestion = () => {
 
             <hr />
 
-            <div>
+            {/* <div>
               <h1 className="font-extrabold text-xl">Show your location on Google Maps</h1>
               <p>Drag the pin to the correct location on the map.</p>
               <div className="h-[50rem] w-[50rem] border rounded-lg my-4">map</div>
-            </div>
+            </div> */}
           </div>
         </div>
       }
@@ -860,44 +874,40 @@ const VenueIngestion = () => {
             <div className="flex justify-between items-center w-1/4">
               <h3>Cleaning fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
-                <RoundedButton title='&#10003;' callback={function (): void {
-                  throw new Error("Function not implemented.");
-                } } />
+                <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('cleaningFee', true)} />
+                <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('cleaningFee', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Gratuity</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handlePricing} />
-                <RoundedButton title='&#10003;' callback={handlePricing} />
+              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('gratuity', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('gratuity', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Corking fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handlePricing} />
-                <RoundedButton title='&#10003;' callback={handlePricing} />
+              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('corkingFee', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('corkingFee', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Cold storage fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handlePricing} />
-                <RoundedButton title='&#10003;' callback={handlePricing} />
+              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coldStorage', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('coldStorage', false)} />
               </div>
             </div>
            
             <div className="flex justify-between items-center w-1/4">
               <h3>Coat check fee</h3>
               <div className="flex gap-2">
-                <RoundedButton title='&#10005;' callback={handlePricing} />
-                <RoundedButton title='&#10003;' callback={handlePricing} />
+              <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coatCheck', true)} />
+              <RoundedButton title='&#10003;' callback={() => handleAdditionalFees('coatCheck', false)} />
               </div>
             </div>
           </div>
