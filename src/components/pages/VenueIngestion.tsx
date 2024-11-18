@@ -26,6 +26,7 @@ const VenueIngestion = () => {
     venueDescription: '',
   });
 
+  //@ts-ignore
   const [address, setAddress] = useState({
     streetAddress1: '',
     streetAddress2: '',
@@ -66,6 +67,7 @@ const VenueIngestion = () => {
 
   const [spaces, setSpaces] = useState([]);
 
+  //@ts-ignore
   const [venuePhotos, setVenuePhotos] = useState([]);
 
   const [facilities, setFacilities]  = useState([]);
@@ -79,6 +81,7 @@ const VenueIngestion = () => {
     noiseRestriction: false,
   });
 
+  //@ts-ignore
   const [accessibility, setAccessibility] = useState({
     wheelchairAccessible: false,
     accessibleRestrooms: false,
@@ -95,6 +98,7 @@ const VenueIngestion = () => {
     pricingDetails: '',
   });
 
+  //@ts-ignore
   const [additionalFees, setAdditionalFees] = useState({
     cleaningFee: false,
     gratuity: false,
@@ -114,6 +118,7 @@ const VenueIngestion = () => {
     minimumHours: '',
   });
   
+  //@ts-ignore
   const [cancelPolicy, setCancelPolicy] = useState({
     leadTime: '',
     cancelPolicy: '',
