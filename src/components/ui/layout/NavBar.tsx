@@ -28,26 +28,28 @@ const NavBar: FC<Props> = ({ listItems }) => {
   ];
 
   return (
-    <nav className='flex flex-col justify-between items-center text-white m-2'>
+    <nav className='flex flex-col justify-between items-center text-white m-4'>
       <section className='flex items-center justify-between w-full'>
         <Link to='/home'>
-          <div className='flex text-3xl font-roboto tracking-tight font-medium'>
+          <div className='flex items-center text-2xl font-roboto tracking-wide'>
             <img src='/olive.svg' alt="" className='h-10'/>
-            <div>SOIR<span>&#201;</span>E</div>
+            <div>SOIRÉE</div>
           </div>
         </Link>
 
         <div className='flex gap-4'>
-          <PlainButton title='&#127760;' callback={()=> console.log} />
-          <PlainButton title='&#10084;' callback={()=> console.log} />
-          <PlainButton title='Book Now' callback={()=> console.log} />
+          <div className='hidden md:block'>
+            <PlainButton title='&#127760;' callback={()=> console.log} />
+            <PlainButton title='&#10084;' callback={()=> console.log} />
+            <PlainButton title='Book Now' callback={()=> console.log} />
+          </div>
 
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
           {accountAccessToggle && <DropMenu items={dropMenuItems} />}
         </div>
       </section>
 
-      <section className='flex flex-col items-center gap-5'>
+      <section className='hidden md:flex flex-col items-center gap-5'>
         <h1 className='text-6xl text-roboto font-bold'>TIME TO PARTY</h1>
         <div className='flex flex-col items-center'>
           <p>Your favorite bar is ready to rent.</p>

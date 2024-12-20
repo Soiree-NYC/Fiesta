@@ -24,8 +24,11 @@ function App() {
   };
 
   return (
-    <div className='bg-skyline bg-cover bg-center flex justify-center overflow-auto'>
-      <div className='max-w-screen-xl flex flex-col pt-10'>
+    <div className='bg-[#587ac1]
+    md:bg-skyline md:bg-cover md:bg-center flex justify-center overflow-auto'>
+      <div className='flex flex-col w-screen
+        md:max-w-screen-xl md:pt-10
+      '>
         {checkExclustions(exclustion_list) && <NavBar listItems={listItems} />}
 
         <Routes>
