@@ -697,7 +697,7 @@ const VenueIngestion = () => {
           <h1 className="font-extrabold text-xl ">Music and Sound</h1>
           <p>Add the music and sound options you provide, including any noise limitations</p>
 
-          <div className="w-1/2">
+          <div className="w-screen pr-4 md:p-0 md:w-1/2">
             <div className="flex justify-between items-center">
               <p>Clients can play their own music</p>
               <div className="flex gap-2 scale-75">
@@ -823,22 +823,22 @@ const VenueIngestion = () => {
           <hr />
 
           <h1 className="font-extrabold text-xl">What is your pricing?</h1>
-          <div className="flex justify-around gap-2">
-            <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
+          <div className="flex flex-col md:flex-row justify-around gap-2">
+            <div className="flex flex-col border rounded-lg items-center p-2 md:w-1/2">
               <h1>Flat rate</h1>
-              <p>Charge based on hire fee per event.</p>
+              <p className="text-center">Charge based on hire fee per event.</p>
               <RoundedButton title="Select" callback={() => handlePricing('flatRate')}/>
             </div>
 
-            <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
+            <div className="flex flex-col border rounded-lg items-center p-2 md:w-1/2">
               <h1>Hourly rate</h1>
-              <p>Charge based on hire fee per hour.</p>
+              <p className="text-center">Charge based on hire fee per hour.</p>
               <RoundedButton title="Select" callback={() => handlePricing('hourlyRate')}/>
             </div>
 
-            <div className="flex flex-col border rounded-lg items-center p-2 w-1/2">
+            <div className="flex flex-col border rounded-lg items-center p-2 md:w-1/2">
               <h1>Dynamic Pricing</h1>
-              <p>Charge based on the market</p>
+              <p className="text-center">Charge based on the market</p>
               <RoundedButton title="Select" callback={() => handlePricing('dynamicPricing')}/>
             </div>
           </div>
@@ -847,7 +847,7 @@ const VenueIngestion = () => {
 
           <div className="flex flex-col justify-around gap-4">
             <h1 className="font-extrabold text-xl">Days and opening hours</h1>
-            <div className="flex flex-col gap-2 w-1/4">
+            <div className="flex flex-col gap-2 md:w-1/2">
               <div className="flex gap-4 justify-between items-center">
                 <h3>Monday</h3>
                 <div className="flex gap-2 scale-75">
@@ -909,7 +909,7 @@ const VenueIngestion = () => {
           <div className="flex flex-col gap-2">
             <h1 className="font-extrabold text-xl">Addtional charges</h1>
            
-            <div className="flex justify-between items-center w-1/4">
+            <div className="flex justify-between items-center md:w-1/4">
               <h3>Cleaning fee</h3>
               <div className="flex gap-2 scale-75">
                 <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('cleaningFee', true)} />
@@ -917,7 +917,7 @@ const VenueIngestion = () => {
               </div>
             </div>
            
-            <div className="flex justify-between items-center w-1/4">
+            <div className="flex justify-between items-center md:w-1/4">
               <h3>Gratuity</h3>
               <div className="flex gap-2 scale-75">
                 <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('gratuity', true)} />
@@ -925,7 +925,7 @@ const VenueIngestion = () => {
               </div>
             </div>
            
-            <div className="flex justify-between items-center w-1/4">
+            <div className="flex justify-between items-center md:w-1/4">
               <h3>Corking fee</h3>
               <div className="flex gap-2 scale-75">
                 <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('corkingFee', true)} />
@@ -933,7 +933,7 @@ const VenueIngestion = () => {
               </div>
             </div>
            
-            <div className="flex justify-between items-center w-1/4">
+            <div className="flex justify-between items-center md:w-1/4">
               <h3>Cold storage fee</h3>
               <div className="flex gap-2 scale-75">
                 <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coldStorage', true)} />
@@ -941,7 +941,7 @@ const VenueIngestion = () => {
               </div>
             </div>
            
-            <div className="flex justify-between items-center w-1/4">
+            <div className="flex justify-between items-center md:w-1/4">
               <h3>Coat check fee</h3>
               <div className="flex gap-2 scale-75">
                 <RoundedButton title='&#10005;' callback={() => handleAdditionalFees('coatCheck', true)} />
