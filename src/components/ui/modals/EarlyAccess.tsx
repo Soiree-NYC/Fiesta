@@ -2,8 +2,8 @@ import Primary from "../buttons/Primary";
 
 const EarlyAccess = () => {
   return (
-    <div className='text-4xl text-white font-thin font-roboto w-dvm leading-none flex flex-col gap-32 bg-black bg-opacity-50 px-10 py-10 h-[80rem] overflow-y-auto'>
-      <h1 className='text-[7rem] font-bold'>
+    <div className='md:text-4xl text-white font-thin font-roboto w-dvm leading-none flex flex-col gap-32 bg-black bg-opacity-50 px-10 py-10 h-[80rem] overflow-y-auto'>
+      <h1 className='text-center md:text-left text-lg leading-5 md:leading-none md:text-[7rem] font-bold'>
         Soirée helps NYC bars and restaurants fill their private event spaces.
       </h1>
 
@@ -14,7 +14,7 @@ const EarlyAccess = () => {
       <div className='flex flex-col gap-5'>
         <h1 className='font-bold'>HOW IT WORKS</h1>
 
-        <ul className='list-decimal list-inside leading-10'>
+        <ul className='flex flex-col gap-5 list-decimal list-inside leading-5 md:leading-10'>
           <li>You list your private event space on our site.</li>
           <li>We market your space to customers looking to book a private event.</li>
           <li>You communicate with customers on our platform via email or text to finalize the booking.</li>
@@ -29,7 +29,7 @@ const EarlyAccess = () => {
         <p>
           We are offering bars and restaurants Early Acccess to our platform now, ahdead of our public launch in the new year. By signing up ahead of Dec 30, you can lock in the below benefits:
 
-          <ul className='list-disc list-inside pt-10'>
+          <ul className='flex flex-col gap-5 list-decimal list-inside pt-10 leading-5 md:leading-none'>
             <li className='px-10'>No cost to list until the public launch, and then 6 month free</li>
             <li className='px-10'>Soirée select status, which gives your venue a prominent position on our site and makes it show up first in customers' seatch results</li>
           </ul>
@@ -42,7 +42,7 @@ const EarlyAccess = () => {
           </p>
       </div>
 
-      <div className="text-4xl">
+      <div className="md:text-4xl text-center">
         <strong>
           Join the Spaniard, the Wren, Judy Z's, and dozens of other NYC bars and restaurants signed up for Soirée today; Early Access is only available until December 30.
         </strong>

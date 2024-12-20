@@ -13,7 +13,9 @@ const Feed: FC<Props> = ({ data }) => {
   const navigate = useNavigate();
 
   return (
-    <div className='gap-5 grid  md:grid-cols-3 grid-cols-5 p-4'>
+    <div className='gap-5 p-4 grid grid-cols-1
+      md:grid-cols-3
+      lg:grid-cols-5'>
       {data.map((item, i) => {
         const {
           id,
