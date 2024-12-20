@@ -377,29 +377,29 @@ const VenueIngestion = () => {
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-1/2" name="streetAddress1" onChange={handleAddress} />
+              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-full md:w-1/2" name="streetAddress1" onChange={handleAddress} />
             </div>
 
             <div>
               <h1 className="font-extrabold text-xl">Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-1/2" name="streetAddress2" onChange={handleAddress} />
+              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-full md:w-1/2" name="streetAddress2" onChange={handleAddress} />
             </div>
 
-            <div className="flex  gap-4">
+            <div className="flex flex-col md:flex-row gap-4">
               <div>
                 <h1 className="font-extrabold text-xl">City</h1>
-                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2" name="city" onChange={handleAddress} />
+                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2 w-full md:w-50" name="city" onChange={handleAddress} />
               </div>
 
               <div>
                 <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2" name="zip" onChange={handleAddress}  />
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2 w-full md:w-50" name="zip" onChange={handleAddress}  />
               </div>
             </div>
 
             <div>
               <h1 className="font-extrabold text-xl">State</h1>
-              <p className="border rounded-lg w-1/12 p-2">NY</p>
+              <p className="border rounded-lg p-2 w-50 md:w-1/6">NY</p>
             </div>
 
             <hr />
