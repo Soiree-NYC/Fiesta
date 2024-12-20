@@ -654,7 +654,7 @@ const VenueIngestion = () => {
 
       { step === 5 &&
         <div className="flex flex-col gap-4">
-          <h1 className="font-extrabold text-4xl">Photos</h1>
+          <h1 className="text-center md:text-start font-extrabold text-4xl">Photos</h1>
 
           <hr />
 
@@ -664,7 +664,7 @@ const VenueIngestion = () => {
               <p>Be sure to include images of the facade, main areas, etc.</p>
             </div>
 
-            <div className="border rounded-lg p-4 w-1/2">
+            <div className="border rounded-lg p-4 md:w-1/2">
               <input type="file" multiple name="venuePhotos" id="" onChange={handleVenuePhotos}/>
             </div>
           </div>
