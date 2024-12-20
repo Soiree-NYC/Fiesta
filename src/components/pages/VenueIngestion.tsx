@@ -616,7 +616,7 @@ const VenueIngestion = () => {
 
               <div className="flex justify-between flex-col">
                 <p>Floorspace</p>
-                <div className="flex gap-2 scale-75">
+                <div className="flex gap-2">
                   <input type="text" name="floorspace" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
 
                   {/* @ts-ignore */}
