@@ -312,16 +312,16 @@ const VenueIngestion = () => {
   };
 
   return (
-    <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md min-w-[1200px] min-h-[90vh]'>
+    <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md md:min-w-[1200px] md:min-h-[90vh]'>
       { step === 0 &&
         <div className="flex flex-col gap-10 min-h-screen">
-          <h1 className='text-[6rem] font-extrabold leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
+          <h1 className='text-4xl md:text-[6rem] font-extrabold md:leading-[6rem]'>Let's get to know you <br/> and your business!</h1>
 
           <hr />
 
           <div className='flex flex-col gap-2'>
             <label htmlFor="venueName" className="font-extrabold text-xl">Venue Name</label>
-            <input type="text" className="w-1/4 rounded-lg bg-transparent border p-2" name="venueName" value={overview.venueName} onChange={handleOverview} />
+            <input type="text" className="md:w-1/4 rounded-lg bg-transparent border p-2" name="venueName" value={overview.venueName} onChange={handleOverview} />
           </div>
 
           <hr />
@@ -334,7 +334,7 @@ const VenueIngestion = () => {
 
             <hr />
 
-            <div className='flex flex-wrap gap-3'>
+            <div className='flex flex-wrap justify-center md:justify-start gap-1 md:gap-3'>
               {tags.map((tag,i) => (
                 <Primary
                   label={tag}
@@ -1048,8 +1048,8 @@ const VenueIngestion = () => {
       }
 
       <div className="flex justify-between p-4 mb-10">
-        <Primary label="Back" callback={handlePrev} size='3xl' />
-        <Primary label="Continue" callback={handleNext} size='3xl' />
+        <Primary label="Back" callback={handlePrev} size='xl' />
+        <Primary label="Continue" callback={handleNext} size='xl' />
       </div>
     </div>
   );
