@@ -1036,7 +1036,7 @@ const VenueIngestion = () => {
               checked={selectedPolicy === policy.id}
             />
 
-            <div className="flex flex-col w-1/2">
+            <div className="flex flex-col md:w-1/2">
               <h3 className="font-extrabold text-xl">{policy.title}</h3>
               {policy.description.map((line, index) => (
                 <p key={index}>{line}</p>
