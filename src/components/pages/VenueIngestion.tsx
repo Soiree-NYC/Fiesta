@@ -493,7 +493,7 @@ const VenueIngestion = () => {
 
       { step === 3 &&
         <div className="flex flex-col gap-4">
-          <h1 className="font-extrabold text-4xl">Venue Details</h1>
+          <h1 className="text-center md:text-start font-extrabold text-4xl">Venue Details</h1>
 
           <hr />
 
@@ -556,7 +556,7 @@ const VenueIngestion = () => {
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <p>Age restrictions at the venue</p>
-                <p>Specify if your venue has age limits for event attendees.</p>
+                <p>Specify if your venue has age limits (21+) for event attendees.</p>
               </div>
 
               <div className="flex gap-2 scale-75">
