@@ -21,7 +21,7 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
       basePrice: 100,
       min_count: 10,
     },
-    { name: 'Recommended',
+    { name: 'Prime',
       color: 'bg-olive_r_2',
       desc: 'Elevate your event with our Recommended package, offering a more private setting and a wider variety of drinks, extra time and premium service.',
       basePrice: 250,
@@ -61,7 +61,7 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
       </div>
 
       <div className={`flex flex-col rounded-b-2xl ${parsePackages('color')} ${packageFocus === 'Soirée' ? 'text-slate-700' : 'text-slate-100'} p-6 gap-2`}>
-        <h2 className='leading-5 h-[5rem]'>{parsePackages('desc')}</h2>
+        <h2 className='leading-5 h-[5rem] mb-10'>{parsePackages('desc')}</h2>
         <div className='self-start flex'>
           <h1 className='text-3xl font-bold'>${parsePackages('basePrice')}</h1>
           <p className='self-end'>/guest</p>
