@@ -27,7 +27,7 @@ const EarlyAccess = () => {
         <h1 className='font-bold'>EARLY ACCESS</h1>
 
         <p>
-          We are offering bars and restaurants Early Acccess to our platform now, ahdead of our public launch in the new year. By signing up ahead of Dec 30, you can lock in the below benefits:
+          We are offering bars and restaurants Early Acccess to our platform now, ahead of our public launch in the new year. By signing up ahead of Dec 30, you can lock in the below benefits:
 
           <ul className='flex flex-col gap-5 list-decimal list-inside pt-10 leading-5 md:leading-none'>
             <li className='px-10'>No cost to list until the public launch, and then 6 month free</li>
