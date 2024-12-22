@@ -22,7 +22,7 @@ const PhotoCase: FC<Props> = ({ title, mainImg, xImgs }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-1">
+      <div className="hidden md:grid grid-cols-2 gap-1">
         <img
           className="w-full h-[38rem] object-cover rounded-l-2xl"
           src={mainImg}
@@ -38,6 +38,17 @@ const PhotoCase: FC<Props> = ({ title, mainImg, xImgs }) => {
             />
           ))}
         </div>
+      </div>
+
+      <div className="flex gap-1 overflow-scroll snap-center md:hidden">
+        {[mainImg, ...xImgs].map((src, i) => (
+          <img
+            key={i}
+            className={`w-screen h-50 ${i === 0 ? 'rounded-t-2xl' : ''} ${i === 3 ? 'rounded-b-2xl' : ''}`}
+            src={src}
+            alt={`${title}  image`}
+          />
+        ))}
       </div>
     </div>
   );
