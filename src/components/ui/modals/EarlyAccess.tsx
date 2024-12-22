@@ -8,7 +8,7 @@ const EarlyAccess = () => {
       </h1>
 
       <p>
-        Soirée is the only website built to connect NYC bars and restaurants with customers look to book priate event. We manage the marketing and scheduling process - all you have to do is wait for bookings to come through the door.
+        Soirée is the only website built to connect NYC bars and restaurants with customers look to book private event. We manage the marketing and scheduling process - all you have to do is wait for bookings to come through the door.
       </p>
 
       <div className='flex flex-col gap-5'>
@@ -17,7 +17,7 @@ const EarlyAccess = () => {
         <ul className='flex flex-col gap-5 list-decimal list-inside leading-5 md:leading-10'>
           <li>You list your private event space on our site.</li>
           <li>We market your space to customers looking to book a private event.</li>
-          <li>You communicate with customers on our platform via email or text to finalize the booking.</li>
+          <li>You communicate with customers on our platform via our messaging service to iron out fine details.</li>
           <li>We collect payments for deposits/minimums on your behalf.</li>
           <li>You host the event!</li>
         </ul>
@@ -30,8 +30,8 @@ const EarlyAccess = () => {
           We are offering bars and restaurants Early Acccess to our platform now, ahead of our public launch in the new year. By signing up ahead of Dec 30, you can lock in the below benefits:
 
           <ul className='flex flex-col gap-5 list-decimal list-inside pt-10 leading-5 md:leading-none'>
-            <li className='px-10'>No cost to list until the public launch, and then 6 month free</li>
-            <li className='px-10'>Soirée select status, which gives your venue a prominent position on our site and makes it show up first in customers' seatch results</li>
+            <li className='px-10'>No cost to list until the public launch, and then 6 months free.</li>
+            <li className='px-10'>Soirée select status, which gives your venue a prominent position on our site and makes it show up first in customers' search results.</li>
           </ul>
         </p>
       </div>
