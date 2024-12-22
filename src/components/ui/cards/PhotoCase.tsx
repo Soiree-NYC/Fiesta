@@ -44,7 +44,7 @@ const PhotoCase: FC<Props> = ({ title, mainImg, xImgs }) => {
         {[mainImg, ...xImgs].map((src, i) => (
           <img
             key={i}
-            className={`w-screen h-50 ${i === 0 ? 'rounded-t-2xl' : ''} ${i === 3 ? 'rounded-b-2xl' : ''}`}
+            className={`w-screen h-50 ${i === 0 ? 'rounded-l-2xl' : ''} ${i === [mainImg, ...xImgs].length-1 ? 'rounded-r-2xl' : ''}`}
             src={src}
             alt={`${title}  image`}
           />

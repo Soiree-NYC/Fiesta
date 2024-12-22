@@ -85,7 +85,7 @@ const VenueDetails = () => {
       <div className="flex flex-col gap-10">
         <PhotoCase title={name} mainImg={mainImg} xImgs={secondaryImgs} />
 
-        <div className="grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
+        <div className="flex flex-col md:grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
           <div className="p-4 flex flex-col gap-5 text-white">
             <QuickInfo
               description={description}

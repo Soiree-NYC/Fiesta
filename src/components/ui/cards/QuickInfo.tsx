@@ -13,21 +13,22 @@ type Prop = {
 
 const QuickInfo: FC<Prop> = ({ description, desx, name, open_at, close_at, avg, neighborhood }) => {
   return (
-    <div>
-      <h1 className="flex items-center gap-2 text-white text-3xl py-1">{name} <span className="text-3xl">•</span>
-        <span className='text-sm'>{neighborhood}</span>
-        <span className='text-sm'>{avg}/5</span>
-      </h1>
-      <h3 className="text-lg text-white">{description}</h3>
-      <div className="flex flex-row gap-1">
+    <div className='text-slate-300'>
+      <h1 className="flex items-center gap-2 text-white text-3xl py-1">{name}</h1>
+      <div className='flex gap-2'>
+        <span>{neighborhood}</span>
+        <span>•</span>
+        <span>{avg}/5</span>
+      </div>
+      <h3>{description}</h3>
+      <div className="flex flex-row gap-3">
         {desx.map((des, i) => (
-          <div key={i} className="flex justify-center text-white gap-1">
-            <p className="text-white self-stretch text-lg mb-4">{des}</p>
-            {i < desx.length - 1 && (<span className="text-3xl">•</span>)}
+          <div key={i}>
+            <p>{des}{i < desx.length-1 && <span>,</span>}</p>
           </div>
         ))}
       </div>
-      <p>
+      <p className='text-white'>
         <span className='text-green-400'>
           Open: &nbsp;
         </span>
