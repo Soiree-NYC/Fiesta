@@ -9,17 +9,16 @@ const Features: FC<Props> = ({ features }) => {
   return (
     <div className='flex flex-col gap-2'>
       <div className='flex gap-2'>
-        <img src='https://img.icons8.com/?size=20&id=7856&format=png&color=ffffff'/>
+        <img src='https://img.icons8.com/?size=25&id=7856&format=png&color=ffffff'/>
         <strong className='text-xl'>Amenities</strong>
       </div>
-      <div className="flex items-center flex-wrap gap-1 text-sm">
+      <div className="flex items-center flex-wrap gap-1 text-sm text-slate-50">
         {features.map((feature, i) => {
-          const { src, description } = featureDetails[feature];
+          const { description } = featureDetails[feature];
 
           return (
-            <div key={i} className='flex justify-center mt-2 px-2 py-2 border rounded-full'>
-              <img src={src} alt="" />
-              <span className='ml-2'>{description}</span>
+            <div key={i} className='mt-2 px-2 py-2 border rounded-full'>
+              <span>{description}</span>
             </div>
           )})}
       </div>

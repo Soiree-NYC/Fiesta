@@ -49,46 +49,55 @@ const Home: FC<Props> = ({ venues }) => {
     <Primary
       label='West Village'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='Chelsea'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='FIDI'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='East Village'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='Upper West Side'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='SOHO'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label={`Hell's Kitchen`}
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='DUMBO'
       callback={handleClick}
+      frosted
       bold
     />,
     <Primary
       label='Prospect Heights'
       callback={handleClick}
+      frosted
       bold
     />,
   ];
