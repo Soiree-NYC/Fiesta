@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import { ChangeEvent } from "react";
 import { Tag, tags } from "../../shared/types/Tags";
+import { menuOptions, MenuOptionsKeys } from "../../shared/types/MenuOptions";
 
 import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
@@ -19,11 +20,17 @@ const VenueIngestion = () => {
   const [tagData, setTagData] = useState<Record<Tag, boolean>>(() =>
     Object.fromEntries(tags.map(tag => [tag, false])) as Record<Tag, boolean>
   );
+  const [menuOptionData, setMenuOptionData] = useState<Record<MenuOptionsKeys, boolean>>(() =>
+    Object.fromEntries(
+      Object.entries(menuOptions).map(([key, _val]) => [key, false])
+    ) as Record<MenuOptionsKeys, boolean>
+  );
 
   const [overview, setOverview] = useState({
     venueName: "",
     vibeCheck: tagData,
     venueDescription: '',
+    menuOptions: menuOptionData,
   });
 
   //@ts-ignore
@@ -117,7 +124,7 @@ const VenueIngestion = () => {
     sunday: false,
     minimumHours: '',
   });
-  
+
   //@ts-ignore
   const [cancelPolicy, setCancelPolicy] = useState({
     leadTime: '',
@@ -207,7 +214,7 @@ const VenueIngestion = () => {
       };
     });
   };
-  
+
   const handleFacility = (e: ChangeEvent<HTMLInputElement>) => {
     setFacility(e.target.value);
   };
@@ -303,6 +310,22 @@ const VenueIngestion = () => {
     });
   };
 
+  const handleMenuOptionClick = (option: MenuOptionsKeys) => {
+    setMenuOptionData(prevMenuOptionData => {
+      const updatedMenuOptionData = {
+        ...prevMenuOptionData,
+        [option]: !prevMenuOptionData[option],
+      };
+
+      setOverview(prevOverview => ({
+        ...prevOverview,
+        menuOptions: updatedMenuOptionData,
+      }));
+
+      return updatedMenuOptionData;
+    });
+  };
+
   const handleNext = () => {
     setStep(step+1);
   };
@@ -339,12 +362,39 @@ const VenueIngestion = () => {
                 <Primary
                   label={tag}
                   key={i}
-                  frosted={tagData[tag]}
+                  frosted
                   callback={() => handleTagClick(tag)}
                   size="lg" />
               ))}
             </div>
           </div>
+
+          <hr />
+
+          <div className='flex flex-col gap-4 border rounded-lg p-4'> 
+            <div className="flex flex-col">
+              <h1 className="font-extrabold text-xl">Menu Options</h1>
+              <p>Select one or more options that best describe your venue's menu options.</p>
+            </div>
+
+            <hr />
+
+            <div className='flex flex-wrap justify-center md:justify-start gap-1 md:gap-3'>
+              {/* @ts-ignore */}
+              {Object.entries(menuOptions).map(([key, option], i) => (
+                <Primary
+                label={option.option}
+                key={i}
+                frosted
+                // @ts-ignore
+                callback={() => handleMenuOptionClick(key)}
+                size="lg"
+                />
+              ))}
+            </div>
+          </div>
+
+          <hr />
 
           <div className="flex flex-col gap-4 text-start w-full border rounded-lg">
             <div className="p-4">
@@ -1048,8 +1098,8 @@ const VenueIngestion = () => {
       }
 
       <div className="flex justify-between p-4 mb-10">
-        <Primary label="Back" callback={handlePrev} size='xl' />
-        <Primary label="Continue" callback={handleNext} size='xl' />
+        <Primary label="Back" callback={handlePrev} size='xl' frosted />
+        <Primary label="Continue" callback={handleNext} size='xl' frosted />
       </div>
     </div>
   );
