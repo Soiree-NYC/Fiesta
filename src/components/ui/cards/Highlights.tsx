@@ -21,7 +21,7 @@ const Highlights: FC<Props> = ({ writeUps, options }) => {
         </div>
         <div className="flex flex-col text-sm text-slate-300">
           {writeUps.map((item: Publication, index: number) => (
-            <Link key={index} to={item.src}>{item.publication}, {item.date}</Link>
+            <Link key={index} to={item.src} className='hover:underline hover:decoration-solid'>{item.publication}, {item.date}</Link>
          ))}
         </div>
       </div>
@@ -33,17 +33,15 @@ const Highlights: FC<Props> = ({ writeUps, options }) => {
           </div>
           <strong className='text-xl'>Menu options</strong>
         </div>
-        <div className="flex flex-wrap items-center gap-1 text-sm text-slate-300">
+        <div className="flex flex-wrap items-center gap-1 text-sm text-slate-50">
           {options.map((item, i) => {
             const menuItem = menuOptions[item];
             const option_name = menuOptions[item]?.option;
             if (!menuItem) return null;
-            const {src} = menuItem;
 
             return (
-              <div key={i} className='flex mt-2 p-2 border rounded-full'>
-                <img src={src} alt="" />
-                <span className='ml-2'>{option_name}</span>
+              <div key={i} className='mt-2 p-2 border rounded-full'>
+                <span>{option_name}</span>
               </div>)}
           )}
         </div>

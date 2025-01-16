@@ -23,7 +23,6 @@ const VenueDetails = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        // Fetch venue data
         const venueResponse = await fetch('/data/venues.json');
         if (!venueResponse.ok) throw new Error('Network response was not ok');
         const venueData: Venue[] = await venueResponse.json();
@@ -32,7 +31,6 @@ const VenueDetails = () => {
         if (!foundVenue) throw new Error('Venue not found');
         setVenue(foundVenue);
 
-        // Fetch ratings data
         const ratingsResponse = await fetch('/data/ratings.json');
         if (!ratingsResponse.ok) throw new Error('Network response was not ok');
         const ratingsData = await ratingsResponse.json();
@@ -41,7 +39,6 @@ const VenueDetails = () => {
         //@ts-ignore
         const avgRating = Math.round(venueRatings.reduce((sum: number, r: { rating: Rating }) => sum + r.rating, 0) / venueRatings.length * 100)/100 || 0;
 
-        // Create an array of rating objects without the id
         // @ts-ignore
         const ratingsArray = venueRatings.map(({ id, ...rest }) => rest);
         setVenueRating({ avg: avgRating, ratings: ratingsArray });

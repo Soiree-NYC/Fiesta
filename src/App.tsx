@@ -24,8 +24,7 @@ function App() {
   };
 
   return (
-    <div className='bg-[#587ac1]
-    md:bg-skyline md:bg-cover md:bg-center flex justify-center overflow-auto'>
+    <div className='bg-gradient-to-b from-[#587ac1] via-[#587ac1] to-[#f5a97f] flex justify-center overflow-auto'>
       <div className='flex flex-col w-screen
         md:max-w-screen-xl md:pt-10
       '>

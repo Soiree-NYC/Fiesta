@@ -11,7 +11,7 @@ const SlideMenu: FC<Props> = ({ items }) => {
         md:overflow-hidden'>
         <ul className='flex gap-1'>
           {items.map((item, i) => (
-          <li key={i} className='py-2'>
+          <li key={i} className='py-2 px-0.5 hover:scale-105'>
             {item}
           </li>
         ))}
