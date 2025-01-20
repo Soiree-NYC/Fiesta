@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { ChangeEvent } from "react";
 import { Tag, tags } from "../../shared/types/Tags";
@@ -8,6 +9,7 @@ import Primary from "../ui/buttons/Primary";
 import RoundedButton from "../ui/buttons/RoundedButton";
 
 const VenueIngestion = () => {
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
 
   useEffect(() => {
@@ -39,6 +41,9 @@ const VenueIngestion = () => {
     streetAddress2: '',
     city: '',
     zip: '',
+    neighborhood: '',
+    phone: '',
+    email: '',
     state: 'NY',
     country: 'USA',
   });
@@ -69,6 +74,7 @@ const VenueIngestion = () => {
     maxCapacity:'',
     floorspace: '',
     floorspaceType: 'sqft',
+    price: '',
     description: '',
   });
 
@@ -194,6 +200,7 @@ const VenueIngestion = () => {
       maxCapacity: '',
       floorspace: '',
       floorspaceType: 'sqft',
+      price: '',
       description: '',
     });
   };
@@ -412,47 +419,58 @@ const VenueIngestion = () => {
       { step === 1 &&
         <div className="flex flex-col gap-4">
           <h1 className='text-4xl font-extrabold'>Address and location</h1>
-          <hr />
 
-          <div className="flex flex-col gap-4">
-            <div>
-              <h1 className="font-extrabold text-xl">Venue Address</h1>
-              <p>Help customers find your venue.</p>
-            </div>
-            
-            <div>
-              <h1 className="font-extrabold text-xl">Country</h1>
-              <p>United States</p>
-            </div>
-
-            <div>
-              <h1 className="font-extrabold text-xl">Street Address</h1>
-              <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-full md:w-1/2" name="streetAddress1" onChange={handleAddress} />
-            </div>
-
-            <div>
-              <h1 className="font-extrabold text-xl">Street Address line 2</h1>
-              <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-full md:w-1/2" name="streetAddress2" onChange={handleAddress} />
-            </div>
-
-            <div className="flex flex-col md:flex-row gap-4">
+          <div className='flex flex-col gap-4 border rounded-lg p-4'>
+            <div className="flex flex-col gap-4">
               <div>
-                <h1 className="font-extrabold text-xl">City</h1>
-                <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2 w-full md:w-50" name="city" onChange={handleAddress} />
+                <h1 className="font-extrabold text-xl">Venue Address</h1>
+                <p>Help customers find your venue.</p>
+              </div>
+
+              <hr />
+
+              <div>
+                <h1 className="font-extrabold text-xl">Country</h1>
+                <p className="border rounded-lg p-2 w-50 md:w-1/6">United States</p>
               </div>
 
               <div>
-                <h1 className="font-extrabold text-xl">Postcode/Zip Code</h1>
-                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2 w-full md:w-50" name="zip" onChange={handleAddress}  />
+                <h1 className="font-extrabold text-xl">Street Address</h1>
+                <input type="text" placeholder="555 Vesey Street" className="bg-transparent border rounded-lg p-2 w-full md:w-1/2" name="streetAddress1" onChange={handleAddress} />
+              </div>
+
+              <div>
+                <h1 className="font-extrabold text-xl">Street Address line 2</h1>
+                <input type="text" placeholder="Apt, suite, unit, building, floor, etc." className="bg-transparent border rounded-lg p-2 w-full md:w-1/2" name="streetAddress2" onChange={handleAddress} />
+              </div>
+
+              <div className="flex flex-col md:flex-row gap-4">
+                <div>
+                  <h1 className="font-extrabold text-xl">City</h1>
+                  <input type="text" placeholder="New York" className="bg-transparent border rounded-lg p-2 w-full md:w-50" name="city" onChange={handleAddress} />
+                </div>
+
+                <div>
+                  <h1 className="font-extrabold text-xl">Zip Code</h1>
+                  <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2 w-full md:w-50" name="zip" onChange={handleAddress} />
+                </div>
+              </div>
+
+              <div>
+                <h1 className="font-extrabold text-xl">State</h1>
+                <p className="border rounded-lg p-2 w-50 md:w-1/6">NY</p>
+              </div>
+
+              <div>
+                <h1 className="font-extrabold text-xl">Phone</h1>
+                <input type="text" placeholder="10010" className="bg-transparent border rounded-lg p-2 w-1/2 md:w-50" name="phone" onChange={handleAddress} />
+              </div>
+
+              <div className='flex flex-col gap-2'>
+                <label htmlFor="venueName" className="font-extrabold text-xl">Email</label>
+                <input type="text" className="md:w-1/4 rounded-lg bg-transparent border p-2" name="email" onChange={handleAddress} />
               </div>
             </div>
-
-            <div>
-              <h1 className="font-extrabold text-xl">State</h1>
-              <p className="border rounded-lg p-2 w-50 md:w-1/6">NY</p>
-            </div>
-
-            <hr />
 
             {/* <div>
               <h1 className="font-extrabold text-xl">Show your location on Google Maps</h1>
@@ -644,28 +662,28 @@ const VenueIngestion = () => {
           <hr />
 
           <div className="flex justify-between">
-            <div className="flex flex-col gap-1">
-              <h1 className="font-extrabold text-xl">Guest capacity preferences</h1>
-              <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-1 text-start w-full border rounded-lg">
+              <h1 className="font-extrabold text-xl p-4">Guest capacity preferences</h1>
+              <hr />
+              <div className="flex flex-col gap-6 p-4">
                 <div>
                   <p>Set a minimum number of attendees per event</p>
-                  <input type="text" name="minCapacity" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
+                  <input type="text" name="minCapacity" id="" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
                 </div>
 
                 <div>
                   <p>Set a maximum number of attendees per event</p>
-                  <input type="text" name="maxCapacity" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
+                  <input type="text" name="maxCapacity" id="" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex gap-20">
             <div className="flex flex-col gap-1">
               <h1 className="font-extrabold text-xl">Space Size</h1>
 
               <div className="flex justify-between flex-col">
-                <p>Floorspace</p>
                 <div className="flex gap-2">
                   <input type="text" name="floorspace" id="" placeholder="e.g. Mezzanine, Private Room, Patio" className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
 
@@ -675,6 +693,16 @@ const VenueIngestion = () => {
                     <option value="">sqm</option>
                     <option value="">sqy</option>
                   </select>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-1">
+              <h1 className="font-extrabold text-xl">Base Price</h1>
+
+              <div className="flex justify-between flex-col">
+                <div className="flex gap-2">
+                  <input type="text" name="price" id="" placeholder='$0.00' className="bg-transparent border rounded-lg p-2" onChange={handleSpace} />
                 </div>
               </div>
             </div>
@@ -696,9 +724,7 @@ const VenueIngestion = () => {
             <input type="file" multiple name="" id="" />
           </div>
 
-          <div>
-            <Primary label="+Add another space" callback={handleSpaces}/>
-          </div>
+          <Primary label="+Add another space" callback={handleSpaces} />
         </div>
       }
 
@@ -1095,6 +1121,16 @@ const VenueIngestion = () => {
           </div>
         ))}
       </div>)
+      }
+
+      {step === 9 && 
+      <div className="flex flex-col items-center gap-4 text-start w-full border rounded-lg p-40">
+          <h1 className="font-extrabold text-3xl">You're all set! We've sent a confirmation message to your email.</h1>
+          <p className="text-center text-xl"> Be sure to check your inbox (and spam folder just in case) for further instructions. Your venue will <span className="underline decoration-solid font-bold">NOT</span> be published until confirmation is complete.</p>
+
+          <Primary label="Main Menu" callback={()=> navigate('/')} size='xl' frosted />
+      </div>
+
       }
 
       <div className="flex justify-between p-4 mb-10">
