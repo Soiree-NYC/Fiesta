@@ -10,26 +10,19 @@ import VenueIngestion from './components/pages/VenueIngestion';
 
 import Test from './components/pages/Test';
 
+import { checkExcludedPaths } from './utils/checkExcludedPaths';
+import { homePageExclusions } from './shared/exclusionLists';
+
 function App() {
   const [listItems, setListItems] = useState<number>(0);
-
   const { pathname } = useLocation();
-
-  const exclustion_list = [
-    '/',
-    '/test',
-  ];
-
-  const checkExclustions = (list:string[]) => {
-    return !list.includes(pathname);
-  };
 
   return (
     <div className='bg-gradient-to-b from-[#587ac1] via-[#587ac1] to-[#f5a97f] flex justify-center overflow-auto'>
       <div className='flex flex-col w-screen
         md:max-w-screen-xl md:pt-10
       '>
-        {checkExclustions(exclustion_list) && <NavBar listItems={listItems} />}
+        {checkExcludedPaths(homePageExclusions, pathname) && <NavBar listItems={listItems} />}
 
         <Routes>
           <Route path='/' element={<Home venues={{getter: listItems, setter: setListItems}}/>} />
