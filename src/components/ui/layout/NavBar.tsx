@@ -1,5 +1,5 @@
 import { FC, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import AccountAccess from "../buttons/AccountAccess";
 import DropMenu from '../menus/DropMenu';
@@ -11,6 +11,8 @@ type Props = {
 
 const NavBar: FC<Props> = ({ listItems }) => {
   const [accountAccessToggle, setAccountAccessToggle] = useState<boolean>(false);
+  const navigate = useNavigate();
+
   const dropMenuItems = [
     [
       <div className='flex items-center'>
@@ -39,9 +41,9 @@ const NavBar: FC<Props> = ({ listItems }) => {
 
         <div className='flex gap-4'>
           <div className='hidden md:block'>
-            <PlainButton title='&#127760;' callback={()=> console.log} />
-            <PlainButton title='&#10084;' callback={()=> console.log} />
-            <PlainButton title='Book Now' callback={()=> console.log} />
+            <PlainButton title='&#127760;' callback={()=> alert('This feature is currently under construction')} />
+            <PlainButton title='&#10084;' callback={()=> alert('This feature is currently under construction')} />
+            <PlainButton title='List Your Venue' callback={() => navigate('/addvenue')} />
           </div>
 
           <AccountAccess setter={setAccountAccessToggle} getter={accountAccessToggle} />
