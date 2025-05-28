@@ -1,8 +1,4 @@
-import React from 'react'
-
-type Props = {}
-
-const Confirmation = (props: Props) => {
+const Confirmation = () => {
   return (
     <div className='flex flex-col gap-20'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
