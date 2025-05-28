@@ -60,7 +60,7 @@ const Ingestion_2 = ({ accessibility, accessibilitySetter, }: Props) => {
         ))}
       </div>
     </>
-  );
+  )
 };
 
 export default Ingestion_2;

@@ -1,9 +1,9 @@
-import VenueIngestion from "./VenueIngestion";
+import Confirmation from "./Confirmation";
 
 const Test = () => {
   return (
     <div className="h-[100vh]">
-      <VenueIngestion />
+      <Confirmation />
     </div>
   );
 };
