@@ -1,3 +1,5 @@
+import RoundedButton from '../ui/buttons/RoundedButton';
+
 const Confirmation = () => {
   return (
     <div className='flex flex-col gap-20'>
@@ -6,13 +8,16 @@ const Confirmation = () => {
         <div className='flex flex-col gap-5'>
           <h4 className='text-3xl font-medium'>Your party</h4>
           <div className='flex flex-col gap-5 text-xl'>
-            <div className='grid grid-cols-2  justify-evenly'>
+            <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
                 <span>Dates</span>
                 <span>Oct 17-19</span>
               </div>
               <div className='flex justify-end'>
-                <button className='underline border  w-1/4'>Edit</button>
+                <RoundedButton
+                  title='Edit'
+                  callback={() => console.log('yo')}
+                />
               </div>
             </div>
             <div className='grid grid-cols-2 justify-evenly'>
@@ -21,7 +26,10 @@ const Confirmation = () => {
                 <span>1 guest</span>
               </div>
               <div className='flex justify-end'>
-                <button className='underline border w-1/4'>Edit</button>
+                <RoundedButton
+                  title='Edit'
+                  callback={() => console.log('yo')}
+                />
               </div>
             </div>
           </div>
