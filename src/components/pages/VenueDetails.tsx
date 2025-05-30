@@ -30,6 +30,8 @@ const VenueDetails = () => {
         const foundVenue = venueData.find(v => v.id === parseInt(id || '', 10));
         if (!foundVenue) throw new Error('Venue not found');
         setVenue(foundVenue);
+        sessionStorage.setItem('venueName', foundVenue.name);
+        sessionStorage.setItem('venueDescription', foundVenue.description);
 
         const ratingsResponse = await fetch('/data/ratings.json');
         if (!ratingsResponse.ok) throw new Error('Network response was not ok');

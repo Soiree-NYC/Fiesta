@@ -7,7 +7,7 @@ import Special from '../buttons/SpecialButton';
 import DateTime from '../../form/DateTime';
 
 type Props = {
-  basePrice: number;
+  basePrice?: number;
   standing: number;
 };
 
@@ -58,6 +58,7 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
     const calc = guests * 80 + ((guests * base) / 100) * 20;
     setPrice(calc);
     sessionStorage.setItem('price', String(calc));
+    sessionStorage.setItem('basePrice', String(base));
   }, [guests, packageFocus]);
 
   const reserveHandler = () => {
@@ -65,6 +66,9 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
     sessionStorage.setItem('package', parsePackages(packageFocus));
     sessionStorage.setItem('bookingDate', date.toISOString());
     sessionStorage.setItem('price', String(price));
+    if (date === new Date()) {
+      alert('Please add a time')
+    }
     navigate('/confirmation');
   };
 

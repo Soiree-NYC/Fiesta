@@ -62,8 +62,13 @@ const DateTime: FC<Props> = ({ guests, setGuests, date, setDate, min, max }) => 
         className='flex flex-col border border-x-0 border-t-0 border-b-2 p-2 gap-5 text-center justify-between'
         onChange={(value) => setDate(value as Date)}
         value={date}
+        tileClassName={({ date: tileDate, view }) => {
+          if (view === 'month' && date.toDateString() === tileDate.toDateString()) {
+            return 'selected-tile';
+          }
+          return null;
+        }}
       />
-
       <div className='grid grid-cols-2'>
         <div className='flex flex-col border-r-2 p-2'>
           <span className="text-sm self-start px-1">START</span>

@@ -17,7 +17,9 @@ const Time: FC<Props> = ({ time, setTime, type }) => {
         className="bg-transparent"
         name={type}
         value={time[type]}
-        onChange={(e) => handleTimeSelect(e.target.value)}>
+        onChange={(e) => handleTimeSelect(e.target.value)}
+        required
+      >
         <option value="08:00">08:00 AM</option>
         <option value="09:00">09:00 AM</option>
         <option value="10:00">10:00 AM</option>
