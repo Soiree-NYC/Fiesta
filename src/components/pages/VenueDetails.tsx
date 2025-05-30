@@ -67,7 +67,6 @@ const VenueDetails = () => {
     open_at,
     close_at,
     host,
-    basePrice,
     standing,
     hallmarks,
     photos,
@@ -102,7 +101,7 @@ const VenueDetails = () => {
             <hr className="text-white" />
             <Features features={features} />
           </div>
-          <CheckoutConfig basePrice={basePrice} standing={standing} />
+          <CheckoutConfig standing={standing} />
         </div>
       </div>
     </main>

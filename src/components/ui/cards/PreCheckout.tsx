@@ -7,11 +7,10 @@ import Special from '../buttons/SpecialButton';
 import DateTime from '../../form/DateTime';
 
 type Props = {
-  basePrice?: number;
   standing: number;
 };
 
-const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
+const PreCheckout: FC<Props> = ({ standing }) => {
   const [guests, setGuests] = useState<number>(10);
   const [packageFocus, setPackageFocus] = useState<string>("Limited");
   const [date, setDate] = useState<Date>(new Date());
