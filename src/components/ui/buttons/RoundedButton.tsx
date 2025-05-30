@@ -7,7 +7,7 @@ type Props = {
 
 const RoundedButton: FC<Props> = ({ title, callback }) => {
   return (
-    <button className='border rounded-full text-xl p-4' onClick={callback}>{title}</button>
+    <button className='border rounded-lg text-xl p-4' onClick={callback}>{title}</button>
   );
 };
 

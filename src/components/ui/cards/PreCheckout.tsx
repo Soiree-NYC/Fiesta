@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { FC } from 'react';
 
@@ -6,28 +7,34 @@ import Special from '../buttons/SpecialButton';
 import DateTime from '../../form/DateTime';
 
 type Props = {
-  basePrice: number;
   standing: number;
 };
 
-const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
+const PreCheckout: FC<Props> = ({ standing }) => {
   const [guests, setGuests] = useState<number>(10);
   const [packageFocus, setPackageFocus] = useState<string>("Limited");
+  const [date, setDate] = useState<Date>(new Date());
+  const [price, setPrice] = useState<number>(0);
+
+  const navigate = useNavigate();
 
   const packages = [
-    { name: 'Limited',
+    { id: '1-limited-folly',
+      name: 'Limited',
       color: 'bg-olive_r_1',
       desc: 'Enjoy a simple selection of house drinks in a cozy space, ideal for a quick celebration.',
       basePrice: 100,
       min_count: 10,
     },
-    { name: 'Prime',
+    { id: '1-prime-folly',
+      name: 'Prime',
       color: 'bg-olive_r_2',
       desc: 'Elevate your event with our Recommended package, offering a more private setting and a wider variety of drinks, extra time and premium service.',
       basePrice: 250,
       min_count: 40,
     },
-    { name: 'Soirée',
+    { id: '1-soiree-folly',
+      name: 'Soirée',
       color: 'bg-olive_r_3',
       desc: 'Host the ultimate exclusive event with our Soiree package, featuring all-night access, luxury drinks, and personalized service. It’s the VIP treatment for a once-in-a-lifetime celebration.',
       basePrice: 500,
@@ -42,6 +49,27 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
   };
 
   const min = parsePackages('min_count');
+
+  useEffect(() => {
+    const base = parsePackages('basePrice');
+    if (!base) return;
+
+    const calc = guests * 80 + ((guests * base) / 100) * 20;
+    setPrice(calc);
+    sessionStorage.setItem('price', String(calc));
+    sessionStorage.setItem('basePrice', String(base));
+  }, [guests, packageFocus]);
+
+  const reserveHandler = () => {
+    sessionStorage.setItem('guests', String(guests));
+    sessionStorage.setItem('package', parsePackages(packageFocus));
+    sessionStorage.setItem('bookingDate', date.toISOString());
+    sessionStorage.setItem('price', String(price));
+    if (date === new Date()) {
+      alert('Please add a time')
+    }
+    navigate('/confirmation');
+  };
 
   return (
     <div className='flex flex-col text-white'>
@@ -66,10 +94,17 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
           <h1 className='text-3xl font-bold'>${parsePackages('basePrice')}</h1>
           <p className='self-end'>/guest</p>
         </div>
-        <DateTime guests={guests} setGuests={setGuests} min={min} max={standing} />
+        <DateTime
+          guests={guests}
+          setGuests={setGuests}
+          min={min}
+          max={standing}
+          date={date}
+          setDate={setDate}
+        />
 
         <div className='flex flex-col'>
-          <Special title='Reserve' callback={()=> console.log('yo')} />
+          <Special title='Reserve' callback={reserveHandler} />
           <span className='self-center py-4'>You won't be charged yet</span>
           <div className='flex flex-col'>
             <div className='flex justify-between'>
@@ -91,7 +126,7 @@ const PreCheckout: FC<Props> = ({ basePrice, standing }) => {
 
         <div className='flex justify-between'>
           <strong>Total before taxes</strong>
-          <strong>${guests * 80 + ((guests * basePrice)/100)*20}</strong>
+          <strong>${price}</strong>
         </div>
       </div>
     </div>

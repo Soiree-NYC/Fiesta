@@ -7,6 +7,7 @@ import NavBar from './components/ui/layout/NavBar';
 import Home from './components/pages/Home';
 import VenueDetails from './components/pages/VenueDetails';
 import VenueIngestion from './components/pages/VenueIngestion';
+import Confirmation from './components/pages/Confirmation';
 
 import Test from './components/pages/Test';
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className='bg-gradient-to-b from-[#587ac1] via-[#587ac1] to-[#f5a97f] flex justify-center overflow-auto'>
-      <div className='flex flex-col w-screen
+      <div className='flex flex-col w-screen h-screen text-white
         md:max-w-screen-xl md:pt-10
       '>
         {checkExcludedPaths(homePageExclusions, pathname) && <NavBar listItems={listItems} />}
@@ -28,6 +29,7 @@ function App() {
           <Route path='/' element={<Home venues={{getter: listItems, setter: setListItems}}/>} />
           <Route path='/venue/:id' element={<VenueDetails />} />
           <Route path='/addvenue' element={<VenueIngestion />} />
+          <Route path='/confirmation' element={<Confirmation />} />
           <Route path='/test' element={<Test />} />
         </Routes>
       </div>

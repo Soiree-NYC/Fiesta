@@ -1,4 +1,75 @@
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import RoundedButton from '../ui/buttons/RoundedButton';
+import SpecialButton from '../ui/buttons/SpecialButton';
+
+type TaxBreakdown = {
+  base: number;
+  nyStateTax: number;
+  nycSalesTax: number;
+  occupancyTax: number;
+  hotelUnitFee: number;
+  totalTax: number;
+  total: number;
+};
+
 const Confirmation = () => {
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    sessionStorage.setItem('phone', phone);
+  }, [phone]);
+
+  useEffect(() => {
+    sessionStorage.setItem('email', email);
+  }, [email]);
+
+  const calculateNYCReservationTax = (base: number, guests: number = 1): TaxBreakdown => {
+    const nyStateTax = base * 0.04;
+    const nycSalesTax = base * 0.045;
+    const occupancyTax = base * 0.05875;
+    const hotelUnitFee = 1.5 * guests;
+
+    const totalTax = nyStateTax + nycSalesTax + occupancyTax + hotelUnitFee;
+    const price = base * guests
+    const total = price + totalTax;
+
+    return {
+      base,
+      nyStateTax,
+      nycSalesTax,
+      occupancyTax,
+      hotelUnitFee,
+      totalTax,
+      total
+    };
+  };
+
+  const basePrice = Number(sessionStorage.getItem('basePrice'));
+  const guests = Number(sessionStorage.getItem('guests'));
+  const {
+    totalTax,
+    total
+  } = calculateNYCReservationTax(basePrice, guests);
+
+  const handleConfirm = () => {
+    alert('Reservation request sent!');
+    navigate('/');
+  };
+
+  const iso = sessionStorage.getItem('bookingDate');
+  const date = iso
+    ? new Date(iso).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : "Invalid date";
+  const name = sessionStorage.getItem('venueName');
+  const description = sessionStorage.getItem('venueDescription');
+
   return (
     <div className='flex flex-col gap-20'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
@@ -6,22 +77,28 @@ const Confirmation = () => {
         <div className='flex flex-col gap-5'>
           <h4 className='text-3xl font-medium'>Your party</h4>
           <div className='flex flex-col gap-5 text-xl'>
-            <div className='grid grid-cols-2  justify-evenly'>
+            <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
                 <span>Dates</span>
-                <span>Oct 17-19</span>
+                <span>{date}</span>
               </div>
               <div className='flex justify-end'>
-                <button className='underline border  w-1/4'>Edit</button>
+                <RoundedButton
+                  title='Edit'
+                  callback={() => console.log('yo')}
+                />
               </div>
             </div>
             <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
                 <span>Guests</span>
-                <span>1 guest</span>
+                <span>{ sessionStorage.getItem('guests') } guests</span>
               </div>
               <div className='flex justify-end'>
-                <button className='underline border w-1/4'>Edit</button>
+                <RoundedButton
+                  title='Edit'
+                  callback={() => console.log('yo')}
+                />
               </div>
             </div>
           </div>
@@ -33,6 +110,7 @@ const Confirmation = () => {
                 type="tel"
                 className="appearance-none border-none outline-none bg-transparent shadow-none text-lg"
                 placeholder='Phone number'
+                onChange={e=> setPhone(e.target.value)}
               />
             </label>
             <label className='border rounded-lg p-4'>
@@ -40,6 +118,7 @@ const Confirmation = () => {
                 type="email"
                 className="appearance-none border-none outline-none bg-transparent shadow-none text-lg"
                 placeholder='Email'
+                onChange={e=> setEmail(e.target.value)}
               />
             </label>
           </div>
@@ -51,9 +130,9 @@ const Confirmation = () => {
               src="https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510"
               className='rounded-2xl w-[7rem]'
               alt="" />
-            <div className='flex flex-col justify-between'>
-              <h4 className='font-semibold text-2xl'>A private room in the city center of Paris</h4>
-              <p>A private room in the city center of Paris</p>
+            <div className='flex flex-col justify-center gap-3'>
+              <h4 className='font-semibold text-2xl'>{name}</h4>
+              <p>{description}</p>
               <span>⭐️4.90(293) • 🎖️Superhost</span>
             </div>
           </div>
@@ -62,20 +141,24 @@ const Confirmation = () => {
             <h1 className='text-3xl font-medium'>Your Total</h1>
             <div className='flex flex-col text-xl'>
               <div className='flex justify-between'>
-                <span>$67.30 x 2 nights</span>
-                <span>$134.59</span>
+                <span>${sessionStorage.getItem('basePrice')} x {sessionStorage.getItem('guests')} guests</span>
+                <span>${basePrice * guests}</span>
               </div>
               <div className='flex justify-between'>
                 <span>Taxes</span>
-                <span>$18.05</span>
+                <span>${totalTax}</span>
               </div>
             </div>
           </div>
           <hr />
           <div className='flex justify-between text-2xl'>
             <span>Total (USD)</span>
-            <span>$152.64</span>
+            <span>${total.toFixed(2)}</span>
           </div>
+          <SpecialButton
+            title='Confirm'
+            callback={handleConfirm}
+          />
         </div>
       </div>
     </div>
