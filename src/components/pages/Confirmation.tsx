@@ -16,6 +16,8 @@ type TaxBreakdown = {
 const Confirmation = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,7 +57,11 @@ const Confirmation = () => {
   } = calculateNYCReservationTax(basePrice, guests);
 
   const handleConfirm = () => {
-    alert('Reservation request sent!');
+    setShowSuccessModal(true);
+  };
+
+  const handleShowSuccess = () => {
+    setShowSuccessModal(false);
     navigate('/');
   };
 
@@ -69,7 +75,8 @@ const Confirmation = () => {
     : "Invalid date";
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');
-
+    
+  
   return (
     <div className='flex flex-col gap-20'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
@@ -160,6 +167,21 @@ const Confirmation = () => {
             callback={handleConfirm}
           />
         </div>
+
+        {showSuccessModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-60 rounded shadow-lg text-center text-black">
+              <h2 className="text-4xl font-bold mb-2">🎉 You're all done!</h2>
+              <p className="mb-4">Everything has been saved successfully.</p>
+              <button
+                onClick={handleShowSuccess}
+                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+              >
+                Okay
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
