@@ -77,6 +77,7 @@ const VenueDetails = () => {
   } = venue;
 
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
+  console.log(photos)
 
   return (
     <main className="font-roboto  p-8">
