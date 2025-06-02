@@ -12,12 +12,12 @@ const PhotoCase: FC<Props> = ({ title, mainImg, xImgs }) => {
       <div className="flex justify-end py-2">
         <div className="flex gap-5">
           <div className="flex items-center gap-1">
-            <img src="https://img.icons8.com/?size=20&id=FupVmEePjs1T&format=png&color=ffffff" alt="" />
-            <span className="text-white">Share</span>
+            <img src="https://img.icons8.com/?size=20&id=FupVmEePjs1T&format=png&color=0000000" alt="" />
+            <span className="">Share</span>
           </div>
           <div className="flex items-center gap-1">
-            <img src="https://img.icons8.com/?size=20&id=87&format=png&color=ffffff" alt="" />
-            <span className="text-white">Save</span>
+            <img src="https://img.icons8.com/?size=20&id=87&format=png&color=000000" alt="" />
+            <span className="">Save</span>
           </div>
         </div>
       </div>
