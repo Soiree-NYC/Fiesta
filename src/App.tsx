@@ -19,10 +19,9 @@ function App() {
   const { pathname } = useLocation();
 
   return (
-    <div className='bg-gradient-to-b from-[#587ac1] via-[#587ac1] to-[#f5a97f] flex justify-center overflow-auto'>
-      <div className='flex flex-col w-screen h-screen text-white
-        md:max-w-screen-xl md:pt-10
-      '>
+    <div className='flex justify-center overflow-auto'>
+      <div className='flex flex-col w-screen min-h-screen text-black bg-slate-100 p-10 pt-0 md:max-w-screen-xl'>
+
         {checkExcludedPaths(homePageExclusions, pathname) && <NavBar listItems={listItems} />}
 
         <Routes>

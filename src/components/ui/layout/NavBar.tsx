@@ -52,12 +52,12 @@ const NavBar: FC<Props> = ({ listItems }) => {
   }, []);
 
   return (
-    <nav className='flex flex-col justify-between items-center text-white m-4'>
+    <nav className='flex flex-col justify-between items-center text-black m-4 border border-white p-20 rounded-lg  bg-white'>
       <section className='flex items-center justify-between w-full'>
         <Link to='/'>
           <div className='flex items-center text-2xl font-roboto tracking-wide'>
-            <img src='/olive.svg' alt="" className='h-10'/>
-            <div>SOIRÉE</div>
+            <img src='/fiesta.svg' alt="" className='h-20'/>
+            <div>FIESTA</div>
           </div>
         </Link>
 
@@ -79,7 +79,6 @@ const NavBar: FC<Props> = ({ listItems }) => {
         <h1 className='text-6xl text-roboto font-bold'>TIME TO PARTY</h1>
         <div className='flex flex-col items-center'>
           <p>Your favorite bar is ready to rent.</p>
-          <p>Don't think, just pop.</p>
         </div>
       </section>}
     </nav>

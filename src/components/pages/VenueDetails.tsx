@@ -59,7 +59,7 @@ const VenueDetails = () => {
   // Handle loading and error states
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-  if (!venue) return <div className='text-white text-roboto'>No venue found</div>;
+  if (!venue) return <div className='text-black text-roboto'>No venue found</div>;
 
   const {
     name,
@@ -79,12 +79,12 @@ const VenueDetails = () => {
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
 
   return (
-    <main className="font-roboto backdrop-blur-sm p-8">
+    <main className="font-roboto  p-8">
       <div className="flex flex-col gap-10">
         <PhotoCase title={name} mainImg={mainImg} xImgs={secondaryImgs} />
 
         <div className="flex flex-col md:grid grid-cols-2 backdrop-blur-md rouned-r-2xl">
-          <div className="p-4 flex flex-col gap-5 text-white">
+          <div className="p-4 flex flex-col gap-5">
             <QuickInfo
               description={description}
               desx={hallmarks}
@@ -98,7 +98,7 @@ const VenueDetails = () => {
             <HostInfo host={host} />
             <hr />
             <Highlights writeUps={writeUps} options={menuOptions} />
-            <hr className="text-white" />
+            <hr className="text-black" />
             <Features features={features} />
           </div>
           <CheckoutConfig standing={standing} />

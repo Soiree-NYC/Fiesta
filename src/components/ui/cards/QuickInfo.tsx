@@ -13,8 +13,8 @@ type Prop = {
 
 const QuickInfo: FC<Prop> = ({ description, desx, name, open_at, close_at, avg, neighborhood }) => {
   return (
-    <div className='text-slate-300'>
-      <h1 className="flex items-center gap-2 text-white text-3xl py-1">{name}</h1>
+    <div className=''>
+      <h1 className="flex items-center gap-2 text-3xl py-1">{name}</h1>
       <div className='flex gap-2'>
         <span>{neighborhood}</span>
         <span>•</span>
@@ -28,7 +28,7 @@ const QuickInfo: FC<Prop> = ({ description, desx, name, open_at, close_at, avg, 
           </div>
         ))}
       </div>
-      <p className='text-white'>
+      <p className=''>
         <span className='text-green-400'>
           Open: &nbsp;
         </span>

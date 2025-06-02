@@ -160,24 +160,6 @@ const VenueIngestion = () => {
     };
 
     console.log(`payload: `, payload)
-    // try {
-    //   const res = await fetch('/api/venues', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(payload),
-    //   });
-
-    //   if (!res.ok) {
-    //     throw new Error('Failed to submit venue');
-    //   }
-
-    //   const data = await res.json();
-    //   console.log('Success:', data);
-    // } catch (err) {
-    //   console.error('Submission error:', err);
-    // }
   };
 
   const  ingestionList = [
@@ -194,7 +176,7 @@ const VenueIngestion = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='flex flex-col justify-between text-white font-roboto p-4 py-10 backdrop-blur-md md:min-w-[1200px] md:min-h-[90vh]'>
+      <div className='flex flex-col justify-between  font-roboto p-4 py-10 backdrop-blur-md md:min-w-[1200px] md:min-h-[90vh]'>
         {ingestionList[step]}
         <div className="text-center flex justify-center gap-10">
           {

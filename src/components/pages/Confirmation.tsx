@@ -78,7 +78,7 @@ const Confirmation = () => {
     
   
   return (
-    <div className='flex flex-col gap-20'>
+    <div className='flex flex-col gap-20 mt-10'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
       <div className='grid grid-cols-2 gap-10'>
         <div className='flex flex-col gap-5'>
