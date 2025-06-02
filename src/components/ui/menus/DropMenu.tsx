@@ -8,7 +8,7 @@ type Props = {
 
 const DropMenu: FC<Props> = ({ items }) => {
   return (
-    <div className="absolute w-48 mt-12 bg-black bg-opacity-50 border border-gray-200 rounded-md shadow-lg z-20">
+    <div className="absolute w-48 mt-12  bg-opacity-50 border rounded-md shadow-lg z-20">
       <ul className="py-2 text-xs  backdrop-blur-sm">
         {items.map((subArray, index) => (
           <Fragment key={index}>
