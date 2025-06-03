@@ -13,14 +13,14 @@ type Props = {
 
 const SimpleCard: FC<Props> = ({ title, neighborhood, price,  description, image, callback }) => {
   const shortenTitle = (title: string) => {
-    if (title.length > 15) return `${title.slice(0,14)}...`
+    if (title.length > 20) return `${title.slice(0,14)}...`
     return title
   };
 
   return (
     <div className='relative flex flex-col gap-1 justify-between rounded-lg mb-4 border bg-white'>
       <div className='p-3'>
-        <p className='text-xl'>{shortenTitle(title)}</p>
+        <p className='text-lg'>{shortenTitle(title)}</p>
         <p className='text-xs'>{neighborhood}</p>
       </div>
 
