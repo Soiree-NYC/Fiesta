@@ -122,7 +122,7 @@
     "id": 3,
     "name": "The Corner Store",
     "address": "475 W Broadway Ave, New York, NY",
-    "description": "classic American joint, blending old-school New York charm with a modern and playful atmosphere.",
+    "description": "Classic American joint, blending old-school New York charm with a modern and playful atmosphere.",
     "open_at": "1500",
     "close_at": "0300",
     "email": "foo@foo.com",
