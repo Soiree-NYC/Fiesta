@@ -104,7 +104,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Nolita",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -121,8 +121,8 @@
   {
     "id": 3,
     "name": "The Corner Store",
-    "address": "123 Main St, New York, NY",
-    "description": "Elegant ballroom suitable for large gatherings.",
+    "address": "475 W Broadway Ave, New York, NY",
+    "description": "classic American joint, blending old-school New York charm with a modern and playful atmosphere.",
     "open_at": "1500",
     "close_at": "0300",
     "email": "foo@foo.com",
@@ -170,7 +170,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "SoHo",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -236,7 +236,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Hudson Yards",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -302,7 +302,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "West Village",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -434,7 +434,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Tribeca",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -500,7 +500,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Hudson Yards",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -566,7 +566,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Koreatown",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -632,7 +632,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Midtown West",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -698,7 +698,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "West Village",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -764,7 +764,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "Midtown West",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -830,7 +830,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "West Village",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -896,7 +896,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "West Village",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
@@ -962,7 +962,7 @@
       "diabetic",
       "coldStorageSpace"
     ],
-    "neighborhood": "Upper East Side",
+    "neighborhood": "West Village",
     "writeUps": [
       {
         "src": "https://www.cozymeal.com/magazine/fun-restaurants-nyc",
