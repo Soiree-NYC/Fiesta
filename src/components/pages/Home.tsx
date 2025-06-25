@@ -1,12 +1,11 @@
-import { 
+import {
   FC, Dispatch, SetStateAction,
   useState, useEffect,
- } from 'react';
+} from 'react';
 import axios from 'axios';
 
 import SlideMenu from "../ui/inputs/SlideMenu";
 import Feed from "../ui/cards/Feed";
-import Primary from "../ui/buttons/Primary";
 
 type Props = {
   venues: {
@@ -17,94 +16,45 @@ type Props = {
 
 const Home: FC<Props> = ({ venues }) => {
   const [data, setData] = useState([]);
+  const [filter, setFilter] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  console.log(loading, error);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
+      console.log(loading);
+
       try {
         const response = await axios.get('data/venues.json');
-        setData(response.data);
+        const {data} = response;
+        if (filter) {
+          const filteredVenues = data.filter((venue: { neighborhood: string; }) => venue.neighborhood === filter);
+          setData(filteredVenues);
+        } else setData(data);
       } catch (err) {
         // @ts-ignore
         setError(err.message);
       } finally {
         setLoading(false);
+        console.error(error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [data, filter]);
 
   const {setter, getter} = venues;
 
-  const handleClick = () => {
+  const handleClick = (label: string) => {
     setter(getter + 1);
+    setFilter(label);
   };
-
-  const items = [
-    <Primary
-      label='West Village'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='Chelsea'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='FIDI'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='East Village'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='Upper West Side'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='SOHO'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label={`Hell's Kitchen`}
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='DUMBO'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-    <Primary
-      label='Prospect Heights'
-      callback={handleClick}
-      frosted
-      bold
-    />,
-  ];
+  const neighborhoodNames = ['West Village','Chelsea','FIDI', 'East Village','Upper West Side','SOHO',`Hell's Kitchen`,'DUMBO','Prospect Heights'];
 
   return (
     <main className="py-5">
-      <SlideMenu items={items} />
+      <SlideMenu items={neighborhoodNames} handler={handleClick} />
       {/* @ts-ignore */}
       <Feed data={data} />
     </main>
