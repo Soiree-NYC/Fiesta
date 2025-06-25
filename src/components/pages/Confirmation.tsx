@@ -135,7 +135,7 @@ const Confirmation = () => {
         <div className='flex flex-col border rounded-xl p-10 gap-5'>
           <div className='flex gap-5'>
             <img
-              src={sessionStorage.getItem('photo')}
+              src={sessionStorage.getItem('photo') ?? ''}
               className='rounded-2xl w-[7rem]'
               alt="" />
             <div className='flex flex-col justify-center gap-3'>
