@@ -66,7 +66,7 @@
     "standing": 175,
     "sitting": 80,
     "hallmarks": ["Elegant décor", "Chandeliers"],
-     "photos": [
+     "photos":  [
       "https://www.dropbox.com/scl/fi/z9yak7win3g191ujo86fv/Torrisi.jpg?rlkey=gcx6jytwaj7z1e43lydj09g35&st=fk19dxs3&raw=1",
       "https://www.dropbox.com/scl/fi/518u2szuv2e95757q8mij/torrisi1.jpg?rlkey=8m40pt3t64ekubcf8guuei99x&st=exdvxz42&raw=1",
       "https://www.dropbox.com/scl/fi/szn0h5d317mwuewmf1iu5/torrisi2.jpg?rlkey=gwwbyzogq9k2vhzektlgfdr8f&st=496x6k33&raw=1",
@@ -188,7 +188,7 @@
     "id": 4,
     "name": "Mercado Little Spain",
     "address": "10 Hudson Yards, New York, NY",
-    "description": "Sprawling Spanish food market  with restaurants and kiosks.",
+    "description": "Sprawling Spanish food market with restaurants and kiosks.",
     "open_at": "1500",
     "close_at": "0300",
     "email": "foo@foo.com",

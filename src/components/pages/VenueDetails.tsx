@@ -28,10 +28,12 @@ const VenueDetails = () => {
         const venueData: Venue[] = await venueResponse.json();
 
         const foundVenue = venueData.find(v => v.id === parseInt(id || '', 10));
+        console.log('foundVenue: ',foundVenue)
         if (!foundVenue) throw new Error('Venue not found');
         setVenue(foundVenue);
         sessionStorage.setItem('venueName', foundVenue.name);
         sessionStorage.setItem('venueDescription', foundVenue.description);
+        sessionStorage.setItem('photo', foundVenue.photos[0]);
 
         const ratingsResponse = await fetch('/data/ratings.json');
         if (!ratingsResponse.ok) throw new Error('Network response was not ok');
@@ -44,6 +46,7 @@ const VenueDetails = () => {
         // @ts-ignore
         const ratingsArray = venueRatings.map(({ id, ...rest }) => rest);
         setVenueRating({ avg: avgRating, ratings: ratingsArray });
+        sessionStorage.setItem('rating', String(avgRating));
 
       } catch (err) {
         // @ts-ignore
@@ -77,7 +80,6 @@ const VenueDetails = () => {
   } = venue;
 
   const [mainImg, secondaryImgs] = [photos[0], photos.slice(1)];
-  console.log(photos)
 
   return (
     <main className="font-roboto  p-8">

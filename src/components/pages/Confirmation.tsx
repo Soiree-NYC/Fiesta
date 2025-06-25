@@ -75,8 +75,9 @@ const Confirmation = () => {
     : "Invalid date";
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');
-    
   
+  console.log(sessionStorage)
+
   return (
     <div className='flex flex-col gap-20 mt-10'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
@@ -134,13 +135,13 @@ const Confirmation = () => {
         <div className='flex flex-col border rounded-xl p-10 gap-5'>
           <div className='flex gap-5'>
             <img
-              src="https://lh3.googleusercontent.com/p/AF1QipMtfxRzAnzUzNNjWeYBner5wRQQb56PyPY-JtwH=s680-w680-h510"
+              src={sessionStorage.getItem('photo') ?? ''}
               className='rounded-2xl w-[7rem]'
               alt="" />
             <div className='flex flex-col justify-center gap-3'>
               <h4 className='font-semibold text-2xl'>{name}</h4>
               <p>{description}</p>
-              <span>⭐️4.90(293) • 🎖️Superhost</span>
+              <span>⭐️{sessionStorage.getItem('rating')}(293) • 🎖️Superhost</span>
             </div>
           </div>
           <hr />

@@ -1,4 +1,3 @@
-
 # Fiesta (party_time)
 
 A modern web application for discovering, booking, and managing large party venues. Built with React, Vite, and TailwindCSS, Fiesta streamlines the process of finding the perfect venue for your next big event, with a focus on accessibility, transparency, and ease of use.
