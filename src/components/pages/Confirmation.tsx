@@ -22,11 +22,14 @@ const Confirmation = () => {
 
   useEffect(() => {
     sessionStorage.setItem('phone', phone);
-  }, [phone]);
+    sessionStorage.setItem('email', email);
+  }, [phone, email]);
 
   useEffect(() => {
-    sessionStorage.setItem('email', email);
-  }, [email]);
+    const { total } = calculateNYCReservationTax(Number(sessionStorage.getItem('basePrice')), Number(sessionStorage.getItem('guests')));
+
+    sessionStorage.setItem('total', (total*100).toFixed(2));
+  }, [sessionStorage.getItem('basePrice'), sessionStorage.getItem('guests')]);
 
   const calculateNYCReservationTax = (base: number, guests: number = 1): TaxBreakdown => {
     const nyStateTax = base * 0.04;
@@ -36,7 +39,7 @@ const Confirmation = () => {
 
     const totalTax = nyStateTax + nycSalesTax + occupancyTax + hotelUnitFee;
     const price = base * guests
-    const total = price + totalTax;
+    const total = Number((price + totalTax).toFixed(2));
 
     return {
       base,
@@ -56,8 +59,17 @@ const Confirmation = () => {
     total
   } = calculateNYCReservationTax(basePrice, guests);
 
-  const handleConfirm = () => {
-    setShowSuccessModal(true);
+  const handleConfirm = async () => {
+    console.log(sessionStorage);
+    // const res = await fetch('https://ec2-3-141-30-224.us-east-2.compute.amazonaws.com/create-payment-intent', {
+    //   method: 'POST',
+    //   body: JSON.stringify(sessionStorage)
+    // });
+
+    // const data = await res.json();
+    // window.location.href = data.url;
+
+    // setShowSuccessModal(true);
   };
 
   const handleShowSuccess = () => {
@@ -68,10 +80,9 @@ const Confirmation = () => {
   const iso = sessionStorage.getItem('bookingDate');
   const date = iso
     ? new Date(iso).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric', })
     : "Invalid date";
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');

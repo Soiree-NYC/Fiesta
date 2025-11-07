@@ -28,7 +28,7 @@ const VenueDetails = () => {
         const venueData: Venue[] = await venueResponse.json();
 
         const foundVenue = venueData.find(v => v.id === parseInt(id || '', 10));
-        console.log('foundVenue: ',foundVenue)
+
         if (!foundVenue) throw new Error('Venue not found');
         setVenue(foundVenue);
         sessionStorage.setItem('venueName', foundVenue.name);

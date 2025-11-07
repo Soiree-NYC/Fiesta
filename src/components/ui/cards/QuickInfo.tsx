@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Time } from '../../../shared/types/Time';
+import NYCNeighborhoods from '../../../shared/types/NYC_Neighborhoods';
 
 type Prop = {
   desx: string[];
@@ -8,7 +9,7 @@ type Prop = {
   open_at: Time;
   close_at: Time;
   avg: number;
-  neighborhood: string;
+  neighborhood: NYCNeighborhoods | null;
 };
 
 const QuickInfo: FC<Prop> = ({ description, desx, name, open_at, close_at, avg, neighborhood }) => {
