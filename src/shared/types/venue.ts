@@ -2,6 +2,7 @@ import { FeatureKeys } from '../enums/Feature.ts';
 import { MenuOptionsKeys } from './MenuOptions.ts';
 import NYCNeighborhoods from './NYC_Neighborhoods.ts';
 import { Publication } from './WriteUps.ts';
+import { Time } from './Time.ts';
 
 type Venue = {
   id: number;
@@ -22,9 +23,11 @@ type Venue = {
   sitting: number;
   hallmarks: string[],
   photos: string[],
-  amenities: FeatureKeys[];
+  features: FeatureKeys[];
   menuOptions: MenuOptionsKeys[];
   writeUps: Publication[];
+  open_at: Time;
+  close_at: Time;
 };
 
 export type { Venue };
