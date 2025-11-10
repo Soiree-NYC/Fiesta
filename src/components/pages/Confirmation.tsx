@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-import RoundedButton from '../ui/buttons/RoundedButton';
 import SpecialButton from '../ui/buttons/SpecialButton';
 import CheckoutForm from '../form/CheckoutForm';
 
@@ -16,7 +15,7 @@ type TaxBreakdown = {
   total: number;
 };
 
-const stripePromise = loadStripe('pk_test_51SKmo7AcDkAE5MSss1LmHrZ2ZrdYKuyDrkTNSN9u4JCLIt72rcngKv9bfL1ujIQJQPGig2TQOb71bBukWFuiwRVw00LID8JGOc')
+const stripePromise = loadStripe('pk_test_51SKmo7AcDkAE5MSss1LmHrZ2ZrdYKuyDrkTNSN9u4JCLIt72rcngKv9bfL1ujIQJQPGig2TQOb71bBukWFuiwRVw00LID8JGOc');
 
 const Confirmation = () => {
   const [phone, setPhone] = useState('');
@@ -97,32 +96,33 @@ const Confirmation = () => {
         <div className='flex flex-col gap-5'>
           <h4 className='text-3xl font-medium'>Confirm your details</h4>
           <div className='flex flex-col gap-5 text-xl'>
+
             <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
                 <span>Date</span>
                 <span>{date}</span>
               </div>
-              <div className='flex justify-end'>
+              {/* <div className='flex justify-end'>
                 <RoundedButton
                   title='Edit'
                   callback={() => console.log('yo')}
+                  textColor='text-black'
                 />
-              </div>
+              </div> */}
             </div>
             <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
                 <span>Guests</span>
                 <span>{ sessionStorage.getItem('guests') } guests</span>
               </div>
-              <div className='flex justify-end'>
-                <RoundedButton
-                  title='Edit'
-                  callback={() => console.log('yo')}
-                />
-              </div>
+            </div>
+            <div>
+
             </div>
           </div>
+
           <hr />
+
           <div className='flex flex-col gap-5'>
             <h4 className='text-3xl font-medium'>Contact Details</h4>
             <label className='border rounded-lg p-4'>

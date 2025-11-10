@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, } from "react";
 import { FC, Dispatch, SetStateAction } from 'react';
 
 import Counter from "../ui/inputs/Counter";
@@ -26,35 +26,17 @@ const DateTime: FC<Props> = ({ guests, setGuests, date, setDate, min, max }) => 
     const storedDate = sessionStorage.getItem("bookingDate");
     const storedGuests = sessionStorage.getItem("guests");
 
-    if (storedTime) {
-      try {
-        setTime(JSON.parse(storedTime));
-      } catch {}
-    }
-
-    if (storedDate) {
-      try {
-        setDate(new Date(storedDate));
-      } catch {}
-    }
-
-    if (storedGuests) {
-      setGuests(Number(storedGuests));
-    }
+    if (storedTime) setTime(JSON.parse(storedTime));
+    if (storedDate) setDate(new Date(storedDate));
+    if (storedGuests) setGuests(Number(storedGuests));
   }, []);
 
   // Save changes
   useEffect(() => {
     sessionStorage.setItem("bookingTime", JSON.stringify(time));
-  }, [time]);
-
-  useEffect(() => {
     sessionStorage.setItem("bookingDate", date.toISOString());
-  }, [date]);
-
-  useEffect(() => {
     sessionStorage.setItem("guests", String(guests));
-  }, [guests]);
+  }, [time, date, guests]);
 
   return (
     <div className='border rounded-2xl flex flex-col'>
