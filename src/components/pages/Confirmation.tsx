@@ -80,12 +80,12 @@ const Confirmation = () => {
   };
 
   const iso = sessionStorage.getItem('bookingDate');
-  const date = iso
-    ? new Date(iso).toLocaleDateString('en-US', {
+  // @ts-ignore
+  const date = new Date(iso).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric', })
-    : "Invalid date";
+      day: 'numeric', });
+
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');
 
@@ -99,7 +99,7 @@ const Confirmation = () => {
           <div className='flex flex-col gap-5 text-xl'>
             <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
-                <span>Dates</span>
+                <span>Date</span>
                 <span>{date}</span>
               </div>
               <div className='flex justify-end'>
@@ -184,8 +184,7 @@ const Confirmation = () => {
               </Elements>
             : <SpecialButton
                 title='Confirm'
-                callback={handleConfirm} /> 
-            
+                callback={handleConfirm} />
           }
         </div>
       </div>

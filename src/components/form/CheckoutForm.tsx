@@ -31,7 +31,7 @@ const CheckoutForm = () => {
         disabled={!stripe}
       />
     </form>
-  )
-}
+  );
+};
 
-export default CheckoutForm
+export default CheckoutForm;
