@@ -22,7 +22,7 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 flex flex-col">
       <PaymentElement />
       <SpecialButton
         title='Pay Now'
