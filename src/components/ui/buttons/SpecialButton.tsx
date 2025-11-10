@@ -1,14 +1,15 @@
-import { FC } from 'react';
+import { FC, ButtonHTMLAttributes } from 'react';
 
 type Props = {
   title: string;
   callback: () => void;
   styles?: string;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const SpecialButton: FC<Props> = ({ title, callback, styles }) => {
+const SpecialButton: FC<Props> = ({ title, callback, styles, ...props }) => {
   return (
     <button
+      {...props}
       onClick={callback}
       className={`relative p-4 rounded-2xl overflow-hidden group ${styles || 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500'}`}>
       <span className="relative z-10">{title}</span>

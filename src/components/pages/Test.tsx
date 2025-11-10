@@ -2,7 +2,7 @@ import Confirmation from "./Confirmation";
 
 const Test = () => {
   return (
-    <div className="h-[100vh] text-white">
+    <div className="h-[100vh] ">
       <Confirmation />
     </div>
   );

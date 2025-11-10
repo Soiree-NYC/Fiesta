@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
 import RoundedButton from '../ui/buttons/RoundedButton';
 import SpecialButton from '../ui/buttons/SpecialButton';
+import CheckoutForm from '../form/CheckoutForm';
 
 type TaxBreakdown = {
   base: number;
@@ -13,12 +16,12 @@ type TaxBreakdown = {
   total: number;
 };
 
+const stripePromise = loadStripe('pk_test_51SKmo7AcDkAE5MSss1LmHrZ2ZrdYKuyDrkTNSN9u4JCLIt72rcngKv9bfL1ujIQJQPGig2TQOb71bBukWFuiwRVw00LID8JGOc')
+
 const Confirmation = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-
-  const navigate = useNavigate();
+  const [clientSecret, setClientSecret] = useState('');
 
   useEffect(() => {
     sessionStorage.setItem('phone', phone);
@@ -60,45 +63,43 @@ const Confirmation = () => {
   } = calculateNYCReservationTax(basePrice, guests);
 
   const handleConfirm = async () => {
-    console.log(sessionStorage);
+    // console.log(sessionStorage);
     // const res = await fetch('https://ec2-3-141-30-224.us-east-2.compute.amazonaws.com/create-payment-intent', {
     //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
     //   body: JSON.stringify(sessionStorage)
     // });
 
     // const data = await res.json();
+    setClientSecret(
+"pi_3SRvcIAcDkAE5MSs0iQQ4OqF_secret_pUWzpCbVKYXEkehILfac7QfNl");
+
     // window.location.href = data.url;
-
-    // setShowSuccessModal(true);
-  };
-
-  const handleShowSuccess = () => {
-    setShowSuccessModal(false);
-    navigate('/');
   };
 
   const iso = sessionStorage.getItem('bookingDate');
-  const date = iso
-    ? new Date(iso).toLocaleDateString('en-US', {
+  // @ts-ignore
+  const date = new Date(iso).toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric', })
-    : "Invalid date";
+      day: 'numeric', });
+
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');
-  
-  console.log(sessionStorage)
 
   return (
     <div className='flex flex-col gap-20 mt-10'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
+
       <div className='grid grid-cols-2 gap-10'>
         <div className='flex flex-col gap-5'>
-          <h4 className='text-3xl font-medium'>Your party</h4>
+          <h4 className='text-3xl font-medium'>Confirm your details</h4>
           <div className='flex flex-col gap-5 text-xl'>
             <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
-                <span>Dates</span>
+                <span>Date</span>
                 <span>{date}</span>
               </div>
               <div className='flex justify-end'>
@@ -130,6 +131,7 @@ const Confirmation = () => {
                 className="appearance-none border-none outline-none bg-transparent shadow-none text-lg"
                 placeholder='Phone number'
                 onChange={e=> setPhone(e.target.value)}
+                required
               />
             </label>
             <label className='border rounded-lg p-4'>
@@ -138,6 +140,7 @@ const Confirmation = () => {
                 className="appearance-none border-none outline-none bg-transparent shadow-none text-lg"
                 placeholder='Email'
                 onChange={e=> setEmail(e.target.value)}
+                required
               />
             </label>
           </div>
@@ -165,7 +168,7 @@ const Confirmation = () => {
               </div>
               <div className='flex justify-between'>
                 <span>Taxes</span>
-                <span>${totalTax}</span>
+                <span>${totalTax.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -174,26 +177,16 @@ const Confirmation = () => {
             <span>Total (USD)</span>
             <span>${total.toFixed(2)}</span>
           </div>
-          <SpecialButton
-            title='Confirm'
-            callback={handleConfirm}
-          />
-        </div>
 
-        {showSuccessModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-60 rounded shadow-lg text-center text-black">
-              <h2 className="text-4xl font-bold mb-2">🎉 You're all done!</h2>
-              <p className="mb-4">Everything has been saved successfully.</p>
-              <button
-                onClick={handleShowSuccess}
-                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-              >
-                Okay
-              </button>
-            </div>
-          </div>
-        )}
+          { clientSecret
+            ? <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <CheckoutForm />
+              </Elements>
+            : <SpecialButton
+                title='Confirm'
+                callback={handleConfirm} />
+          }
+        </div>
       </div>
     </div>
   );
