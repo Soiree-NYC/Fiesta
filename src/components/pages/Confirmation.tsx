@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 
 import RoundedButton from '../ui/buttons/RoundedButton';
 import SpecialButton from '../ui/buttons/SpecialButton';
+import CheckoutForm from '../form/CheckoutForm';
 
 type TaxBreakdown = {
   base: number;
@@ -13,9 +16,12 @@ type TaxBreakdown = {
   total: number;
 };
 
+const stripePromise = loadStripe('pk_test_51SKmo7AcDkAE5MSss1LmHrZ2ZrdYKuyDrkTNSN9u4JCLIt72rcngKv9bfL1ujIQJQPGig2TQOb71bBukWFuiwRVw00LID8JGOc')
+
 const Confirmation = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
+  const [clientSecret, setClientSecret] = useState('');
 
   useEffect(() => {
     sessionStorage.setItem('phone', phone);
@@ -57,14 +63,20 @@ const Confirmation = () => {
   } = calculateNYCReservationTax(basePrice, guests);
 
   const handleConfirm = async () => {
-    console.log(sessionStorage);
-    const res = await fetch('https://ec2-3-141-30-224.us-east-2.compute.amazonaws.com/create-payment-intent', {
-      method: 'POST',
-      body: JSON.stringify(sessionStorage)
-    });
+    // console.log(sessionStorage);
+    // const res = await fetch('https://ec2-3-141-30-224.us-east-2.compute.amazonaws.com/create-payment-intent', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(sessionStorage)
+    // });
 
-    const data = await res.json();
-    window.location.href = data.url;
+    // const data = await res.json();
+    setClientSecret(
+"pi_3SRvcIAcDkAE5MSs0iQQ4OqF_secret_pUWzpCbVKYXEkehILfac7QfNl");
+
+    // window.location.href = data.url;
   };
 
   const iso = sessionStorage.getItem('bookingDate');
@@ -80,9 +92,10 @@ const Confirmation = () => {
   return (
     <div className='flex flex-col gap-20 mt-10'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
+
       <div className='grid grid-cols-2 gap-10'>
         <div className='flex flex-col gap-5'>
-          <h4 className='text-3xl font-medium'>Your party</h4>
+          <h4 className='text-3xl font-medium'>Confirm your details</h4>
           <div className='flex flex-col gap-5 text-xl'>
             <div className='grid grid-cols-2 justify-evenly'>
               <div className='flex flex-col gap-1'>
@@ -164,10 +177,16 @@ const Confirmation = () => {
             <span>Total (USD)</span>
             <span>${total.toFixed(2)}</span>
           </div>
-          <SpecialButton
-            title='Confirm'
-            callback={handleConfirm}
-          />
+
+          { clientSecret
+            ? <Elements stripe={stripePromise} options={{ clientSecret }}>
+                <CheckoutForm />
+              </Elements>
+            : <SpecialButton
+                title='Confirm'
+                callback={handleConfirm} /> 
+            
+          }
         </div>
       </div>
     </div>
