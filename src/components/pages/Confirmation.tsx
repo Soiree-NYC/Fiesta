@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import RoundedButton from '../ui/buttons/RoundedButton';
 import SpecialButton from '../ui/buttons/SpecialButton';
 
@@ -16,9 +16,6 @@ type TaxBreakdown = {
 const Confirmation = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     sessionStorage.setItem('phone', phone);
@@ -61,20 +58,13 @@ const Confirmation = () => {
 
   const handleConfirm = async () => {
     console.log(sessionStorage);
-    // const res = await fetch('https://ec2-3-141-30-224.us-east-2.compute.amazonaws.com/create-payment-intent', {
-    //   method: 'POST',
-    //   body: JSON.stringify(sessionStorage)
-    // });
+    const res = await fetch('https://ec2-3-141-30-224.us-east-2.compute.amazonaws.com/create-payment-intent', {
+      method: 'POST',
+      body: JSON.stringify(sessionStorage)
+    });
 
-    // const data = await res.json();
-    // window.location.href = data.url;
-
-    // setShowSuccessModal(true);
-  };
-
-  const handleShowSuccess = () => {
-    setShowSuccessModal(false);
-    navigate('/');
+    const data = await res.json();
+    window.location.href = data.url;
   };
 
   const iso = sessionStorage.getItem('bookingDate');
@@ -86,8 +76,6 @@ const Confirmation = () => {
     : "Invalid date";
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');
-  
-  console.log(sessionStorage)
 
   return (
     <div className='flex flex-col gap-20 mt-10'>
@@ -130,6 +118,7 @@ const Confirmation = () => {
                 className="appearance-none border-none outline-none bg-transparent shadow-none text-lg"
                 placeholder='Phone number'
                 onChange={e=> setPhone(e.target.value)}
+                required
               />
             </label>
             <label className='border rounded-lg p-4'>
@@ -138,6 +127,7 @@ const Confirmation = () => {
                 className="appearance-none border-none outline-none bg-transparent shadow-none text-lg"
                 placeholder='Email'
                 onChange={e=> setEmail(e.target.value)}
+                required
               />
             </label>
           </div>
@@ -165,7 +155,7 @@ const Confirmation = () => {
               </div>
               <div className='flex justify-between'>
                 <span>Taxes</span>
-                <span>${totalTax}</span>
+                <span>${totalTax.toFixed(2)}</span>
               </div>
             </div>
           </div>
@@ -179,21 +169,6 @@ const Confirmation = () => {
             callback={handleConfirm}
           />
         </div>
-
-        {showSuccessModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-60 rounded shadow-lg text-center text-black">
-              <h2 className="text-4xl font-bold mb-2">🎉 You're all done!</h2>
-              <p className="mb-4">Everything has been saved successfully.</p>
-              <button
-                onClick={handleShowSuccess}
-                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
-              >
-                Okay
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
