@@ -6,10 +6,9 @@ type Props = {
   styles?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
-const SpecialButton: FC<Props> = ({ title, callback, styles, ...props }) => {
+const SpecialButton: FC<Props> = ({ title, callback, styles, }) => {
   return (
     <button
-      {...props}
       onClick={callback}
       className={`relative p-4 rounded-2xl overflow-hidden group ${styles || 'bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500'}`}>
       <span className="relative z-10">{title}</span>

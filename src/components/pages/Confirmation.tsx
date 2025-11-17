@@ -2,9 +2,10 @@ import { useState, useEffect } from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
-import RoundedButton from '../ui/buttons/RoundedButton';
 import SpecialButton from '../ui/buttons/SpecialButton';
 import CheckoutForm from '../form/CheckoutForm';
+import RoundedButton from '../ui/buttons/RoundedButton';
+import ReservationEditModal from '../ui/modals/ReservationEditModal';
 
 type TaxBreakdown = {
   base: number;
@@ -16,12 +17,13 @@ type TaxBreakdown = {
   total: number;
 };
 
-const stripePromise = loadStripe('pk_test_51SKmo7AcDkAE5MSss1LmHrZ2ZrdYKuyDrkTNSN9u4JCLIt72rcngKv9bfL1ujIQJQPGig2TQOb71bBukWFuiwRVw00LID8JGOc')
+const stripePromise = loadStripe('pk_test_51SKmo7AcDkAE5MSss1LmHrZ2ZrdYKuyDrkTNSN9u4JCLIt72rcngKv9bfL1ujIQJQPGig2TQOb71bBukWFuiwRVw00LID8JGOc');
 
 const Confirmation = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [clientSecret, setClientSecret] = useState('');
+  const [isEditorOpen, setIsEditorOpen] = useState(false);
 
   useEffect(() => {
     sessionStorage.setItem('phone', phone);
@@ -57,6 +59,9 @@ const Confirmation = () => {
 
   const basePrice = Number(sessionStorage.getItem('basePrice'));
   const guests = Number(sessionStorage.getItem('guests'));
+  const startTime = sessionStorage.getItem('bookingTime') ? JSON.parse(sessionStorage.getItem('bookingTime') || '{}').start : '00:00';
+  const endTime = sessionStorage.getItem('bookingTime') ? JSON.parse(sessionStorage.getItem('bookingTime') || '{}').end : '00:00';
+
   const {
     totalTax,
     total
@@ -89,6 +94,10 @@ const Confirmation = () => {
   const name = sessionStorage.getItem('venueName');
   const description = sessionStorage.getItem('venueDescription');
 
+  const handleModal = () => {
+    setIsEditorOpen(!isEditorOpen);
+  }
+
   return (
     <div className='flex flex-col gap-20 mt-10'>
       <h1 className='text-4xl'>Confirm and Pay</h1>
@@ -97,32 +106,32 @@ const Confirmation = () => {
         <div className='flex flex-col gap-5'>
           <h4 className='text-3xl font-medium'>Confirm your details</h4>
           <div className='flex flex-col gap-5 text-xl'>
-            <div className='grid grid-cols-2 justify-evenly'>
-              <div className='flex flex-col gap-1'>
-                <span>Date</span>
-                <span>{date}</span>
+            <div className='grid grid-cols-2 justify-evenly gap-3'>
+              <div className='flex flex-col'>
+                <span className='font-bold'>Reservation Date</span>
+                <span className='font-extralight '>{date}</span>
               </div>
-              <div className='flex justify-end'>
-                <RoundedButton
-                  title='Edit'
-                  callback={() => console.log('yo')}
-                />
+              <div className='flex flex-col'>
+                <span className='font-bold'>Check-in</span>
+                <span className='font-extralight '>{startTime}</span>
               </div>
-            </div>
-            <div className='grid grid-cols-2 justify-evenly'>
-              <div className='flex flex-col gap-1'>
-                <span>Guests</span>
-                <span>{ sessionStorage.getItem('guests') } guests</span>
+              <div className='flex flex-col'>
+                <span className='font-bold'>Guests</span>
+                <span className='font-extralight '>{guests}</span>
               </div>
-              <div className='flex justify-end'>
-                <RoundedButton
-                  title='Edit'
-                  callback={() => console.log('yo')}
-                />
+              <div className='flex flex-col'>
+                <span className='font-bold'>Check-out</span>
+                <span className='font-extralight '>{endTime}</span>
               </div>
             </div>
+            <RoundedButton
+              title='Edit'
+              callback={handleModal}
+              textColor='text-black' />
           </div>
+
           <hr />
+
           <div className='flex flex-col gap-5'>
             <h4 className='text-3xl font-medium'>Contact Details</h4>
             <label className='border rounded-lg p-4'>
@@ -185,6 +194,12 @@ const Confirmation = () => {
             : <SpecialButton
                 title='Confirm'
                 callback={handleConfirm} />
+          }
+
+          { isEditorOpen &&
+            <ReservationEditModal
+              isOpen={isEditorOpen}
+              setIsOpen={setIsEditorOpen} />
           }
         </div>
       </div>
