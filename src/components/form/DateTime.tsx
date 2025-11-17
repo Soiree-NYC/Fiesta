@@ -41,7 +41,8 @@ const DateTime: FC<Props> = ({ guests, setGuests, date, setDate, min, max }) => 
   return (
     <div className='border rounded-2xl flex flex-col'>
       <Calendar
-        className='flex flex-col border border-x-0 border-t-0 border-b-2 p-2 gap-5 text-center justify-between'
+        className='mycal flex flex-col border border-x-0 border-t-0 border-b-2 p-2 gap-5 
+        text-center justify-between'
         onChange={(value) => setDate(value as Date)}
         value={date}
         tileClassName={({ date: tileDate, view }) => {

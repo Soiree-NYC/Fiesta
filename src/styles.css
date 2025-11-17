@@ -3,7 +3,17 @@
 @tailwind utilities;
 
 .selected-tile {
-  background-color: #fff; /* example: yellow-400 */
-  color: #1f2937; /* example: gray-800 */
-  border-radius: 9999px; /* full rounded */
+  background-color: #fff;
+  color: #1f2937;
+  border-radius: 9999px;
+}
+
+.mycal .react-calendar__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mycal .react-calendar__navigation button {
+  @apply p-2 text-3xl;
 }
