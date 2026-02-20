@@ -17,21 +17,24 @@ type Props = {
 const Home: FC<Props> = ({ venues }) => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading,setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      console.log(loading);
+      // console.log(loading);
 
       try {
-        const response = await axios.get('data/venues.json');
+        const response = await axios.get('http://localhost:3001/venues/');
         const {data} = response;
-        if (filter) {
-          const filteredVenues = data.filter((venue: { neighborhood: string; }) => venue.neighborhood === filter);
-          setData(filteredVenues);
-        } else setData(data);
+        console.log(data.venue)
+        // if (filter) {
+        //   const filteredVenues = data.venue.filter((venue: { neighborhood: string; }) => venue.neighborhood === filter);
+        //   console.log(`filteredVenues: ${filteredVenues}`);
+        //   setData(filteredVenues.venue);
+        // } else 
+          setData(data);
       } catch (err) {
         // @ts-ignore
         setError(err.message);
@@ -44,17 +47,17 @@ const Home: FC<Props> = ({ venues }) => {
     fetchData();
   }, [data, filter]);
 
-  const {setter, getter} = venues;
+  // const {setter, getter} = venues;
 
-  const handleClick = (label: string) => {
-    setter(getter + 1);
-    setFilter(label);
-  };
-  const neighborhoodNames = ['West Village','Chelsea','FIDI', 'East Village','Upper West Side','SOHO',`Hell's Kitchen`,'DUMBO','Prospect Heights'];
+  // const handleClick = (label: string) => {
+  //   setter(getter + 1);
+  //   setFilter(label);
+  // };
+  // const neighborhoodNames = ['West Village','Chelsea','FIDI', 'East Village','Upper West Side','SOHO',`Hell's Kitchen`,'DUMBO','Prospect Heights'];
 
   return (
     <main className="py-5">
-      <SlideMenu items={neighborhoodNames} handler={handleClick} />
+      {/* <SlideMenu items={neighborhoodNames} handler={handleClick} /> */}
       {/* @ts-ignore */}
       <Feed data={data} />
     </main>
