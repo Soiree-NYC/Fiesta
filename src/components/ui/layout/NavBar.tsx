@@ -8,11 +8,7 @@ import PlainButton from '../buttons/PlainButton';
 import { checkExcludedPaths } from '../../../utils/checkExcludedPaths';
 import { navbarExclusions } from '../../../shared/exclusionLists';
 
-type Props = {
-  listItems: number;
-};
-
-const NavBar: FC<Props> = ({ listItems }) => {
+const NavBar: FC = () => {
   const [accountAccessToggle, setAccountAccessToggle] = useState<boolean>(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -20,10 +16,7 @@ const NavBar: FC<Props> = ({ listItems }) => {
 
   const dropMenuItems = [
     [
-      <div className='flex items-center'>
-        <PlainButton title='Venue list' callback={()=> navigate('/')} />
-        {listItems > 0 && <div className='rounded-full bg-red-600 text-xs px-2 py-1'>{listItems}</div>}
-      </div>,
+     <PlainButton title='Venue list' callback={()=> navigate('/')} />,
       <PlainButton title='Sign up' callback={()=> alert('This feature is currently under construction')} />,
       <PlainButton title='Log in' callback={()=> alert('This feature is currently under construction')} />,
     ],
