@@ -1,7 +1,4 @@
-import {
-  FC,
-  useState, useEffect,
-} from 'react';
+import { FC, useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Feed from "../ui/cards/Feed";
@@ -16,21 +13,22 @@ const Home: FC = () => {
       setLoading(true);
 
       try {
-        const response = await axios.get('http://localhost:3001/venues/');
-        const {data} = response;
-        console.log(data.venue);
+        const response =
+        // await axios.get('http://localhost:3000/venues/');
+        await axios.get('/data/venues.json');
+        const { data } = response;
         setData(data);
       } catch (err) {
-        // @ts-ignore
+        // @ts-ignore2e
         setError(err.message);
       } finally {
         setLoading(false);
         console.error(error);
-      }
+      };
     };
 
     fetchData();
-  }, [data]);
+  }, []);
 
   return (
     <main className="py-5">
